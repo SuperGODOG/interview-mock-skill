@@ -36,7 +36,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.1 工作流范式与决策循环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L7"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L7",
@@ -49,7 +63,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.1 工作流范式与决策循环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L6"
+  ],
+  "downstream": [
+   "L8"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L8",
@@ -62,7 +92,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.1 工作流范式与决策循环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L7"
+  ],
+  "downstream": [
+   "L80"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L9",
@@ -75,7 +121,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L12"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L11",
@@ -88,7 +148,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L13"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L12",
@@ -101,7 +175,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L9"
+  ],
+  "downstream": [
+   "L23"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L13",
@@ -114,7 +204,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L11"
+  ],
+  "downstream": [
+   "L15"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L15",
@@ -127,7 +233,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L13"
+  ],
+  "downstream": [
+   "L16"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L16",
@@ -140,7 +262,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L15"
+  ],
+  "downstream": [
+   "L25"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L17",
@@ -153,7 +291,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L21"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L18",
@@ -166,7 +318,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L19"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L19",
@@ -179,7 +345,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L18"
+  ],
+  "downstream": [
+   "L20"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L20",
@@ -192,7 +374,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L19"
+  ],
+  "downstream": [
+   "L156"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L21",
@@ -205,7 +403,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L17"
+  ],
+  "downstream": [
+   "L27"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L23",
@@ -218,7 +432,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L12"
+  ],
+  "downstream": [
+   "L24"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L24",
@@ -231,7 +461,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L23"
+  ],
+  "downstream": [
+   "L78"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L25",
@@ -244,7 +490,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L16"
+  ],
+  "downstream": [
+   "L32"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L27",
@@ -257,7 +519,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L21"
+  ],
+  "downstream": [
+   "L155"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L28",
@@ -270,7 +548,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L193"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L30",
@@ -283,7 +575,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L31"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L31",
@@ -296,7 +602,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L30"
+  ],
+  "downstream": [
+   "L34"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L32",
@@ -309,7 +631,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L25"
+  ],
+  "downstream": [
+   "L35"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L34",
@@ -322,7 +660,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L31"
+  ],
+  "downstream": [
+   "L57"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L35",
@@ -335,7 +689,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L32"
+  ],
+  "downstream": [
+   "L73"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L37",
@@ -361,7 +731,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L39"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L39",
@@ -374,7 +758,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L38"
+  ],
+  "downstream": [
+   "L40"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L40",
@@ -387,7 +787,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L39"
+  ],
+  "downstream": [
+   "L41"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L41",
@@ -400,7 +816,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L40"
+  ],
+  "downstream": [
+   "L192"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L43",
@@ -413,7 +845,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L44"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L44",
@@ -426,7 +872,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L43"
+  ],
+  "downstream": [
+   "L45"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L45",
@@ -439,7 +901,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L44"
+  ],
+  "downstream": [
+   "L46"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L46",
@@ -452,7 +930,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L45"
+  ],
+  "downstream": [
+   "L47"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L47",
@@ -465,7 +959,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L46"
+  ],
+  "downstream": [
+   "L49"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L49",
@@ -478,7 +988,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L47"
+  ],
+  "downstream": [
+   "L50"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L50",
@@ -491,7 +1017,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L49"
+  ],
+  "downstream": [
+   "L51"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L51",
@@ -504,7 +1046,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L50"
+  ],
+  "downstream": [
+   "L246"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L53",
@@ -530,7 +1088,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.1 离线解析与 Semantic Chunking` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L58"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L55",
@@ -543,7 +1115,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L56"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L56",
@@ -556,7 +1142,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L55"
+  ],
+  "downstream": [
+   "L131"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L57",
@@ -569,7 +1171,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L34"
+  ],
+  "downstream": [
+   "L62"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L58",
@@ -582,7 +1200,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.1 离线解析与 Semantic Chunking` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L54"
+  ],
+  "downstream": [
+   "L59"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L59",
@@ -595,7 +1229,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.1 离线解析与 Semantic Chunking` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L58"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L60",
@@ -608,7 +1256,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.3 元数据过滤与检索增强` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L61"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L61",
@@ -621,7 +1283,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.3 元数据过滤与检索增强` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L60"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L62",
@@ -634,7 +1310,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L57"
+  ],
+  "downstream": [
+   "L63"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L63",
@@ -647,7 +1339,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L62"
+  ],
+  "downstream": [
+   "L64"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L64",
@@ -660,7 +1368,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L63"
+  ],
+  "downstream": [
+   "L65"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L65",
@@ -673,7 +1397,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L64"
+  ],
+  "downstream": [
+   "L72"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L68",
@@ -725,7 +1465,23 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L65"
+  ],
+  "downstream": [
+   "L127"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L73",
@@ -738,7 +1494,23 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L35"
+  ],
+  "downstream": [
+   "L84"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L74",
@@ -751,7 +1523,21 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L75"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L75",
@@ -764,7 +1550,23 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L74"
+  ],
+  "downstream": [
+   "L99"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L76",
@@ -777,7 +1579,21 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L137"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L77",
@@ -790,7 +1606,19 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.3 工具链编排与事务回滚` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L78",
@@ -803,7 +1631,23 @@
   "minor": "1.agent宏观认知",
   "tag": "内部组件和工具",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L24"
+  ],
+  "downstream": [
+   "L82"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L79",
@@ -829,7 +1673,21 @@
   "minor": "1.agent宏观认知",
   "tag": "传统区别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.1 工作流范式与决策循环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L8"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L82",
@@ -842,7 +1700,23 @@
   "minor": "1.agent宏观认知",
   "tag": "传统区别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L78"
+  ],
+  "downstream": [
+   "L83"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L83",
@@ -855,7 +1729,23 @@
   "minor": "1.agent宏观认知",
   "tag": "传统区别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L82"
+  ],
+  "downstream": [
+   "L204"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L84",
@@ -868,7 +1758,23 @@
   "minor": "1.agent宏观认知",
   "tag": "传统区别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L73"
+  ],
+  "downstream": [
+   "L187"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L85",
@@ -894,7 +1800,21 @@
   "minor": "1.agent宏观认知",
   "tag": "高并发场景",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L87"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L87",
@@ -907,7 +1827,23 @@
   "minor": "1.agent宏观认知",
   "tag": "高并发场景",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L86"
+  ],
+  "downstream": [
+   "L88"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L88",
@@ -920,7 +1856,23 @@
   "minor": "1.agent宏观认知",
   "tag": "高并发场景",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L87"
+  ],
+  "downstream": [
+   "L89"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L89",
@@ -933,7 +1885,23 @@
   "minor": "1.agent宏观认知",
   "tag": "高并发场景",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L88"
+  ],
+  "downstream": [
+   "L93"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L92",
@@ -959,7 +1927,23 @@
   "minor": "2.agent主流框架",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L89"
+  ],
+  "downstream": [
+   "L94"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L94",
@@ -972,7 +1956,23 @@
   "minor": "2.agent主流框架",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L93"
+  ],
+  "downstream": [
+   "L222"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L96",
@@ -1011,7 +2011,23 @@
   "minor": "3.工具相关",
   "tag": "MCP &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L75"
+  ],
+  "downstream": [
+   "L100"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L100",
@@ -1024,7 +2040,23 @@
   "minor": "3.工具相关",
   "tag": "MCP &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L99"
+  ],
+  "downstream": [
+   "L101"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L101",
@@ -1037,7 +2069,21 @@
   "minor": "3.工具相关",
   "tag": "MCP &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L100"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L103",
@@ -1063,7 +2109,21 @@
   "minor": "3.工具相关",
   "tag": "Tool Calling&FunctionCalling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L107"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L106",
@@ -1089,7 +2149,23 @@
   "minor": "3.工具相关",
   "tag": "RAG/知识库/知识图谱",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L104"
+  ],
+  "downstream": [
+   "L108"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L108",
@@ -1102,7 +2178,23 @@
   "minor": "3.工具相关",
   "tag": "RAG/知识库/知识图谱",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L107"
+  ],
+  "downstream": [
+   "L109"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L109",
@@ -1115,7 +2207,23 @@
   "minor": "3.工具相关",
   "tag": "RAG/知识库/知识图谱",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L108"
+  ],
+  "downstream": [
+   "L110"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L110",
@@ -1128,7 +2236,23 @@
   "minor": "3.工具相关",
   "tag": "RAG/知识库/知识图谱",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L109"
+  ],
+  "downstream": [
+   "L111"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L111",
@@ -1141,7 +2265,23 @@
   "minor": "3.工具相关",
   "tag": "RAG/知识库/知识图谱",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L110"
+  ],
+  "downstream": [
+   "L114"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L113",
@@ -1167,7 +2307,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L111"
+  ],
+  "downstream": [
+   "L115"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L115",
@@ -1180,7 +2336,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L114"
+  ],
+  "downstream": [
+   "L116"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L116",
@@ -1193,7 +2365,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L115"
+  ],
+  "downstream": [
+   "L117"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L117",
@@ -1206,7 +2394,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L116"
+  ],
+  "downstream": [
+   "L119"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L119",
@@ -1219,7 +2423,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L117"
+  ],
+  "downstream": [
+   "L120"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L120",
@@ -1232,7 +2452,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L119"
+  ],
+  "downstream": [
+   "L122"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L122",
@@ -1245,7 +2481,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L120"
+  ],
+  "downstream": [
+   "L123"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L123",
@@ -1258,7 +2510,23 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L122"
+  ],
+  "downstream": [
+   "L124"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L124",
@@ -1271,7 +2539,21 @@
   "minor": "3.工具相关",
   "tag": "Agentic RAG理解/测评",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.1 MCP 核心设计与标准流程` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L123"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L126",
@@ -1297,7 +2579,23 @@
   "minor": "4.Prompt_engineering",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L72"
+  ],
+  "downstream": [
+   "L128"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L128",
@@ -1310,7 +2608,23 @@
   "minor": "4.Prompt_engineering",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L127"
+  ],
+  "downstream": [
+   "L133"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L130",
@@ -1336,7 +2650,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "context",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L56"
+  ],
+  "downstream": [
+   "L132"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L132",
@@ -1349,7 +2679,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "context",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L131"
+  ],
+  "downstream": [
+   "L295"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L133",
@@ -1362,7 +2708,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "context",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L128"
+  ],
+  "downstream": [
+   "L134"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L134",
@@ -1375,7 +2737,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "context",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L133"
+  ],
+  "downstream": [
+   "L150"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L136",
@@ -1401,7 +2779,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "skill &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L76"
+  ],
+  "downstream": [
+   "L138"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L138",
@@ -1414,7 +2808,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "skill &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L137"
+  ],
+  "downstream": [
+   "L139"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L139",
@@ -1427,7 +2837,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "skill &Tool Calling",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L138"
+  ],
+  "downstream": [
+   "L143"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L142",
@@ -1453,7 +2879,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L139"
+  ],
+  "downstream": [
+   "L144"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L144",
@@ -1466,7 +2908,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L143"
+  ],
+  "downstream": [
+   "L147"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L146",
@@ -1492,7 +2950,21 @@
   "minor": "4.Prompt_engineering",
   "tag": "渐进式披露",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `4.2 Tool Calling 机制与 Action 原语` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L144"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L149",
@@ -1518,7 +2990,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "安全风险 RAG",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L134"
+  ],
+  "downstream": [
+   "L151"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L151",
@@ -1531,7 +3019,23 @@
   "minor": "4.Prompt_engineering",
   "tag": "安全风险 RAG",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L150"
+  ],
+  "downstream": [
+   "L195"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L153",
@@ -1557,7 +3061,23 @@
   "minor": "5.agent记忆设计",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L27"
+  ],
+  "downstream": [
+   "L157"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L156",
@@ -1570,7 +3090,23 @@
   "minor": "5.agent记忆设计",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L20"
+  ],
+  "downstream": [
+   "L164"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L157",
@@ -1583,7 +3119,23 @@
   "minor": "5.agent记忆设计",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L155"
+  ],
+  "downstream": [
+   "L159"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L158",
@@ -1609,7 +3161,23 @@
   "minor": "5.agent记忆设计",
   "tag": "会话记忆",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L157"
+  ],
+  "downstream": [
+   "L163"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L162",
@@ -1635,7 +3203,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L159"
+  ],
+  "downstream": [
+   "L167"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L164",
@@ -1648,7 +3232,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L156"
+  ],
+  "downstream": [
+   "L165"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L165",
@@ -1661,7 +3261,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L164"
+  ],
+  "downstream": [
+   "L166"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L166",
@@ -1674,7 +3290,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L165"
+  ],
+  "downstream": [
+   "L168"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L167",
@@ -1687,7 +3319,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L163"
+  ],
+  "downstream": [
+   "L176"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L168",
@@ -1700,7 +3348,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆与数据库",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L166"
+  ],
+  "downstream": [
+   "L172"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L171",
@@ -1726,7 +3390,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆-context",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L168"
+  ],
+  "downstream": [
+   "L177"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L175",
@@ -1752,7 +3432,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆-增删改查",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L167"
+  ],
+  "downstream": [
+   "L180"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L177",
@@ -1765,7 +3461,23 @@
   "minor": "5.agent记忆设计",
   "tag": "记忆-增删改查",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L172"
+  ],
+  "downstream": [
+   "L205"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L179",
@@ -1791,7 +3503,23 @@
   "minor": "5.agent记忆设计",
   "tag": "注意力机制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L176"
+  ],
+  "downstream": [
+   "L181"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L181",
@@ -1804,7 +3532,23 @@
   "minor": "5.agent记忆设计",
   "tag": "注意力机制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L180"
+  ],
+  "downstream": [
+   "L182"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L182",
@@ -1817,7 +3561,23 @@
   "minor": "5.agent记忆设计",
   "tag": "注意力机制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L181"
+  ],
+  "downstream": [
+   "L276"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L185",
@@ -1856,7 +3616,21 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "多模态",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L84"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L188",
@@ -1869,7 +3643,21 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "多模态",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.2 系统级熔断与强一致性` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L207"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L189",
@@ -1895,7 +3683,21 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L191"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L191",
@@ -1908,7 +3710,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L190"
+  ],
+  "downstream": [
+   "L197"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L192",
@@ -1921,7 +3739,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L41"
+  ],
+  "downstream": [
+   "L244"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L193",
@@ -1934,7 +3768,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L28"
+  ],
+  "downstream": [
+   "L194"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L194",
@@ -1947,7 +3797,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L193"
+  ],
+  "downstream": [
+   "L230"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L195",
@@ -1960,7 +3826,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L151"
+  ],
+  "downstream": [
+   "L198"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L196",
@@ -1986,7 +3868,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "意图识别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L191"
+  ],
+  "downstream": [
+   "L199"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L198",
@@ -1999,7 +3897,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "意图识别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L195"
+  ],
+  "downstream": [
+   "L215"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L199",
@@ -2012,7 +3926,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "意图识别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L197"
+  ],
+  "downstream": [
+   "L200"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L200",
@@ -2025,7 +3955,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "意图识别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L199"
+  ],
+  "downstream": [
+   "L201"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L201",
@@ -2038,7 +3984,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "意图识别",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L200"
+  ],
+  "downstream": [
+   "L221"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L203",
@@ -2064,7 +4026,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "Multi-Agent基模/LangGraph/路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L83"
+  ],
+  "downstream": [
+   "L206"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L205",
@@ -2077,7 +4055,21 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "Multi-Agent基模/LangGraph/路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.1 记忆类型与分类` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L177"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L206",
@@ -2090,7 +4082,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "Multi-Agent基模/LangGraph/路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L204"
+  ],
+  "downstream": [
+   "L213"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L207",
@@ -2103,7 +4111,23 @@
   "minor": "6.agent处理情景的架构设计",
   "tag": "Multi-Agent基模/LangGraph/路由",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.2 系统级熔断与强一致性` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L188"
+  ],
+  "downstream": [
+   "L237"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L212",
@@ -2129,7 +4153,23 @@
   "minor": "7.数据库",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L206"
+  ],
+  "downstream": [
+   "L214"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L214",
@@ -2142,7 +4182,21 @@
   "minor": "7.数据库",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.2 编排模式与多Agent协作` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L213"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L215",
@@ -2155,7 +4209,23 @@
   "minor": "7.数据库",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L198"
+  ],
+  "downstream": [
+   "L216"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L216",
@@ -2168,7 +4238,23 @@
   "minor": "7.数据库",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L215"
+  ],
+  "downstream": [
+   "L264"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L218",
@@ -2207,7 +4293,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L201"
+  ],
+  "downstream": [
+   "L223"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L222",
@@ -2220,7 +4322,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L94"
+  ],
+  "downstream": [
+   "L225"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L223",
@@ -2233,7 +4351,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L221"
+  ],
+  "downstream": [
+   "L227"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L224",
@@ -2246,7 +4380,21 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L229"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L225",
@@ -2259,7 +4407,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L222"
+  ],
+  "downstream": [
+   "L226"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L226",
@@ -2272,7 +4436,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L225"
+  ],
+  "downstream": [
+   "L228"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L227",
@@ -2285,7 +4465,23 @@
   "minor": "8.工程落地",
   "tag": "技术选型",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L223"
+  ],
+  "downstream": [
+   "L238"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L228",
@@ -2298,7 +4494,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L226"
+  ],
+  "downstream": [
+   "L232"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L229",
@@ -2311,7 +4523,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L224"
+  ],
+  "downstream": [
+   "L233"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L230",
@@ -2324,7 +4552,23 @@
   "minor": null,
   "tag": null,
   "assigned": false,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L194"
+  ],
+  "downstream": [
+   "L256"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L231",
@@ -2350,7 +4594,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L228"
+  ],
+  "downstream": [
+   "L239"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L233",
@@ -2363,7 +4623,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L229"
+  ],
+  "downstream": [
+   "L234"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L234",
@@ -2376,7 +4652,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L233"
+  ],
+  "downstream": [
+   "L235"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L235",
@@ -2389,7 +4681,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L234"
+  ],
+  "downstream": [
+   "L236"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L236",
@@ -2402,7 +4710,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L235"
+  ],
+  "downstream": [
+   "L282"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L237",
@@ -2415,7 +4739,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.2 系统级熔断与强一致性` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L207"
+  ],
+  "downstream": [
+   "L332"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L238",
@@ -2428,7 +4768,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L227"
+  ],
+  "downstream": [
+   "L242"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L239",
@@ -2441,7 +4797,23 @@
   "minor": "8.工程落地",
   "tag": "容错机制与运维成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L232"
+  ],
+  "downstream": [
+   "L253"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L241",
@@ -2467,7 +4839,23 @@
   "minor": "8.工程落地",
   "tag": "人工介入",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L238"
+  ],
+  "downstream": [
+   "L248"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L244",
@@ -2480,7 +4868,23 @@
   "minor": "8.工程落地",
   "tag": "人工介入",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L192"
+  ],
+  "downstream": [
+   "L270"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L246",
@@ -2493,7 +4897,23 @@
   "minor": "8.工程落地",
   "tag": "人工介入",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L51"
+  ],
+  "downstream": [
+   "L262"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L248",
@@ -2506,7 +4926,23 @@
   "minor": "8.工程落地",
   "tag": "人工介入",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L242"
+  ],
+  "downstream": [
+   "L255"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L250",
@@ -2519,7 +4955,21 @@
   "minor": "8.工程落地",
   "tag": "人工介入",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L275"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L252",
@@ -2545,7 +4995,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L239"
+  ],
+  "downstream": [
+   "L339"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L254",
@@ -2571,7 +5037,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "设计与优化",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L248"
+  ],
+  "downstream": [
+   "L257"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L256",
@@ -2584,7 +5066,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "设计与优化",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L230"
+  ],
+  "downstream": [
+   "L289"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L257",
@@ -2597,7 +5095,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "设计与优化",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L255"
+  ],
+  "downstream": [
+   "L259"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L258",
@@ -2623,7 +5137,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "设计与优化-multi Agent",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L257"
+  ],
+  "downstream": [
+   "L266"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L261",
@@ -2649,7 +5179,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "监测诊断与反制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L246"
+  ],
+  "downstream": [
+   "L285"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L264",
@@ -2662,7 +5208,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "监测诊断与反制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L216"
+  ],
+  "downstream": [
+   "L280"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L266",
@@ -2675,7 +5237,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "监测诊断与反制",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L259"
+  ],
+  "downstream": [
+   "L269"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L268",
@@ -2701,7 +5279,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L266"
+  ],
+  "downstream": [
+   "L271"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L270",
@@ -2714,7 +5308,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L244"
+  ],
+  "downstream": [
+   "L274"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L271",
@@ -2727,7 +5337,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L269"
+  ],
+  "downstream": [
+   "L273"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L273",
@@ -2740,7 +5366,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L271"
+  ],
+  "downstream": [
+   "L277"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L274",
@@ -2753,7 +5395,21 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.1 Evaluation 评估框架与指标` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L270"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L275",
@@ -2766,7 +5422,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L250"
+  ],
+  "downstream": [
+   "L318"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L276",
@@ -2779,7 +5451,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L182"
+  ],
+  "downstream": [
+   "L347"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L277",
@@ -2792,7 +5480,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L273"
+  ],
+  "downstream": [
+   "L278"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L278",
@@ -2805,7 +5509,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "评估",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L277"
+  ],
+  "downstream": [
+   "L291"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L279",
@@ -2831,7 +5551,21 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "成本",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L264"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L281",
@@ -2857,7 +5591,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "结合过往",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L236"
+  ],
+  "downstream": [
+   "L330"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L284",
@@ -2883,7 +5633,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "迭代",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L262"
+  ],
+  "downstream": [
+   "L286"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L286",
@@ -2896,7 +5662,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "迭代",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L285"
+  ],
+  "downstream": [
+   "L293"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L289",
@@ -2909,7 +5691,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "迭代",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L256"
+  ],
+  "downstream": [
+   "L359"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L291",
@@ -2922,7 +5720,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "迭代",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L278"
+  ],
+  "downstream": [
+   "L331"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L293",
@@ -2935,7 +5749,21 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "迭代",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.2 Trace 追溯与反馈闭环` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L286"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L294",
@@ -2961,7 +5789,23 @@
   "minor": "9.业务评估(性能优化与诊断)",
   "tag": "检索召回",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L132"
+  ],
+  "downstream": [
+   "L300"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L297",
@@ -2987,7 +5831,21 @@
   "minor": "三_transformer相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [
+   "L299"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L299",
@@ -3000,7 +5858,23 @@
   "minor": "三_transformer相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L298"
+  ],
+  "downstream": [
+   "L301"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L300",
@@ -3013,7 +5887,21 @@
   "minor": "三_transformer相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.2 混合检索与Top-K策略` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L295"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L301",
@@ -3026,7 +5914,23 @@
   "minor": "三_transformer相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L299"
+  ],
+  "downstream": [
+   "L302"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L302",
@@ -3039,7 +5943,23 @@
   "minor": "三_transformer相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L301"
+  ],
+  "downstream": [
+   "L305"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L304",
@@ -3065,7 +5985,23 @@
   "minor": "三_transformer相关",
   "tag": "微调",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L302"
+  ],
+  "downstream": [
+   "L306"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L306",
@@ -3078,7 +6014,23 @@
   "minor": "三_transformer相关",
   "tag": "微调",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L305"
+  ],
+  "downstream": [
+   "L307"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L307",
@@ -3091,7 +6043,23 @@
   "minor": "三_transformer相关",
   "tag": "微调",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L306"
+  ],
+  "downstream": [
+   "L310"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L309",
@@ -3117,7 +6085,23 @@
   "minor": "三_transformer相关",
   "tag": "偏好对齐",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L307"
+  ],
+  "downstream": [
+   "L311"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L311",
@@ -3130,7 +6114,21 @@
   "minor": "三_transformer相关",
   "tag": "偏好对齐",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `3.4 动态接口与后置校验` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L310"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L313",
@@ -3169,7 +6167,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L275"
+  ],
+  "downstream": [
+   "L319"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L319",
@@ -3182,7 +6196,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L318"
+  ],
+  "downstream": [
+   "L320"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L320",
@@ -3195,7 +6225,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L319"
+  ],
+  "downstream": [
+   "L321"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L321",
@@ -3208,7 +6254,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L320"
+  ],
+  "downstream": [
+   "L322"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L322",
@@ -3221,7 +6283,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L321"
+  ],
+  "downstream": [
+   "L323"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L323",
@@ -3234,7 +6312,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L322"
+  ],
+  "downstream": [
+   "L324"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L324",
@@ -3247,7 +6341,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L323"
+  ],
+  "downstream": [
+   "L326"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L326",
@@ -3260,7 +6370,23 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L324"
+  ],
+  "downstream": [
+   "L327"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L327",
@@ -3273,7 +6399,21 @@
   "minor": "四_八股相关",
   "tag": "408 and SQL",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `5.4 模型微调与偏好对齐` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L326"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L329",
@@ -3299,7 +6439,23 @@
   "minor": "四_八股相关",
   "tag": "Redis",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L282"
+  ],
+  "downstream": [
+   "L333"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L331",
@@ -3312,7 +6468,23 @@
   "minor": "四_八股相关",
   "tag": "Redis",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L291"
+  ],
+  "downstream": [
+   "L389"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L332",
@@ -3325,7 +6497,21 @@
   "minor": "四_八股相关",
   "tag": "Redis",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.2 系统级熔断与强一致性` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L237"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L333",
@@ -3338,7 +6524,23 @@
   "minor": "四_八股相关",
   "tag": "Redis",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L330"
+  ],
+  "downstream": [
+   "L334"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L334",
@@ -3351,7 +6553,23 @@
   "minor": "四_八股相关",
   "tag": "Redis",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L333"
+  ],
+  "downstream": [
+   "L337"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L336",
@@ -3377,7 +6595,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L334"
+  ],
+  "downstream": [
+   "L338"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L338",
@@ -3390,7 +6624,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L337"
+  ],
+  "downstream": [
+   "L340"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L339",
@@ -3403,7 +6653,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L253"
+  ],
+  "downstream": [
+   "L353"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L340",
@@ -3416,7 +6682,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L338"
+  ],
+  "downstream": [
+   "L341"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L341",
@@ -3429,7 +6711,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L340"
+  ],
+  "downstream": [
+   "L342"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L342",
@@ -3442,7 +6740,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L341"
+  ],
+  "downstream": [
+   "L343"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L343",
@@ -3455,7 +6769,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L342"
+  ],
+  "downstream": [
+   "L344"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L344",
@@ -3468,7 +6798,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L343"
+  ],
+  "downstream": [
+   "L345"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L345",
@@ -3481,7 +6827,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L344"
+  ],
+  "downstream": [
+   "L346"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L346",
@@ -3494,7 +6856,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L345"
+  ],
+  "downstream": [
+   "L349"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L347",
@@ -3507,7 +6885,21 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `2.3 记忆路由与上下文理解` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L276"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L349",
@@ -3520,7 +6912,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L346"
+  ],
+  "downstream": [
+   "L350"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L350",
@@ -3533,7 +6941,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L349"
+  ],
+  "downstream": [
+   "L351"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L351",
@@ -3546,7 +6970,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L350"
+  ],
+  "downstream": [
+   "L352"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L352",
@@ -3559,7 +6999,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L351"
+  ],
+  "downstream": [
+   "L354"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L353",
@@ -3572,7 +7028,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L339"
+  ],
+  "downstream": [
+   "L380"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L354",
@@ -3585,7 +7057,23 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L352"
+  ],
+  "downstream": [
+   "L355"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L355",
@@ -3598,7 +7086,21 @@
   "minor": "四_八股相关",
   "tag": "Java",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.1 基础算法与手撕代码` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L354"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L358",
@@ -3624,7 +7126,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L289"
+  ],
+  "downstream": [
+   "L361"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L361",
@@ -3637,7 +7155,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L359"
+  ],
+  "downstream": [
+   "L363"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L363",
@@ -3650,7 +7184,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L361"
+  ],
+  "downstream": [
+   "L365"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L365",
@@ -3663,7 +7213,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L363"
+  ],
+  "downstream": [
+   "L367"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L367",
@@ -3676,7 +7242,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L365"
+  ],
+  "downstream": [
+   "L369"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L369",
@@ -3689,7 +7271,23 @@
   "minor": "四_八股相关",
   "tag": "异步与并发",
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L367"
+  ],
+  "downstream": [
+   "L373"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L372",
@@ -3715,7 +7313,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L369"
+  ],
+  "downstream": [
+   "L374"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L374",
@@ -3728,7 +7342,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L373"
+  ],
+  "downstream": [
+   "L375"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L375",
@@ -3741,7 +7371,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L374"
+  ],
+  "downstream": [
+   "L376"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L376",
@@ -3754,7 +7400,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L375"
+  ],
+  "downstream": [
+   "L377"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L377",
@@ -3767,7 +7429,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L376"
+  ],
+  "downstream": [
+   "L378"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L378",
@@ -3780,7 +7458,23 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L377"
+  ],
+  "downstream": [
+   "L379"
+  ],
+  "status": "待复习"
  },
  {
   "id": "L379",
@@ -3793,7 +7487,21 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.3 延迟与效果权衡` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L378"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L380",
@@ -3806,7 +7514,21 @@
   "minor": "Leetcode相关",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `6.1 高并发与性能优化` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L353"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L382",
@@ -3858,7 +7580,21 @@
   "minor": "反问",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `1.3 系统分层与特定领域架构` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [
+   "L331"
+  ],
+  "downstream": [],
+  "status": "待复习"
  },
  {
   "id": "L391",
@@ -3884,6 +7620,18 @@
   "minor": "国企特别版",
   "tag": null,
   "assigned": true,
-  "depth": null
+  "depth": null,
+  "answer": {
+   "core": "考察对 `7.2 团队与职业反问` 领域的系统理解与实际落地经验。",
+   "steps": [
+    "概念澄清/场景切入",
+    "架构/机制设计",
+    "工程权衡与坑点",
+    "生产实战经验"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
  }
 ]
