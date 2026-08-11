@@ -28,3 +28,4 @@ done
 
 - 语料只增改不删题（大厂面试题合集，质量高）
 - 新增项目：跑 repo_fuse（见 interview-bank-pipeline skill）后按上面命令同步
+- **运行期状态不回流**：复习状态（待复习/已掌握）写在 vault 的 40_项目档案/<slug>/面试复盘.md，不写 items.json——同步命令会覆盖 skill 内快照，status 字段只是初始值
