@@ -1,0 +1,36 @@
+site_name: Interview Mock Skill · SuperGODOG
+site_description: 项目面试拷问引擎 Hermes skill：240 道大厂面试题库 × GitHub 项目路由匹配 × 三维点评 × 复盘沉淀（语料内嵌 references/）
+site_url: https://supergodog.github.io/interview-mock-skill/
+repo_url: https://github.com/SuperGODOG/interview-mock-skill
+repo_name: interview-mock-skill
+edit_uri: blob/main/
+
+docs_dir: site_src
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+copyright: Copyright &copy; 2026 SuperGODOG
