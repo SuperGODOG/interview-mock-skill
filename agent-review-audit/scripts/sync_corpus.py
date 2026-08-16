@@ -13,13 +13,15 @@ import argparse
 
 SKILL_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARDS_TARGET = os.path.join(SKILL_ROOT, "references", "03_Cards")
-DEFAULT_SOURCE = "/home/caoruixin/桌面/面试文档裁切_1/03_Cards"
+DEFAULT_SOURCE = os.environ.get("AGENT_REVIEW_CARDS_SOURCE") or ""
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", default=DEFAULT_SOURCE, help="源题卡目录")
     args = ap.parse_args()
+    if not args.source:
+        raise SystemExit("请用 --source 指定源 03_Cards 目录，或设置 AGENT_REVIEW_CARDS_SOURCE")
     if not os.path.isdir(args.source):
         raise SystemExit(f"源目录不存在: {args.source}（可用 --source 指定）")
 
