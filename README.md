@@ -114,6 +114,28 @@
 - 个人数据全部落在 `$INTERVIEW_WORKSPACE`，与 skill 分离
 - 题库/档案同步命令见 `project-mock-interview/references/README.md`
 
+## 八、评审记录（multi-agent skill review）
+
+评审时间：2026-08-16（preview `a09eb3c`）。按 multi-agent-skill-review 三角色并行实测：harness 贴合度 / 模型适配度 / 数据链路。
+
+| 评审官 | 评分 | 结论 |
+|---|---|---|
+| harness 贴合度官 | 8.5/10 | 五个 skill 均可加载；触发词覆盖建档/拷打/审代码/深挖各入口；grilling 已内置并被显式引用 |
+| 模型适配度官 | 8/10 | 阶段 0 建档分支可照跑；四维 1/3/5 锚点与输出模板齐全；token 预算靠分层加载纪律实现，合规 |
+| 数据链路官 | 8.5/10 | `finalize → sync_snapshot` 真实调用并实测通过；本地与仓库逐文件一致；学习卡/复盘有写入者与读取者 |
+
+已修复（P1，commit `a09eb3c`）：
+
+- `project-mock-interview/scripts/` 残留带写死路径的旧脚本副本 → 删除（正确版本在 `interview-bank-pipeline/scripts/`）
+- `agent-review-audit/scripts/sync_corpus.py` 硬编码源路径 → 参数化（`--source` / `AGENT_REVIEW_CARDS_SOURCE`）
+- 本地 `.cc-switch` 与仓库脚本不一致 → 补齐同步
+
+遗留低危（不影响使用）：
+
+- 三个 SKILL.md 的 `version` / `use_when` 为非标准 frontmatter 字段（校验提示，不影响加载）
+- `map_cards.py` 正则 SyntaxWarning（一次性迁移工具）
+- `~/桌面/面试文档裁切` 兼容回退字符串为有意保留（新设备用 `INTERVIEW_WORKSPACE`）
+
 ## 七、目录结构
 
 ```
