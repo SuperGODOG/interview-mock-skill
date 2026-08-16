@@ -1,84 +1,29 @@
-# project-mock-interview · 项目面试拷问引擎
+# interview-mock-skill
 
-> 针对 GitHub 项目的面试拷问引擎：根据项目内容路由匹配内嵌题库（**240 道大厂 AI Agent / RAG 面试题合集**），逐题提问、四维点评、复盘沉淀；支持对代码做三维诊断审查。全部语料内嵌于 `references/`，走路由按需加载，不依赖外部目录即可运行。
+Agent 开发岗面试练习全家桶：**项目建档 → 路由出题 → 模拟拷打 → 深挖 → 复盘学习卡**。跨平台、跨 agent，数据与代码分离。
 
-## 核心特性
+## 四个 skill
 
-- **240 道大厂面试题**：来自一线大厂真实面试搜集（Agent 架构 / 记忆 / RAG / MCP / 评测闭环 / 工程落地 / 八股 / LeetCode），每题带**大厂四步答题框架**（概念澄清 → 架构机制 → 工程权衡 → 生产实战）与 **434 条学习路径边**（前置 / 后置）
-- **项目级路由匹配**：概念词典三级联动（仓库关键词 → 概念 → 题目），每个项目 20+ 候选题目，每题带证据文件
-- **四维点评**：概念理解 / 原理深度 / 落地证据 / 结构完整度，固定输出模板 + 1/3/5 评分锚点 + 首题校准基准
-- **复习状态机**：答错 / 低分题自动进「待复习清单」，下场优先清；已掌握进「已掌握清单」
-- **双模式**：拷问模式（审人：出题 → 作答 → 点评 → 复盘）/ 诊断模式（审代码：架构对齐 / 坑点预警 / 演进建议）
-- **上下文纪律**：四层加载漏斗 + 整场 ≤20K 预算，杜绝上下文爆炸
+| Skill | 角色 | 说明 |
+|---|---|---|
+| [agent-project-grill](agent-project-grill/SKILL.md) | 编排壳（日常入口） | 一句"开一场"自动完成：建档检查 → 拷打 → grilling 深挖 → 复盘 → 学习卡 |
+| [interview-bank-pipeline](interview-bank-pipeline/SKILL.md) | 建档 / 生产端 | 面经清洗分类、Obsidian 知识图谱、GitHub 项目融合建档；脚本内嵌 |
+| [project-mock-interview](project-mock-interview/SKILL.md) | 拷打引擎本体 | 240 道题库 + 项目档案快照，路由出题、四维点评、复盘沉淀 |
+| [agent-review-audit](agent-review-audit/SKILL.md) | 可选代码体检 | 243 道 Agent & RAG 题卡，三维打分、架构 Gap 分析 |
 
-## 目录结构
+## 安装（跨平台）
 
-```
-project-mock-interview/
-├── SKILL.md                 # 技能主体：路由、出题策略、问答循环、复盘、诊断模式
-├── README.md                # 本文件
-└── references/              # 语料（内嵌，走路由加载，绝不整载）
-    ├── README.md            # 语料同步说明（从源目录一键刷新）
-    ├── 题库/
-    │   ├── items.json       # 240 题（id/text/分类/答题框架/学习路径/状态初始值）
-    │   ├── concepts.yaml    # 33 概念词典（路由索引）
-    │   └── schema.json      # 分类骨架
-    └── 项目/                 # 每个项目一套档案
-        ├── <slug>/match.json        # 路由表（候选题目 + 命中概念 + 证据文件 + 深度）
-        ├── <slug>/项目画像.md        # 技术档案 / 自我介绍底稿（含钩子）
-        ├── <slug>/面试题匹配表.md    # 题目 × 概念 × 证据对照
-        └── <slug>/项目内作答.md      # 逐题作答（文件:行号 证据锚点，点评依据）
-```
+1. 把四个 skill 文件夹放进任一 agent 的 skills 目录（本机统一入口 `~/.cc-switch/skills/`，Codex/Claude/Gemini/Hermes 用软链指向）
+2. 设置数据工作区：`export INTERVIEW_WORKSPACE=<数据目录>`（包含 `items.json` / `concepts.yaml` / `schema.json` / `obsidian_vault/`；未设置时兼容回退 `~/桌面/面试文档裁切`）
+3. 依赖：python3、PyYAML、git、jq（仅路由提取用）
 
-内置三项目档案（68 个作答锚点）：`SuperGODOG__tripplanner` / `SuperGODOG__skillforge` / `jeecgboot__JeecgBoot`。
+## 用法
 
-## 安装
+- 新项目：`开一场 https://github.com/<owner>/<repo>` —— 自动建档后进入拷打
+- 已建档项目：`开一场 skillforge` —— 直接拷打
+- 题库/档案同步：见 `project-mock-interview/references/README.md`
+- 建档与数据迁移：见 `interview-bank-pipeline/SKILL.md` 的「跨平台部署」
 
-1. 克隆或下载本仓库
-2. 放入 Hermes Agent 技能目录：`~/.hermes/skills/project-mock-interview/`
-3. 重启 / 新开会话即可使用（语料自包含，无需其他依赖）
+## 数据位置
 
-## 使用
-
-**拷问模式**（审人）：
-
-```
-练面试 / 拷问我 / 针对我的项目出题 / 开一场 + 项目名（tripplanner / skillforge / JeecgBoot）
-```
-
-出题策略自动组合：深度递进（概念 → 原理 → 设计 → 落地 → 前沿）、概念串问、薄弱优先、复习优先（待复习清单）、前置递进（学习路径链）、八股补充（Java 项目）。
-
-**诊断模式**（审代码）：
-
-```
-审查这个项目 + 代码路径
-```
-
-以命中题卡的答题框架为审查维度锚点，输出三维诊断：架构对齐 / 坑点与 Badcase 预警 / 演进建议，报告写入项目档案。
-
-**复盘**：每场结束生成 `面试复盘.md`（四维得分表 + 薄弱主题 + 待复习清单），驱动下一场出题。
-
-## 语料
-
-- 题库为**大厂面试题合集**，只增改不删题
-- 项目档案由配套流水线生成（见下），证据锚点全部来自真实代码（文件:行号）
-- 复习状态（待复习 / 已掌握）写在 vault 复盘文件，不写语料快照
-
-## 配套流水线（可选）
-
-数据源与生成工具位于 `~/桌面/面试文档裁切/`：
-
-- **interview-bank-pipeline skill**：文档清洗分类（pipeline.py）+ Obsidian 知识图谱（concepts.yaml → export）+ GitHub 项目融合（repo_fuse.py fetch/match/finalize）
-- 新项目接入三步：`repo_fuse fetch <url>` → subagent 逐题作答 → `finalize` → 同步 references
-
-## 设计缘起
-
-融合自 **agent-review-audit**（Antigravity 生态 243 题卡体系）的改进：答题框架蒸馏、学习路径边（prerequisites/downstream）、复习状态、代码诊断姿势；保留自研优势：概念级路由（非类目级）、项目证据锚点、复盘闭环、断链校验、语料同步机制。详细规格见 `docs/融合版改进说明.md`。
-
-## 更新记录
-
-| 版本 | 内容 |
-|---|---|
-| v2.1.0 | 多 Agent 评审修复：复习状态外迁 vault、预算校准（≤20K/3 题）、四维打分模板与评分锚点、use_when 补齐、6 个作答锚点补全（**最终版**） |
-| v2.0.0 | 融合版：240 题答题框架蒸馏、434 条学习路径边、复习状态机、诊断模式 |
-| v1.0.0 | 初始版：题库 + 三项目档案 + 拷问流程 |
+skill 文件夹只放代码与语料快照；`repos_cache/`、原始面经文档、手写笔记等个人数据不要上传，放在 `$INTERVIEW_WORKSPACE`。
