@@ -12,7 +12,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 1. 解析工作区：`INTERVIEW_WORKSPACE`（未设置回退 `~/桌面/面试文档裁切`）；目录或脚本不可用（缺 repo_fuse.py 等）时，先按 interview-bank-pipeline 的「跨平台部署」初始化，再继续
 2. 定位项目 slug（`owner__repo`），检查 project-mock-interview 的 `references/项目/<slug>/match.json` 是否存在
    - 存在（已建档）→ 直接进入阶段 1，interview-bank-pipeline 不参与
-   - 不存在（新项目）→ 建档（按 interview-bank-pipeline 阶段三执行）：`repo_fuse.py fetch <url>` → `match <slug>` → 派 subagent 写画像/作答 → `finalize <slug>` → 同步快照到 project-mock-interview `references/项目/<slug>/`（match.json + 三份 md），完成后回到本流程
+   - 不存在（新项目）→ 建档（按 interview-bank-pipeline 阶段三执行）：`repo_fuse.py fetch <url>` → `match <slug>` → 派 subagent 写画像/作答 → `finalize <slug>`（repo_fuse 会自动同步快照到 project-mock-interview `references/项目/<slug>/`；若脚本版本较旧没自动同步，按 `references/README.md` 手动同步）→ **校验** `references/项目/<slug>/match.json` 已存在，不存在则报错并重试 → 完成后回到本流程
 3. 读复习源：`$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/学习卡.md` 与 `面试复盘.md` 的待复习清单，有则阶段 1 复习优先（先清未复习的学习卡）
 
 ## 1. 模拟拷打（project-mock-interview）
@@ -26,7 +26,10 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 ## 2. grilling 深挖
 
-对四维任一 ≤2 或用户答不出的题，切到 grilling 会话：一次一个问题、每题给推荐答案；能查代码库就查代码库补细节（用户是产品视角，细节由 agent 补，边问边教）。
+对四维任一 ≤2 或用户答不出的题，切到 grilling 深挖：
+
+1. 环境有 grilling skill（mattpocock/skills 自带）→ 读取其 SKILL.md，按它的追问节奏执行
+2. 环境没有 grilling → 按内联规则执行：**一次只问一个问题**（同时问多个会让人懵）；每题给出推荐答案；能查代码库就先查代码库再问；逐条追问直到该薄弱点挖透
 
 **逐问记录**：追问内容、用户回答、agent 给的要点，全部记入场次记录（阶段 3 落档），不留在聊天里丢失。
 
@@ -47,4 +50,5 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 - 分层加载：只按需读题卡 / 题段 / 证据切片，禁止整读题库或全量代码
 - 体检阶段只读路由输出，不读题卡全量
 - 子 skill（project-mock-interview / grilling / interview-bank-pipeline）都按各自 SKILL.md 执行；建档是生产端，只在未建档或项目大改时跑
+- grilling 是外部依赖（mattpocock/skills，仓库不内置）；缺失时按阶段 2 内联规则兜底，不影响流程
 - 跨平台：所有数据路径以 `INTERVIEW_WORKSPACE` 为准，禁止写死用户目录

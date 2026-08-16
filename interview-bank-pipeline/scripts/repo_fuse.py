@@ -338,6 +338,29 @@ project: {slug}
     with open(os.path.join(docdir, "INTERVIEW_DESIGN_MAP.md"), "w", encoding="utf-8") as f:
         f.write(map_md)
     print(f"仓库注入完成: {os.path.join(docdir, 'INTERVIEW_DESIGN_MAP.md')}")
+    sync_snapshot(slug)
+
+
+def sync_snapshot(slug: str):
+    """建档后自动同步快照到 project-mock-interview（拷打引擎消费端）。"""
+    pm_dir = os.environ.get("PROJECT_MOCK_SKILL_DIR") or os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "project-mock-interview")
+    if not os.path.isdir(pm_dir):
+        print(f"警告: 未找到 project-mock-interview skill 目录（{pm_dir}），跳过快照同步。"
+              "可用 PROJECT_MOCK_SKILL_DIR 指定，或手动按 references/README.md 同步。", file=sys.stderr)
+        return
+    dst = os.path.join(pm_dir, "references", "项目", slug)
+    os.makedirs(dst, exist_ok=True)
+    shutil.copy2(os.path.join(CACHE, slug, "match.json"), os.path.join(dst, "match.json"))
+    src = os.path.join(ARCHIVE, slug)
+    copied = []
+    for name in ("项目画像.md", "面试题匹配表.md", "项目内作答.md"):
+        f = os.path.join(src, name)
+        if os.path.isfile(f):
+            shutil.copy2(f, os.path.join(dst, name))
+            copied.append(name)
+    print(f"快照已同步到拷打引擎: {dst}（match.json + {', '.join(copied)}）")
+
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@
 | [project-mock-interview](project-mock-interview/SKILL.md) | 拷打引擎本体（主循环） | agent-project-grill | 每次练习 |
 | [agent-review-audit](agent-review-audit/SKILL.md) | 可选代码体检 | 你（显式要求时） | 考前 / 挖坑 |
 
-`grilling`（matt pocock 技能）作为深挖原语被编排调用，随 agent-project-grill 一起使用。
+`grilling`（matt pocock 技能）作为深挖原语被编排调用：推荐随 mattpocock/skills 一并安装（仓库不内置）；缺失时 agent-project-grill 按阶段 2 内联规则兜底，流程不受影响。
 
 ## 三、核心工作流
 
