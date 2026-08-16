@@ -24,8 +24,9 @@
 | [interview-bank-pipeline](interview-bank-pipeline/SKILL.md) | 建档 / 生产端 | agent-project-grill 或你 | 新项目 / 项目大改 / 题库更新 |
 | [project-mock-interview](project-mock-interview/SKILL.md) | 拷打引擎本体（主循环） | agent-project-grill | 每次练习 |
 | [agent-review-audit](agent-review-audit/SKILL.md) | 可选代码体检 | 你（显式要求时） | 考前 / 挖坑 |
+| [grilling](grilling/SKILL.md) | 深挖原语（内置，来源 mattpocock/skills，MIT） | agent-project-grill | 低分题深挖 |
 
-`grilling`（matt pocock 技能）作为深挖原语被编排调用：推荐随 mattpocock/skills 一并安装（仓库不内置）；缺失时 agent-project-grill 按阶段 2 内联规则兜底，流程不受影响。
+`grilling`（来自 mattpocock/skills，MIT）作为深挖原语**已内置在仓库 `grilling/`**，agent-project-grill 阶段 2 直接读取其 SKILL.md 执行；即使该文件夹被移除，阶段 2 的内联规则仍可兜底。
 
 ## 三、核心工作流
 
@@ -67,6 +68,14 @@
 
 脚本已内嵌在 `interview-bank-pipeline/scripts/`（pipeline.py / repo_fuse.py / verify_categories.py，另含两个一次性迁移工具 map_cards.py / distill_from_cards.py），通过 `INTERVIEW_WORKSPACE` 环境变量定位数据，不依赖 skill 目录外的任何文件。
 
+#### grilling（内置深挖原语）
+
+`grilling` 是 matt pocock 的追问原语：**一次只问一个问题**（同时问多个会让人懵）、每题给出推荐答案、能查代码库就先查代码库再问，逐条追问直到该薄弱点挖透。
+
+- 来源：[mattpocock/skills](https://github.com/mattpocock/skills)（MIT），本仓库已内置一份于 `grilling/`
+- 用法：agent-project-grill 阶段 2 对低分题（四维任一 ≤2 或答不出）自动切到 grilling 深挖，追问链与要点全部记入复盘，不留在聊天里
+- 兜底：该文件夹被移除时，阶段 2 的内联规则（一次一问 + 推荐答案 + 查代码库）等效执行，流程不受影响
+
 ## 四、project-mock-interview vs agent-review-audit（取舍）
 
 两者**定位相同**：都是「题库路由匹配 → 出题 → 拷打/审查」引擎，日常二选一即可。差别在题库侧重和输出形态：
@@ -89,7 +98,7 @@
 
 ## 五、安装（跨平台，含 macOS 迁移）
 
-1. 把四个 skill 文件夹放进任一 agent 的 skills 目录
+1. 把仓库里的全部 skill 文件夹（agent-project-grill、interview-bank-pipeline、project-mock-interview、agent-review-audit、grilling）放进任一 agent 的 skills 目录
    - 本机统一入口：`~/.cc-switch/skills/`，Codex / Claude / Gemini / Hermes 用软链指向
    - 新设备：直接放入 `~/.codex/skills/`（Codex）或 `~/.claude/skills/`（Claude）
 2. 设置数据工作区：`export INTERVIEW_WORKSPACE=<数据目录>`（写入 shell 配置长期生效）
@@ -97,7 +106,7 @@
    - 未设置时兼容回退 `~/桌面/面试文档裁切`（仅旧本机；跨平台必须显式设置）
 3. 依赖：python3、PyYAML、git、jq（仅 project-mock-interview 路由提取用，macOS 用 `brew install jq`）
 
-**macOS 迁移三步**：拷四个 skill 文件夹 → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目把 `project-mock-interview/references/` 一起带走即可（拷打只需要题库 + 项目快照，不需要 repos_cache）。
+**macOS 迁移三步**：拷全部 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目把 `project-mock-interview/references/` 一起带走即可（拷打只需要题库 + 项目快照，不需要 repos_cache）。
 
 ## 六、数据与隐私
 
@@ -114,6 +123,7 @@ interview-mock-skill/
 ├── interview-bank-pipeline/      # 建档/生产端：清洗分类 + 图谱 + 项目融合（脚本内嵌）
 ├── project-mock-interview/       # 拷打引擎：240 题题库 + 项目档案快照 + 四维点评
 ├── agent-review-audit/           # 可选体检：243 道 Agent/RAG 题卡 + 三维打分
+├── grilling/                   # 深挖原语（来自 mattpocock/skills，MIT）
 ├── .github/                      # GitHub Pages 部署工作流
 ├── .pages/                       # 文档站源（mkdocs）
 └── site-test/                    # 文档站构建产物

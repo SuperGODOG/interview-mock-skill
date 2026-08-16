@@ -28,7 +28,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 对四维任一 ≤2 或用户答不出的题，切到 grilling 深挖：
 
-1. 环境有 grilling skill（mattpocock/skills 自带）→ 读取其 SKILL.md，按它的追问节奏执行
+1. grilling 已随仓库/本地附带（`grilling/SKILL.md`，来自 mattpocock/skills）→ 读取其 SKILL.md，按原版追问节奏执行
 2. 环境没有 grilling → 按内联规则执行：**一次只问一个问题**（同时问多个会让人懵）；每题给出推荐答案；能查代码库就先查代码库再问；逐条追问直到该薄弱点挖透
 
 **逐问记录**：追问内容、用户回答、agent 给的要点，全部记入场次记录（阶段 3 落档），不留在聊天里丢失。
@@ -50,5 +50,5 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 - 分层加载：只按需读题卡 / 题段 / 证据切片，禁止整读题库或全量代码
 - 体检阶段只读路由输出，不读题卡全量
 - 子 skill（project-mock-interview / grilling / interview-bank-pipeline）都按各自 SKILL.md 执行；建档是生产端，只在未建档或项目大改时跑
-- grilling 是外部依赖（mattpocock/skills，仓库不内置）；缺失时按阶段 2 内联规则兜底，不影响流程
+- grilling 已内置（来源 mattpocock/skills，MIT）；若被移除，按阶段 2 内联规则兜底，不影响流程
 - 跨平台：所有数据路径以 `INTERVIEW_WORKSPACE` 为准，禁止写死用户目录
