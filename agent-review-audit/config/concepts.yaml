@@ -1,0 +1,605 @@
+concept_react_loop:
+  name: ReAct与思考-行动-观察循环
+  keywords:
+  - react
+  - execution loop
+  - 思考-行动-观察
+  - 推理机制
+  cards:
+  - Q001
+  - Q002
+  - Q003
+  - Q056
+concept_plan_and_execute:
+  name: Plan-and-Execute规划执行范式
+  keywords:
+  - plan-and-execute
+  - plan-and-solve
+  - 规划执行
+  - 步骤拆解
+  cards:
+  - Q001
+  - Q065
+  - Q064
+  - Q056
+  - Q127
+  - Q017
+concept_reflection:
+  name: Reflection自我反思机制
+  keywords:
+  - reflection
+  - 自我反思
+  - 反思范式
+  cards:
+  - Q065
+  - Q157
+  - Q109
+  - Q180
+  - Q183
+  - Q031
+concept_tree_of_thoughts:
+  name: Tree of Thoughts (ToT)思维树
+  keywords:
+  - tot
+  - tree of thoughts
+  - 思维树
+  - 搜索树
+  cards:
+  - Q064
+  - Q189
+  - Q190
+  - Q085
+  - Q086
+  - Q002
+concept_multi_agent_topo:
+  name: Multi-Agent拓扑与协同
+  keywords:
+  - multi-agent
+  - 多agent
+  - 编排拓扑
+  - 多智能体
+  - 协同
+  cards:
+  - Q004
+  - Q006
+  - Q015
+  - Q016
+  - Q055
+  - Q057
+  - Q058
+  - Q129
+  - Q131
+  - Q133
+  - Q134
+concept_master_sub:
+  name: Master-Sub主从代理架构
+  keywords:
+  - master-sub
+  - 主从代理
+  - 主从架构
+  cards:
+  - Q015
+  - Q126
+  - Q129
+  - Q130
+  - Q004
+  - Q016
+concept_langgraph_workflow:
+  name: LangGraph与状态机工作流
+  keywords:
+  - langgraph
+  - autogen
+  - 状态机
+  - 工作流编排
+  - node
+  - edge
+  cards:
+  - Q131
+  - Q004
+  - Q006
+  - Q132
+  - Q116
+  - Q152
+  - Q056
+concept_ai_coding_arch:
+  name: AI Coding工具底层架构
+  keywords:
+  - ai coding
+  - claude code
+  - copilot workspace
+  - agentic workflow
+  cards:
+  - Q005
+  - Q007
+  - Q008
+  - Q009
+  - Q017
+  - Q022
+  - Q024
+  - Q050
+  - Q059
+  - Q115
+  - Q117
+  - Q118
+  - Q119
+  - Q124
+  - Q126
+  - Q127
+  - Q128
+  - Q137
+  - Q139
+  - Q143
+  - Q153
+  - Q155
+  - Q158
+  - Q161
+  - Q163
+  - Q164
+  - Q167
+  - Q168
+  - Q170
+  - Q171
+  - Q175
+  - Q176
+  - Q182
+  - Q206
+  - Q242
+concept_short_long_memory:
+  name: 短/长期与摘要记忆分层
+  keywords:
+  - short-term memory
+  - long-term memory
+  - summary memory
+  - 短期记忆
+  - 长期记忆
+  cards:
+  - Q011
+  - Q012
+  - Q013
+  - Q100
+  - Q104
+  - Q105
+  - Q106
+  - Q108
+  - Q109
+  - Q111
+  - Q130
+concept_memory_persistence:
+  name: 记忆持久化与Schema设计
+  keywords:
+  - memory schema
+  - 存储介质
+  - 状态持久化
+  - recall & load
+  cards:
+  - Q013
+  - Q012
+  - Q106
+  - Q111
+  - Q108
+  - Q133
+  - Q100
+concept_memory_router:
+  name: 记忆路由与指代消解
+  keywords:
+  - 指代消解
+  - coreference
+  - llm-routed
+  - rule-based router
+  - 记忆路由
+  cards:
+  - Q010
+  - Q014
+  - Q018
+  - Q099
+  - Q101
+  - Q102
+  - Q103
+  - Q107
+  - Q110
+  - Q112
+  - Q113
+  - Q114
+  - Q174
+  - Q220
+concept_pdf_formula_parser:
+  name: 复杂PDF/表格/公式解析
+  keywords:
+  - pdf解析
+  - 表格解析
+  - 公式解析
+  - 扫描件解析
+  cards:
+  - Q041
+  - Q077
+  - Q037
+  - Q072
+  - Q075
+  - Q042
+concept_semantic_chunking:
+  name: 语义边界Chunking切分
+  keywords:
+  - chunking
+  - semantic chunking
+  - 文档切分
+  - 语义边界
+  cards:
+  - Q037
+  - Q041
+  - Q042
+concept_hybrid_search:
+  name: Dense+Sparse/BM25混合检索
+  keywords:
+  - hybrid search
+  - bm25
+  - dense retrieval
+  - sparse retrieval
+  - 混合检索
+  cards:
+  - Q038
+  - Q039
+  - Q087
+  - Q088
+  - Q184
+  - Q188
+concept_topk_truncation:
+  name: Top-K截断与召回/幻觉Trade-off
+  keywords:
+  - top-k
+  - 截断阈值
+  - 召回率
+  - 生成幻觉
+  cards:
+  - Q039
+  - Q184
+  - Q087
+  - Q088
+  - Q128
+  - Q073
+concept_metadata_auto_retrieval:
+  name: 元数据过滤与Auto-retrieval
+  keywords:
+  - metadata
+  - 元数据
+  - auto-retrieval
+  - 硬过滤
+  - 增量更新
+  cards:
+  - Q043
+  - Q044
+concept_post_guardrails:
+  name: RAG事实性与后置Guardrails
+  keywords:
+  - guardrails
+  - post-generation
+  - 后置校验
+  - 一致性
+  - factuality
+  cards:
+  - Q020
+  - Q021
+  - Q023
+  - Q040
+  - Q045
+  - Q046
+  - Q047
+  - Q048
+  - Q049
+  - Q085
+  - Q086
+  - Q089
+  - Q090
+  - Q097
+  - Q098
+  - Q123
+  - Q125
+  - Q135
+  - Q136
+  - Q166
+  - Q177
+  - Q185
+  - Q186
+  - Q187
+  - Q189
+  - Q190
+  - Q191
+  - Q192
+  - Q193
+  - Q194
+  - Q195
+concept_query_rewriting:
+  name: Query改写与延迟优化
+  keywords:
+  - query rewriting
+  - query改写
+  - 延迟优化
+  - latency
+  cards:
+  - Q020
+  - Q021
+  - Q166
+  - Q121
+  - Q122
+  - Q019
+concept_mcp_core:
+  name: MCP模型上下文协议核心标准
+  keywords:
+  - mcp
+  - model context protocol
+  - 模型上下文协议
+  - 标准接口
+  cards:
+  - Q051
+  - Q052
+  - Q066
+  - Q067
+  - Q068
+  - Q069
+  - Q070
+  - Q071
+  - Q072
+  - Q073
+  - Q074
+  - Q075
+  - Q076
+  - Q077
+  - Q078
+  - Q079
+  - Q080
+  - Q081
+  - Q082
+  - Q083
+  - Q084
+concept_tool_calling_action:
+  name: Tool Calling与Action原语
+  keywords:
+  - tool calling
+  - action原语
+  - 处置指令
+  - 工具调用
+  cards:
+  - Q053
+  - Q091
+  - Q092
+  - Q093
+  - Q094
+  - Q095
+  - Q096
+concept_action_rollback:
+  name: 事务回滚与操作撤销机制
+  keywords:
+  - 事务回滚
+  - 操作撤销
+  - rollback
+  cards:
+  - Q054
+concept_cross_service_orchestration:
+  name: 跨域异构服务编排
+  keywords:
+  - 异构服务
+  - 跨域编排
+  - 服务编排
+  cards:
+  - Q055
+  - Q141
+  - Q147
+  - Q095
+  - Q148
+  - Q149
+  - Q054
+concept_harness_benchmark:
+  name: Harness自动化评估与Benchmark
+  keywords:
+  - harness
+  - benchmark
+  - 测试基准
+  - 沙箱
+  cards:
+  - Q025
+  - Q026
+  - Q027
+  - Q028
+  - Q120
+  - Q156
+  - Q169
+  - Q172
+concept_eval_metrics:
+  name: Recall@K/Precision@K/Latency/Cost评估
+  keywords:
+  - recall@k
+  - precision@k
+  - latency
+  - token cost
+  - tool call accuracy
+  cards:
+  - Q027
+  - Q028
+  - Q026
+  - Q184
+  - Q128
+  - Q171
+  - Q175
+  - Q181
+concept_trace_attribution:
+  name: Badcase全链路Trace归因
+  keywords:
+  - badcase
+  - trace
+  - 归因
+  - 定位节点
+  cards:
+  - Q031
+  - Q165
+  - Q167
+  - Q180
+  - Q032
+  - Q176
+  - Q183
+concept_data_flywheel:
+  name: 用户反馈与数据飞轮
+  keywords:
+  - data flywheel
+  - 数据飞轮
+  - implicit feedback
+  - explicit feedback
+  - 抽检
+  cards:
+  - Q029
+  - Q030
+  - Q031
+  - Q032
+  - Q033
+  - Q034
+  - Q035
+  - Q036
+  - Q157
+  - Q165
+  - Q179
+  - Q180
+  - Q183
+concept_prompt_see_saw:
+  name: Prompt迭代与跷跷板效应
+  keywords:
+  - 跷跷板效应
+  - prompt工程
+  - case回退
+  cards:
+  - Q033
+  - Q036
+  - Q034
+  - Q085
+  - Q086
+  - Q156
+  - Q183
+concept_dspy_ape:
+  name: DSPy与自动Prompt优化(APE)
+  keywords:
+  - dspy
+  - ape
+  - 自动prompt生成
+  - 调优
+  cards:
+  - Q036
+  - Q156
+  - Q158
+  - Q034
+  - Q033
+  - Q085
+concept_sft_dpo_alignment:
+  name: SFT/DPO/Reward Model(RM)对齐
+  keywords:
+  - sft
+  - dpo
+  - reward model
+  - rm
+  - 偏好对齐
+  cards:
+  - Q159
+  - Q173
+  - Q196
+  - Q197
+  - Q198
+  - Q199
+  - Q200
+  - Q201
+  - Q202
+  - Q203
+  - Q204
+concept_high_concurrency_limiter:
+  name: 高并发限流/熔断与降级
+  keywords:
+  - 高并发
+  - 限流
+  - 熔断
+  - 降级
+  - 点赞/计数
+  cards:
+  - Q060
+  - Q061
+  - Q062
+  - Q063
+  - Q064
+  - Q065
+  - Q116
+  - Q132
+  - Q138
+  - Q141
+  - Q142
+  - Q144
+  - Q147
+  - Q152
+  - Q154
+  - Q160
+  - Q207
+  - Q212
+  - Q225
+  - Q241
+concept_prefix_caching:
+  name: Prefix Caching前缀缓存结构优化
+  keywords:
+  - prefix caching
+  - 前缀缓存
+  - 缓存命中率
+  cards:
+  - Q019
+  - Q121
+  - Q122
+  - Q146
+  - Q162
+  - Q181
+  - Q228
+  - Q229
+  - Q230
+  - Q231
+  - Q232
+  - Q233
+  - Q234
+  - Q235
+  - Q236
+  - Q237
+  - Q238
+  - Q239
+  - Q240
+concept_lru_algorithm:
+  name: LRU Cache与核心基础数据结构
+  keywords:
+  - lru
+  - 缓存约束
+  - 双蛋问题
+  - 合并数组
+  - 算法
+  cards:
+  - Q140
+  - Q145
+  - Q148
+  - Q149
+  - Q150
+  - Q151
+  - Q178
+  - Q205
+  - Q208
+  - Q209
+  - Q210
+  - Q211
+  - Q213
+  - Q214
+  - Q215
+  - Q216
+  - Q217
+  - Q218
+  - Q219
+  - Q221
+  - Q222
+  - Q223
+  - Q224
+  - Q226
+  - Q227
+concept_career_interview:
+  name: 团队项目落地与职业反问
+  keywords:
+  - 反问
+  - 落地场景
+  - 业务价值
+  - 国企
+  cards:
+  - Q243
