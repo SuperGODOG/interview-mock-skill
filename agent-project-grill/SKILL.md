@@ -5,7 +5,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 # Agent 项目拷打（建档检查 → 出题 → 拷打 → 深挖 → 复盘）
 
-整场上下文预算 ≤20K tokens。三个子 skill 的分工：interview-bank-pipeline 建档（生产端），project-mock-interview 出题点评（主循环），grilling 深挖（补课）。核心承诺：**每题有记录、低分有 grilling、场场有复盘、复习有学习卡**。
+整场上下文预算 ≤20K tokens。四个 skill 的分工：interview-bank-pipeline 建档（生产端），interview-resume-pack 备战包/漏斗稿（生产端，拷打前置，见其 SKILL.md），project-mock-interview 出题点评（主循环），grilling 深挖（补课）。核心承诺：**每题有记录、低分有 grilling、场场有复盘、复习有学习卡**。
 
 ## 0. 环境与建档自检（开工前必做）
 
@@ -13,13 +13,14 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 2. 定位项目 slug（`owner__repo`），检查 project-mock-interview 的 `references/项目/<slug>/match.json` 是否存在
    - 存在（已建档）→ 直接进入阶段 1，interview-bank-pipeline 不参与
    - 不存在（新项目）→ 建档（按 interview-bank-pipeline 阶段三执行）：`repo_fuse.py fetch <url>` → `match <slug>` → 派 subagent 写画像/作答 → `finalize <slug>`（repo_fuse 会自动同步快照到 project-mock-interview `references/项目/<slug>/`；若脚本版本较旧没自动同步，按 `references/README.md` 手动同步）→ **校验** `references/项目/<slug>/match.json` 已存在，不存在则报错并重试 → 完成后回到本流程
-3. 读复习源：`$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/学习卡.md` 与 `面试复盘.md` 的待复习清单，有则阶段 1 复习优先（先清未复习的学习卡）
+3. **备战包软前置**：检查 `$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/备战包/漏斗稿.md` 是否存在。不存在 → 提示一次："该项目还没有备战包（漏斗稿+深钻点+不会题防守）。建议先说『生成备战包』由 interview-resume-pack 生成——漏斗稿是表达地图，深钻点 L3 会成为本场优先出题源。" 用户坚持直接开打则照常继续，不阻塞
+4. 读复习源：`$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/学习卡.md` 与 `面试复盘.md` 的待复习清单，有则阶段 1 复习优先（先清未复习的学习卡）
 
 ## 1. 模拟拷打（project-mock-interview）
 
 读取 project-mock-interview 的 SKILL.md，按其拷问模式执行：
 
-- 出题策略：薄弱优先（有体检时用 weakness_tags）+ 复习优先（学习卡/待复习清单）；都没有则按深度递进
+- 出题策略：备战包优先（`备战包/` 存在时，深钻点 L3 问题与不会题清单为优先出题/检验源）+ 薄弱优先（有体检时用 weakness_tags）+ 复习优先（学习卡/待复习清单）；都没有则按深度递进
 - 一次一题，用户答完做四维点评（概念理解 / 原理深度 / 落地证据 / 结构完整度），默认 3 题/场
 - **每题当场记录**（供阶段 3 落档）：题 id、用户作答摘要、四维得分、点评要点
 - 点评只引用作答档已有的证据锚点；证据不足就诚实说明，禁止编造
@@ -41,7 +42,8 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
    - 场次信息（日期 / 项目 / 题数）
    - 题目清单 + 四维得分表
    - grilling 记录（追问链 + 要点）
-2. **学习卡**：`$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/学习卡.md`，对任一维 ≤2 或触发过 grilling 的题追加一行：
+2. **备战包反馈（存在备战包时）**：本场暴露的薄弱点若落在漏斗稿/不会题覆盖范围内，在复盘文件末尾追加一行「备战包修订建议：<哪份产物><哪个点><怎么改>」，下次重新生成备战包时作为修订输入
+3. **学习卡**：`$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/学习卡.md`，对任一维 ≤2 或触发过 grilling 的题追加一行：
    - 格式：`- [ ] Lxx ｜ 薄弱维度:xxx ｜ 一句话记忆点:xxx ｜ 下次复习`
    - 下一场阶段 0 优先复习；复习过关后勾掉 `[x]`，保留为已掌握记录
 
@@ -49,6 +51,6 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 - 分层加载：只按需读题卡 / 题段 / 证据切片，禁止整读题库或全量代码
 - 体检阶段只读路由输出，不读题卡全量
-- 子 skill（project-mock-interview / grilling / interview-bank-pipeline）都按各自 SKILL.md 执行；建档是生产端，只在未建档或项目大改时跑
+- 子 skill（project-mock-interview / grilling / interview-bank-pipeline / interview-resume-pack）都按各自 SKILL.md 执行；建档与备战包是生产端：建档只在未建档或项目大改时跑，备战包只在缺失或复盘修订建议积累 ≥3 条时重生成
 - grilling 已内置（来源 mattpocock/skills，MIT）；若被移除，按阶段 2 内联规则兜底，不影响流程
 - 跨平台：所有数据路径以 `INTERVIEW_WORKSPACE` 为准，禁止写死用户目录
