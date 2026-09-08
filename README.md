@@ -106,7 +106,7 @@
    - 未设置时兼容回退 `~/桌面/面试文档裁切`（仅旧本机；跨平台必须显式设置）
 3. 依赖：python3、PyYAML、git、jq（仅 project-mock-interview 路由提取用，macOS 用 `brew install jq`）
 
-**macOS 迁移三步**：拷全部 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目把 `project-mock-interview/references/` 一起带走即可（拷打只需要题库 + 项目快照，不需要 repos_cache）。
+**macOS 迁移三步**：拷全部 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目把 `project-mock-interview/references/` 一起带走即可（拷打只需要题库 + 项目快照，不需要 repos_cache）。注意：要**生成备战包**（interview-resume-pack）时还需要可解析的项目源码仓库根（本地 clone 或可 fetch 的 URL），仅带快照不够。
 
 ## 六、数据与隐私
 
