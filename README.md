@@ -98,7 +98,7 @@
 
 ## 五、安装（跨平台，含 macOS 迁移）
 
-1. 把仓库里的全部 skill 文件夹（agent-project-grill、interview-bank-pipeline、project-mock-interview、agent-review-audit、grilling）放进任一 agent 的 skills 目录
+1. 把仓库里的全部 skill 文件夹（agent-project-grill、interview-bank-pipeline、project-mock-interview、agent-review-audit、grilling、interview-resume-pack）放进任一 agent 的 skills 目录
    - 本机统一入口：`~/.cc-switch/skills/`，Codex / Claude / Gemini / Hermes 用软链指向
    - 新设备：直接放入 `~/.codex/skills/`（Codex）或 `~/.claude/skills/`（Claude）
 2. 设置数据工作区：`export INTERVIEW_WORKSPACE=<数据目录>`（写入 shell 配置长期生效）
