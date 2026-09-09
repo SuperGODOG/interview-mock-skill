@@ -7,6 +7,20 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 整场上下文预算 ≤20K tokens。四个 skill 的分工：interview-bank-pipeline 建档（生产端），interview-resume-pack 备战包/漏斗稿（生产端，拷打前置，见其 SKILL.md），project-mock-interview 出题点评（主循环），grilling 深挖（补课）。核心承诺：**每题有记录、低分有 grilling、场场有复盘、复习有学习卡**。
 
+## 依赖与整包安装
+
+本仓库按 **1 主入口 + 5 依赖**整包安装，勿单拆或单独关闭组件；六个目录必须位于同一个 skills 父目录。以下相对路径均以本 SKILL.md 所在目录为基准。缺失组件时先明确报告降级，按下列内联规则继续可执行部分，不虚构题号、项目档案或已完成步骤。
+
+本 skill 是主入口与公共语料枢纽，题库唯一仓库副本位于 `references/题库/`。五个依赖：`interview-bank-pipeline`（建档与题库生产）、`interview-resume-pack`（备战包）、`project-mock-interview`（读题与点评）、`agent-review-audit`（可选代码体检）、`grilling`（深挖）。安装依赖齐全不代表每场都调用，体检仍仅按用户要求触发。
+
+缺失时的内联兜底（优先于下文对应依赖调用）：
+- 缺 pipeline：已有项目档案照常使用；未建档时基于用户提供的代码与公共题库按题提问，标注“未建档临时练习”，不声称建档或同步成功。
+- 缺 resume-pack：使用已有完整备战包；没有则跳过表达材料前置，正常练习。
+- 缺 project-mock-interview：从本 skill 公共题库按 id 提取单题，一次一问；按概念理解、原理深度、落地证据、结构完整度各 1–5 分点评（1=错误/空泛，3=方向对但缺细节，5=准确且有证据）；无档案则仅用实际代码证据，继续阶段 2–3。
+- 缺 agent-review-audit：日常练习不受影响；用户要求体检时按架构、生产就绪、健壮性检查给定代码片段，记录证据与待核实项，不冒充 243 题卡审查。
+- 缺 grilling：执行阶段 2 的一次一问、推荐答案、先查代码内联规则。
+- 工作区不可用且 pipeline 缺失：仅在会话内记录复盘与学习卡，明确尚未落盘，待提供可写工作区后保存。
+
 ## 0. 环境与建档自检（开工前必做）
 
 1. 解析工作区并绑定 `WORKSPACE_ROOT`：`INTERVIEW_WORKSPACE` 非空时使用它；未设置时仅在 `$HOME/桌面/面试文档裁切` 已存在时使用该兼容目录。两者都不可用则先按 interview-bank-pipeline 的「跨平台部署」设置/初始化后再继续；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录

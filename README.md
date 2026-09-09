@@ -124,15 +124,17 @@
 
 ## 五、安装（跨平台，含 macOS 迁移）
 
+**整包安装，勿单拆：本仓库是 1 主入口（agent-project-grill，兼公共语料枢纽）+ 5 依赖。六目录须同装在一个 skills 父目录，保持目录名；勿单独关闭组件。单件安装仅提供各 SKILL.md 声明的降级能力。**
+
 1. 把仓库里的全部 6 个 skill 文件夹（agent-project-grill、interview-bank-pipeline、interview-resume-pack、project-mock-interview、agent-review-audit、grilling）放进任一 agent 的 skills 目录
    - 本机统一入口：`~/.cc-switch/skills/`，Codex / Claude / Gemini / Hermes 用软链指向
    - 新设备：直接放入 `~/.codex/skills/`（Codex）或 `~/.claude/skills/`（Claude）
 2. 设置数据工作区：`export INTERVIEW_WORKSPACE=<数据目录>`（写入 shell 配置长期生效）
-   - 目录内放：`items.json` / `concepts.yaml` / `schema.json` / `obsidian_vault/`
+   - 生产/建档时初始化：从 `agent-project-grill/references/题库/` 复制缺少的 `items.json` / `concepts.yaml` / `schema.json` 到工作区；已有文件不覆盖。练习直接读取整包公共题库；个人记录保存在 `obsidian_vault/`
    - 未设置时兼容回退 `~/桌面/面试文档裁切`（仅旧本机；跨平台必须显式设置）
 3. 依赖：python3、PyYAML、git、jq（仅 project-mock-interview 路由提取用，macOS 用 `brew install jq`）
 
-**macOS 迁移三步**：拷全部 6 个 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目把 `project-mock-interview/references/` 一起带走即可（拷打只需要题库 + 项目快照，不需要 repos_cache）。注意：要**生成备战包**（interview-resume-pack）时还需要可解析的项目源码仓库根（本地 clone 或可 fetch 的 URL），仅带快照不够。
+**macOS 迁移三步**：拷全部 6 个 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目同时携带 `agent-project-grill/references/题库/` 与 `project-mock-interview/references/项目/`（拷打只需要题库 + 项目快照，不需要 repos_cache）。注意：要**生成备战包**（interview-resume-pack）时还需要可解析的项目源码仓库根（本地 clone 或可 fetch 的 URL），仅带快照不够。
 
 ## 六、数据与隐私
 
@@ -146,9 +148,10 @@
 interview-mock-skill/
 ├── README.md                     # 本文件
 ├── agent-project-grill/          # 编排壳：建档检查 → 备战包软前置 → 拷打 → grilling → 复盘 → 学习卡
+│   └── references/题库/         # 公共题库唯一仓库副本：items.json / concepts.yaml / schema.json
 ├── interview-bank-pipeline/      # 建档/生产端：清洗分类 + 图谱 + 项目融合（脚本内嵌）
 ├── interview-resume-pack/        # 备战包生成：漏斗稿 + 深钻点 + 防守材料（scripts/evidence_gate.py）
-├── project-mock-interview/       # 拷打引擎：240 题题库 + 项目档案快照 + 四维点评
+├── project-mock-interview/       # 拷打引擎：读相邻主入口公共题库 + 自身项目档案快照 + 四维点评
 ├── agent-review-audit/           # 可选体检：243 道 Agent/RAG 题卡 + 三维打分
 ├── grilling/                     # 深挖原语（来自 mattpocock/skills，MIT）
 ├── .github/                      # GitHub Pages 部署工作流

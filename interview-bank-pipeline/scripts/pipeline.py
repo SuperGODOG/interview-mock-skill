@@ -7,6 +7,8 @@
   python3 pipeline.py merge      # 汇总分类结果 -> categories/<大类>/<小类>.md
   python3 pipeline.py audit      # 审计: 覆盖/重复/空类/未分类 -> audit_report.md
   python3 pipeline.py validate   # 校验已提交的分类结果 JSON
+  python3 pipeline.py export     # 导出图谱；无断链后同步题库到主入口
+  python3 pipeline.py sync-bank  # 校验并同步 workspace 题库到主入口
 
 判断部分（意图识别/递归细分/逻辑排序）由 subagent 完成，
 subagent 只读写 batches/classified/ 与 categories/ 下的文件。
@@ -30,6 +32,67 @@ ITEMS_JSON = os.path.join(ROOT, "items.json")
 SCHEMA_JSON = os.path.join(ROOT, "schema.json")
 BATCH_SIZE = 48
 DEPTH_LABELS = {1: "概念定义", 2: "原理机制", 3: "设计与方案", 4: "落地与权衡", 5: "前沿与延伸"}
+
+# ---------------- 题库分发 ----------------
+
+def sync_bank():
+    """workspace 是编辑区；主入口保存唯一随包分发的题库。"""
+    from pathlib import Path
+    import tempfile
+
+    # realpath 支持从 Hermes 等软链入口调用，不依赖当前工作目录。
+    hub = Path(__file__).resolve().parents[2] / "agent-project-grill"
+    if not (hub / "SKILL.md").is_file():
+        print("降级: 未安装相邻 agent-project-grill，题库仅保留在 workspace；"
+              "请整包安装后重跑 sync-bank。", file=sys.stderr)
+        return False
+
+    import yaml
+
+    # 全部源文件读取、解析、基本结构校验通过后，才允许接触目标目录。
+    names = ("items.json", "concepts.yaml", "schema.json")
+    payloads = {}
+    for name in names:
+        source = Path(ROOT) / name
+        try:
+            payloads[name] = source.read_bytes()
+        except OSError as exc:
+            raise ValueError(f"题库同步取消: 无法读取 {source}；目标题库未修改") from exc
+    try:
+        items = json.loads(payloads["items.json"])
+        schema = json.loads(payloads["schema.json"])
+        concepts = yaml.safe_load(payloads["concepts.yaml"])
+        if (not isinstance(items, list) or not items
+                or not all(isinstance(it, dict) and isinstance(it.get("id"), str)
+                           and isinstance(it.get("kind"), str)
+                           and isinstance(it.get("text"), str) for it in items)
+                or not any(it["kind"] == "question" for it in items)):
+            raise ValueError("items.json 必须包含有效题目列表")
+        if (not isinstance(schema, dict) or not isinstance(schema.get("majors"), list)
+                or not schema["majors"]
+                or not all(isinstance(m, dict) and isinstance(m.get("name"), str)
+                           and isinstance(m.get("minors"), list) for m in schema["majors"])):
+            raise ValueError("schema.json 必须包含 majors 分类列表")
+        if (not isinstance(concepts, dict) or not isinstance(concepts.get("concepts"), list)
+                or not concepts["concepts"]
+                or not all(isinstance(c, dict) and isinstance(c.get("name"), str)
+                           and isinstance(c.get("keywords"), list)
+                           for c in concepts["concepts"])):
+            raise ValueError("concepts.yaml 必须包含 concepts 概念列表")
+    except (ValueError, UnicodeError, yaml.YAMLError) as exc:
+        raise ValueError(f"题库同步取消: 源数据非法 ({exc})；目标题库未修改") from exc
+
+    target = hub / "references" / "题库"
+    target.mkdir(parents=True, exist_ok=True)
+    # 先暂存完整三文件，再逐文件原子替换，避免写入被截断的文件。
+    with tempfile.TemporaryDirectory(prefix=".sync-bank-", dir=target.parent) as stage:
+        for name in names:
+            (Path(stage) / name).write_bytes(payloads[name])
+        for name in names:
+            os.replace(Path(stage) / name, target / name)
+    print(f"题库已同步到 {target}；请在真理源仓库审查并 git 提交。")
+    return True
+
 
 # ---------------- 文本处理 ----------------
 
@@ -742,13 +805,15 @@ LIST FROM "30_手写笔记" WHERE file.name != "README"
     for b in broken[:10]:
         print("  [断链]", b)
     if broken:
-        print("⚠ 存在断链, 请检查上面的列表")
+        print("⚠ 存在断链, 请检查上面的列表；未同步题库")
+        raise SystemExit(1)
+    sync_bank()
 
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "split"
     {"split": split, "merge": merge, "audit": audit, "validate": validate,
-     "export": export_obsidian}[cmd]()
+     "export": export_obsidian, "sync-bank": sync_bank}[cmd]()
 
 
 

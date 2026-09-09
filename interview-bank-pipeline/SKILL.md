@@ -8,9 +8,17 @@ version: 1.1.0
 
 三阶段流水线，判断活全部交给 subagent（隔离上下文），机械活全部脚本化。主会话只接触统计、校验结果与审计报告。
 
+## 依赖与整包安装
+
+本仓库按 **1 主入口 + 5 依赖**整包安装，勿单拆或单独关闭组件；六个目录必须位于同一个 skills 父目录。以下相对路径均以本 SKILL.md 所在目录为基准。本节降级分支优先于下文对应依赖调用。缺失组件时先明确报告降级，按下列内联规则继续可执行部分，不虚构题号、项目档案或已完成步骤。
+
+本 skill 是 `agent-project-grill` 依赖的生产端，也为 `project-mock-interview` 与 `interview-resume-pack` 提供题库/建档输入。公共题库发布目标为 `../agent-project-grill/references/题库/`。
+
+单件安装缺主入口时，清洗、分类与图谱生成继续写 workspace；题库同步明确跳过，不创建空壳 skill，不写引擎旧题库位置。缺 project-mock-interview 时仍可生成工作区档案，明确消费端不可用，不宣称完成整包联动；已有项目档案同步机制保持原样。缺 resume-pack/grilling/audit 不影响生产阶段，不尝试调用它们。
+
 ## 工作区（INTERVIEW_WORKSPACE）
 
-- 所有数据（源文档/题库/图谱/缓存）都在**数据工作区**，不在 skill 目录里
+- 生产数据（源文档/题库中间态/图谱/缓存）在**数据工作区**；发布题库仅同步到主入口的公共目录
 - 解析顺序：环境变量 `INTERVIEW_WORKSPACE` → 未设置时回退 `~/桌面/面试文档裁切`（旧本机默认，仅为兼容）
 - 跨平台/新设备：先设置 `INTERVIEW_WORKSPACE`（如 `export INTERVIEW_WORKSPACE=$HOME/.interview-workbench`），再按「跨平台部署」初始化数据
 - 脚本已内嵌于本 skill 的 `scripts/`（pipeline.py / repo_fuse.py / verify_categories.py），通过环境变量定位工作区，可在任意目录执行
@@ -24,6 +32,12 @@ version: 1.1.0
 - `obsidian_vault/` 知识图谱（00_MOC / 10_概念 / 20_索引 / 30_手写笔记 / 40_项目档案）
 - `repos_cache/<owner>__<repo>/` 克隆缓存 + profile.json / match.json / sections/
 - 旧工作区可能还有 pipeline.py / repo_fuse.py / verify_categories.py 的旧副本，可忽略；一律使用本 skill `scripts/` 下的版本
+
+## 题库发布链路
+
+首次工作区缺少题库时，从同包 `../agent-project-grill/references/题库/` 复制 items.json、concepts.yaml、schema.json 中缺失的文件到 workspace，不覆盖已有文件，不从不完整 workspace 反向覆盖仓库。
+
+写侧固定为：pipeline 写 workspace → `python3 <本skill>/scripts/pipeline.py sync-bank` 同步三文件到主入口 → 在真理源仓库审查并 git 提交。`export` 无断链成功后也执行同一同步；缺少源文件则报错且不覆盖公共题库。发布时从仓库版本运行脚本；部署副本有更新时须先回收至仓库审查，提交后再整包分发。扩题后已有项目需重新 match/finalize 才能更新候选路由，项目档案同步机制不变。
 
 ## 阶段一：文档清洗分类（源文档 → categories/）
 
