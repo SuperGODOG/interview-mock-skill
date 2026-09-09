@@ -71,7 +71,7 @@
 
 三个阶段：
 
-1. **文档清洗分类**：面经源文档 → 切分条目 → subagent 分类 → `categories/` + `items.json`（240 题）
+1. **文档清洗分类**：面经源文档 → 切分条目 → subagent 分类 → `categories/` + `items.json`（318 题）
 2. **Obsidian 知识图谱**：`concepts.yaml` → `obsidian_vault/`（MOC / 概念 / 索引 / 项目档案），断链自动校验
 3. **GitHub 项目融合建档**：`repo_fuse fetch → match → subagent 画像/作答 → finalize`，产出 `match.json`（路由表）+ 项目画像 + 项目内作答（带 `文件:行号` 证据），并**同步快照**到 project-mock-interview 的 `references/项目/<slug>/`
 
@@ -108,7 +108,7 @@
 
 | 维度 | project-mock-interview | agent-review-audit |
 |---|---|---|
-| 题库 | 240 道通用大厂题（Agent 架构 / 记忆 / RAG / MCP / 评测 / 八股 / LeetCode） | 243 道 AI Agent & RAG 专项题卡 |
+| 题库 | 318 道通用大厂题（Agent 架构 / 记忆 / RAG / MCP / 评测 / 八股 / LeetCode） | 321 道 AI Agent & RAG 专项题卡 |
 | 匹配方式 | 项目档案 match.json 路由（题目×概念×证据×深度） | route_project.py 按代码特征实时路由 |
 | 点评 | 四维点评 + 答案要点（从作答档摘录，教学友好） | 三维打分（架构 / 生产就绪 / 健壮性，各 100 起扣） |
 | 输出 | 逐题问答 + 四维得分表 + 追问 | JSON 审查报告 + 2-3 个交互追问 |
@@ -152,7 +152,7 @@ interview-mock-skill/
 ├── interview-bank-pipeline/      # 建档/生产端：清洗分类 + 图谱 + 项目融合（脚本内嵌）
 ├── interview-resume-pack/        # 备战包生成：漏斗稿 + 深钻点 + 防守材料（scripts/evidence_gate.py）
 ├── project-mock-interview/       # 拷打引擎：读相邻主入口公共题库 + 自身项目档案快照 + 四维点评
-├── agent-review-audit/           # 可选体检：243 道 Agent/RAG 题卡 + 三维打分
+├── agent-review-audit/           # 可选体检：321 道 Agent/RAG 题卡 + 三维打分
 ├── grilling/                     # 深挖原语（来自 mattpocock/skills，MIT）
 ├── .github/                      # GitHub Pages 部署工作流
 ├── .pages/                       # 文档站源（mkdocs）

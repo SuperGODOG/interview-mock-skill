@@ -167,3 +167,44 @@ concepts:
     keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, Leetcode]
     summary: 手撕算法与代码题：经典 DP、数据结构实现与并发场景设计题。
     related: []
+
+  - name: 秒杀库存与高并发扣减
+    aliases: [秒杀系统, 秒杀库存, 分桶库存, Flash Sale]
+    keywords: [秒杀, 秒杀系统, 秒杀库存, 分桶库存, 库存热点, Flash Sale, 超卖]
+    summary: 高并发秒杀的库存与订单链路；核心权衡是流量保护、原子扣减、热点拆分、异步落库与一致性修复。
+    related: [Redis 与缓存, 容错限流与高可用, 存储选型与状态持久化]
+  - name: RabbitMQ与可靠消息
+    aliases: [RabbitMQ, Quorum Queue, Outbox]
+    keywords: [RabbitMQ, Quorum Queue, Producer, Exchange, Queue, Consumer, Outbox, PendingList]
+    summary: 消息发布、复制、确认、重试和延迟事件的可靠性设计。
+    related: [容错限流与高可用, 幂等性与去重, 秒杀库存与高并发扣减]
+  - name: RPC与服务治理
+    aliases: [RPC, 服务发现, 动态代理]
+    keywords: [RPC, 远程过程调用, 序列化, 半包, 粘包, 注册中心, 动态代理, 重试, 服务发现]
+    summary: 微服务远程调用、协议边界、服务发现和容错治理。
+    related: [容错限流与高可用, 存储选型与状态持久化]
+  - name: RAG表示与代码知识库
+    aliases: [Embedding, 向量数据库, Code RAG]
+    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG]
+    summary: 表示学习、向量/关键词检索与代码结构化切块的知识库工程。
+    related: [RAG 与知识库, 混合检索与重排, 文档切分与解析]
+  - name: 文档切分与解析
+    aliases: [Chunking, 递归字符切分, 表格解析]
+    keywords: [Chunk, 切分, 递归字符切分, chunk size, 表格, PDF, OCR]
+    summary: 以结构、语义和长度约束组织文档与代码片段，处理超长、表格、图片和父子上下文。
+    related: [RAG 与知识库, 长上下文与注意力]
+  - name: Agent会话与状态恢复
+    aliases: [会话隔离, sessionID, checkpoint]
+    keywords: [会话隔离, sessionID, 重连, checkpoint, 中断恢复, 状态机]
+    summary: 多会话隔离、清理、断线重连和任务恢复的状态管理。
+    related: [Agent 记忆机制, 上下文管理与压缩]
+  - name: Agent工具与多智能体协作
+    aliases: [Tool Registry, A2A, SubAgent]
+    keywords: [Tool Registry, 自定义工具, A2A, SubAgent, 决策树, Workflow, 工具执行器]
+    summary: 工具注册、权限确认、跨 Agent 通信、上下文边界和故障兜底。
+    related: [技能体系, Multi-Agent 多智能体协作, 容错限流与高可用]
+  - name: Agent评测与Trace事实
+    aliases: [Eval Case, Grader, Trace]
+    keywords: [Eval Case, Grader, Trace, Hit@1, Hit@3, 数据飞轮, 评测事实]
+    summary: 从 Case/Run/Trace 到评分的可复现评测链路，以及时效 Case 和数据飞轮治理。
+    related: [评测体系与 Benchmark, Badcase 闭环与数据飞轮]

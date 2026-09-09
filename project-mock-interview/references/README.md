@@ -30,8 +30,8 @@ done
 
 ## 文件清单
 
-- `../../agent-project-grill/references/题库/items.json` — 240 题（id/line/text/major/minor/answer/prereq/downstream/status），唯一题目原文来源
-- `../../agent-project-grill/references/题库/concepts.yaml` — 33 概念词典（含 aliases/keywords/summary/related）
+- `../../agent-project-grill/references/题库/items.json` — 318 题（id/line/text/major/minor/answer/prereq/downstream/status），唯一题目原文来源
+- `../../agent-project-grill/references/题库/concepts.yaml` — 41 概念词典（含 aliases/keywords/summary/related）
 - `../../agent-project-grill/references/题库/schema.json` — 7 大类/14 小类骨架
 - `项目/<slug>/match.json` — 路由表（候选题目 + hit_concepts + evidence + depth）
 - `项目/<slug>/项目画像.md` — 技术档案（自研项目含钩子，第三方项目含谈资点+误报清单）

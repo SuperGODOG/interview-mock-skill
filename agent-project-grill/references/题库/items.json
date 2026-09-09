@@ -7633,5 +7633,1955 @@
   "prereq": [],
   "downstream": [],
   "status": "待复习"
+ },
+ {
+  "id": "L393",
+  "line": 393,
+  "kind": "question",
+  "text": "请完整介绍一个秒杀库存项目：业务场景、核心功能，以及从限流到订单落库、超时关单和对账补偿的完整链路。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查业务目标、限流、Lua 预扣、一人一单、MQ 削峰、MySQL 落库、超时状态机和补偿证据。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L394",
+  "line": 394,
+  "kind": "question",
+  "text": "秒杀中用 Redis Set 保存领取用户会遇到什么问题？用户达到一亿时如何处理 BigKey、拆桶失衡和一人一单？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查 Set 与 Hash/Bitmap/Bloom/String Key 的边界、内存上限、桶倾斜和唯一约束替代。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L395",
+  "line": 395,
+  "kind": "question",
+  "text": "单实例秒杀系统改造成分布式系统时，需要改造哪些状态、锁、库存、消息和数据存储部分？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查无状态化、共享状态、分布式库存、幂等、分片、限流和故障隔离。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L396",
+  "line": 396,
+  "kind": "question",
+  "text": "分布式秒杀中如何同时保证稳定性、库存不超卖和关键数据一致性？哪些约束必须强一致？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查限流降级、原子扣减、订单唯一、消息可靠、对账修复及最终一致窗口。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L397",
+  "line": 397,
+  "kind": "question",
+  "text": "Redis Cluster 中 Lua 涉及多个 key 时如何处理跨 slot？库存先 GET 再减一、GET+SET 与直接 DECR 有什么差异？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查 hash tag、同 slot 约束、Lua 原子边界、DECR 返回值和替代方案。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L398",
+  "line": 398,
+  "kind": "question",
+  "text": "秒杀系统的分桶库存如何设计？固定按 userId 哈希会不会出现有库存却领不到？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查桶路由、热点倾斜、动态分配、扣减上限、回收补偿和总量校验。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L399",
+  "line": 399,
+  "kind": "question",
+  "text": "Redis 与 MySQL 库存同步有哪些方式？如何选择数据源、同步频率和扣减结果的合并策略？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查同步写、MQ、CDC、批量合并、版本/事件顺序、幂等和定期校准。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L400",
+  "line": 400,
+  "kind": "question",
+  "text": "Redis 到 MySQL 异步消息积压或 PendingList 长时间未处理时怎么办？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "消息队列",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查积压监控、背压、消费者扩容、重试/死信、认领、毒消息隔离和对账。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L401",
+  "line": 401,
+  "kind": "question",
+  "text": "MySQL 单行库存成为热点写入时如何改造？为什么项目中可能同时使用乐观锁和 Redisson 分布式锁？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查热点拆分/分桶、乐观锁 SQL、锁职责边界、冲突率和一致性取舍。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L402",
+  "line": 402,
+  "kind": "question",
+  "text": "Redis ZSet 滑动窗口限流怎么设计？key、score、member 分别是什么，ZSet 底层为何是 SkipList 加 HashTable？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Redis",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查时间窗口清理、并发判定、成员唯一性、跳表排序、哈希定位和复杂度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L403",
+  "line": 403,
+  "kind": "question",
+  "text": "为什么秒杀项目选 RabbitMQ 而不是吞吐更高的 Kafka？Producer、Exchange、Queue、Consumer 如何串联？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "消息队列",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查延迟、路由、确认机制、消费模型、运维成本与业务吞吐匹配。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L404",
+  "line": 404,
+  "kind": "question",
+  "text": "RabbitMQ 如何在 Producer、Broker、Consumer 三端防止消息丢失？Quorum Queue 的 Leader 故障和多数派提交如何工作？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "消息队列",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查发布确认、持久化、复制、ACK、重投、Raft 多数派和未同步消息边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L405",
+  "line": 405,
+  "kind": "question",
+  "text": "消费者业务成功但 ACK 失败导致消息重投时，唯一索引、分布式锁和 Inbox/messageId 哪种幂等方案更合适？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "消息队列",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查幂等键、唯一约束、状态机、Inbox 生命周期、重复响应和适用条件。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L406",
+  "line": 406,
+  "kind": "question",
+  "text": "订单落库后要发送十五分钟关单事件，如何保证订单写入和延迟事件一致？Outbox 的事务边界是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "消息队列",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查本地事务覆盖范围、可靠投递、重复发送、延迟消费和关单状态机。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L407",
+  "line": 407,
+  "kind": "question",
+  "text": "前端拿 orderId 轮询订单结果时，高并发轮询压力如何控制？Redis 回滚超时时如何用 ZSet 对账补偿？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查退避/推送替代、对账记录、订单状态、超时扫描和补偿幂等。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L408",
+  "line": 408,
+  "kind": "question",
+  "text": "用户签到统计如何设计？Bitmap、Set、HyperLogLog 等方案如何选择，内存规模如何估算？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查统计口径、稀疏/稠密选择、时间范围、误差语义、内存估算和清理。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L409",
+  "line": 409,
+  "kind": "question",
+  "text": "DB 扣了十条库存而 Redis 显示扣了十二条，能否直接认定有两条失败？如何建立对账证据？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "五_业务流相关",
+  "minor": "五_业务流相关",
+  "tag": "秒杀/分布式",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查时间窗口、重复/乱序、回滚、订单状态和观测链路，不能仅凭瞬时计数下结论。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L410",
+  "line": 410,
+  "kind": "question",
+  "text": "Redis 集群故障切换时分布式锁可靠吗？除了 Redis 锁还有哪些方案？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Redis",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查异步复制丢锁窗口、fencing token、数据库约束、租约、业务幂等和故障恢复。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L411",
+  "line": 411,
+  "kind": "question",
+  "text": "RPC 框架主要解决什么问题？一次 RPC 从代理、服务发现、编码、网络、解码到响应的完整流程是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查远程调用抽象、序列化时点、服务发现、超时治理和请求/响应边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L412",
+  "line": 412,
+  "kind": "question",
+  "text": "TCP 为什么会出现半包和粘包？如何用长度字段、固定长度或分隔符设计报头协议？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查字节流边界、拆包粘包、版本兼容、最大帧长和恶意长度防护。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L413",
+  "line": 413,
+  "kind": "question",
+  "text": "JDK 动态代理和 CGLIB 有什么区别？同类方法调用 @Transactional 方法为什么可能不生效？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查接口/子类代理限制、自调用绕过代理、拦截器边界和代理对象使用。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L414",
+  "line": 414,
+  "kind": "question",
+  "text": "注册中心节点全挂、watch 已送达但网络或实例是假死时，客户端如何从本地缓存选实例？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查快照、租约、心跳、主动探活、版本号、熔断、摘除和恢复。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L415",
+  "line": 415,
+  "kind": "question",
+  "text": "RPC 或服务调用的超时、重试、熔断和降级如何设计？如何避免重试风暴和非幂等重复执行？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查超时预算、指数退避、重试条件、幂等键、隔离和降级响应。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L416",
+  "line": 416,
+  "kind": "question",
+  "text": "不同微服务之间如何通信？消息队列与阻塞队列分别解决什么问题？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "RPC/网络",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查同步/异步通信、进程边界、可靠性、顺序、持久化和进程内协调差异。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L417",
+  "line": 417,
+  "kind": "question",
+  "text": "CompletableFuture 三个方法并行时一个失败怎么办？线程池机制、超时、重试和降级如何设计？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查异常传播、allOf/handle/exceptionally、线程池选择、阻塞风险和预算。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L418",
+  "line": 418,
+  "kind": "question",
+  "text": "Embedding 的原理和训练方法是什么？向量数据库如何建立索引、召回和持久化？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查表示学习、对比学习/微调、向量归一化、索引结构、召回与更新边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L419",
+  "line": 419,
+  "kind": "question",
+  "text": "余弦相似度有什么特点？还可以使用哪些相似度或距离，如何与向量归一化和索引选择配合？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查方向相似性、范数影响、点积/欧氏距离及实现一致性。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L420",
+  "line": 420,
+  "kind": "question",
+  "text": "关键词片段如何检索？BM25 的核心计算原理是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查倒排索引、词频、逆文档频率、长度归一化和参数调节。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L421",
+  "line": 421,
+  "kind": "question",
+  "text": "BM25 和向量检索结果如何融合？融合后为什么还需要重排或 LLM 筛选？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查候选归一化、加权/RRF、去重、重排成本和误召回控制。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L422",
+  "line": 422,
+  "kind": "question",
+  "text": "文档有章节、一级标题、二级标题和正文时，父块/子块如何划分？递归字符切分的执行逻辑是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查结构优先、分隔符递归、chunk size/overlap、元数据继承和父子关联。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L423",
+  "line": 423,
+  "kind": "question",
+  "text": "递归切分后仍超长怎么办？表格、图片和超长 PDF 表格如何切分，怎样避免表格行残缺？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查表格结构化、行级切分、跨块表头、OCR/图片描述和超长降级。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L424",
+  "line": 424,
+  "kind": "question",
+  "text": "Code RAG 如何按 Java 方法、JavaParser AST 和 MyBatis XML 切 Chunk？Lua 等非 Java 文件怎么处理？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查语法边界、类/方法层级、配置关联、父级上下文和不可解析文件降级。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L425",
+  "line": 425,
+  "kind": "question",
+  "text": "用户只问“这个项目是做什么的”，方法级代码 Chunk 可能召回什么？如何解决全局问题与局部粒度不匹配？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "7.数据库",
+  "tag": "RAG",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查项目级摘要、模块索引、父子 Chunk、查询路由和全局/局部混合召回。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L426",
+  "line": 426,
+  "kind": "question",
+  "text": "Hit@1/Hit@3 已有基线后，继续提升 RAG 召回精确度应从哪些方向定位和优化？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Evaluation",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查数据、切块、Embedding、混合召回、重排、阈值和误差分析闭环。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L427",
+  "line": 427,
+  "kind": "question",
+  "text": "意图识别→多意图拆分→并发 RAG→总结链路的 Trace 应记录什么？如何转换成 Grader 可用的评测事实？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Evaluation",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查 case/run 标识、路由、候选、工具、延迟、输入输出和可复现事实。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L428",
+  "line": 428,
+  "kind": "question",
+  "text": "Eval Case 带有用户、商家、订单等时效状态时，如何保证测试可重复并处理 Case 失效？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Evaluation",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查状态快照、时间冻结、版本化期望、动态断言和重录策略。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L429",
+  "line": 429,
+  "kind": "question",
+  "text": "Tool Registry 如何支持第三方或用户快速注册自定义 Tool？需要哪些 schema、权限、版本和健康检查？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "3.工具相关",
+  "tag": "Skill",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查声明式元数据、schema 校验、权限隔离、版本、沙箱、审核和路由。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L430",
+  "line": 430,
+  "kind": "question",
+  "text": "工具执行器如何处理参数错误、超时、重试、Confirmation、回滚，以及“下游已成功但请求超时”的不确定结果？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "3.工具相关",
+  "tag": "Skill",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查副作用分级、幂等键、状态查询、Outbox、补偿和不可查询下游边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L431",
+  "line": 431,
+  "kind": "question",
+  "text": "Agent 如何实现不同任务和会话隔离？sessionID 存在哪里，会话内容如何清理，窗口大小如何定义？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "5.agent记忆设计",
+  "tag": "Memory",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查租户/会话键、存储分层、TTL、摘要压缩、上下文预算和清理幂等。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L432",
+  "line": 432,
+  "kind": "question",
+  "text": "聊天重连或 Agent 执行中断后如何继续？短期/长期记忆如何实现，何时触发摘要压缩？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "5.agent记忆设计",
+  "tag": "Memory",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 checkpoint、事件日志、幂等恢复、记忆写入/召回和压缩触发。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L433",
+  "line": 433,
+  "kind": "question",
+  "text": "多轮对话和复杂任务中如何管理状态并保持用户核心意图？如何避免中心 Agent 上下文爆炸？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "6.agent处理情景的架构设计",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查状态分层、意图摘要、上下文引用、结果压缩、隔离和全局/局部状态。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L434",
+  "line": 434,
+  "kind": "question",
+  "text": "ReAct 循环怎么实现？每步输入输出格式如何约定，Tool Call 不合法或参数错误怎么容错？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "2.agent主流框架",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查状态机、结构化 schema、解析修复、重试上限、观测和安全拦截。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L435",
+  "line": 435,
+  "kind": "question",
+  "text": "多 Agent 如何通信？A2A、决策树、网状拓扑和预编译 Workflow 如何取舍？SubAgent 有哪些问题？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "6.agent处理情景的架构设计",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查消息契约、上下文边界、失败传播、拓扑复杂度和确定性/灵活性。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L436",
+  "line": 436,
+  "kind": "question",
+  "text": "多意图任务为什么有时先用规则而不是 LLM 拆解？两条执行路径分别适合什么任务，为什么设计成两套架构？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "6.agent处理情景的架构设计",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查确定性、低延迟、可解释性与复杂语义兜底，以及路径差异。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L437",
+  "line": 437,
+  "kind": "question",
+  "text": "某个子 Agent 挂掉、超时或反复调用同一工具时，兜底和防死循环如何设计？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "6.agent处理情景的架构设计",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查取消、重试上限、熔断、fallback、进度检测和终止条件。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L438",
+  "line": 438,
+  "kind": "question",
+  "text": "用户说“总结这篇公众号文章，然后发到群里”，Agent 的完整执行流程是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "6.agent处理情景的架构设计",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查读取、摘要、预览、权限/Confirmation、写操作、回执和失败补偿。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L439",
+  "line": 439,
+  "kind": "question",
+  "text": "Agent 如何保证分析和输出准确？评测 Case 覆盖、优质 Case 筛选、集合替换和数据飞轮如何持续？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Evaluation",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查任务成功、事实性、轨迹、工具、延迟成本、多样性、版本和替换规则。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L440",
+  "line": 440,
+  "kind": "question",
+  "text": "Agent 成本如何控制？Token 优化、上下文裁剪、模型路由和效果/延迟预算如何协同？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Evaluation",
+  "assigned": true,
+  "depth": 4,
+  "answer": {
+   "core": "检查预算、分层模型、缓存、并发、截断和质量回归。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L441",
+  "line": 441,
+  "kind": "question",
+  "text": "自己写过什么 Skill？一个好的 Skill 应具备什么结构？大型 Skill 如何分层，2000 行 Skill 如何优化？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "3.工具相关",
+  "tag": "Skill",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查触发条件、渐进式披露、依赖边界、可执行步骤、示例、验证和拆分。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L442",
+  "line": 442,
+  "kind": "question",
+  "text": "MCP 的 stdio 与 Streamable HTTP 在连接、生命周期、并发和部署上有什么区别？Streamable HTTP 是否等同于音视频流？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "3.工具相关",
+  "tag": "Skill",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查传输层与消息流语义、会话/背压、断线恢复和媒体协议边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L443",
+  "line": 443,
+  "kind": "question",
+  "text": "自研 Agent 相比开源 Agent 有什么优点？服务端架构和 Agent 架构如何配合，最难的工程问题如何定位？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "8.工程落地",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查职责边界、扩展点、资源治理、可观测性和证据化取舍。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L444",
+  "line": 444,
+  "kind": "question",
+  "text": "Agent 执行时如何感知当前状态？通过日志和 Trace 如何定位卡住的节点或工具？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "二_Agent应用开发相关",
+  "minor": "9.业务评估(性能优化与诊断)",
+  "tag": "Agent",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查状态事件、span、心跳、超时、队列和用户可见进度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L445",
+  "line": 445,
+  "kind": "question",
+  "text": "Redis 五大数据结构底层和常用命令是什么？BigKey、热点 Key、过期删除和淘汰策略如何处理？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Redis",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 string/list/hash/set/zset、SCAN/UNLINK、热点识别、惰性/定期删除和淘汰边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L446",
+  "line": 446,
+  "kind": "question",
+  "text": "Redis 事务和 MySQL 事务有什么区别？MULTI/EXEC/WATCH 能否回滚并保证原子性？Redis 持久化如何保证可靠性？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Redis",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查命令队列原子执行与回滚缺失、乐观监视、RDB/AOF 和故障恢复。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L447",
+  "line": 447,
+  "kind": "question",
+  "text": "MySQL 四种隔离级别如何实现？可重复读如何缓解幻读，当前读加写锁能否看到并发提交的新记录？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 Read View、快照读/当前读、间隙锁/临键锁和隔离级别差异。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L448",
+  "line": 448,
+  "kind": "question",
+  "text": "Redo Log、Undo Log、Binlog 分别做什么？为什么需要两阶段提交，Binlog 为什么不能单独作为恢复日志？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查崩溃恢复、回滚、复制、顺序和 redo/binlog 协调。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L449",
+  "line": 449,
+  "kind": "question",
+  "text": "B Tree 与 B+Tree 有什么区别？InnoDB 为什么用 B+Tree，二级索引叶子/非叶子节点存什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查扇出、范围扫描、聚簇/二级索引、回表和叶子链表。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L450",
+  "line": 450,
+  "kind": "question",
+  "text": "联合索引 (A,B,C) 遇到 A=1、B>10、C<20 或条件顺序变化时，哪些列参与定位？Server 层和存储引擎层分别做什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查最左匹配、范围截断、ICP、回表和 EXPLAIN 验证。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L451",
+  "line": 451,
+  "kind": "question",
+  "text": "HashMap 扩容和红黑树转换条件是什么？并发为什么不安全，ConcurrentHashMap 如何保证安全？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查桶数组、负载因子、树化阈值、数据竞争和节点级同步。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L452",
+  "line": 452,
+  "kind": "question",
+  "text": "synchronized 实例方法和 static 方法分别锁什么？竞争失败线程怎么办？死锁四条件和避免方法是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查对象监视器、Class 锁、阻塞/唤醒、锁顺序和四条件。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L453",
+  "line": 453,
+  "kind": "question",
+  "text": "volatile 如何实现可见性？ThreadLocal 为什么可能内存泄漏，项目中如何规避？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 happens-before、非原子性、弱引用 key、线程池生命周期和 remove。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L454",
+  "line": 454,
+  "kind": "question",
+  "text": "JVM 内存分区、CMS 和 G1 垃圾回收流程及优缺点是什么？线上如何判断 GC 瓶颈并调优？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查区域职责、停顿/吞吐取舍、日志指标证据和参数验证。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L455",
+  "line": 455,
+  "kind": "question",
+  "text": "Spring 三级缓存、Filter、Interceptor 和 AOP 代理分别解决什么问题？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 Bean 生命周期/循环依赖、请求链路和代理拦截边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L456",
+  "line": 456,
+  "kind": "question",
+  "text": "Java 泛型如何实现？类型擦除对数组、重载、通配符和运行时类型判断有什么限制？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "Java",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查编译期检查、擦除、桥接方法、通配符和反射边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L457",
+  "line": 457,
+  "kind": "question",
+  "text": "TCP 和 UDP 有什么区别？TCP 如何可靠传输并进行拥塞避免，UDP 适合什么场景？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查连接、顺序、重传、流控、拥塞控制、无连接和应用层可靠性。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L458",
+  "line": 458,
+  "kind": "question",
+  "text": "Elasticsearch 的核心组件、倒排索引、分片副本和查询流程是什么？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查文档模型、segment、分片路由、召回排序和一致性边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L459",
+  "line": 459,
+  "kind": "question",
+  "text": "软连接是什么？创建后命令行仍不能直接运行命令的原因有哪些？算法运行内存如何估算？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "四_八股相关",
+  "minor": "四_八股相关",
+  "tag": "408 and SQL",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查 inode/path/PATH、可执行权限、shell 查找和空间复杂度与实际内存。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L460",
+  "line": 460,
+  "kind": "question",
+  "text": "数组中出现次数超过 n/2 的元素如何用摩尔投票求出？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查候选抵消、不变量、第二遍验证和 O(n)/O(1)。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L461",
+  "line": 461,
+  "kind": "question",
+  "text": "请用非递归方法求二叉树两个节点的最近公共祖先。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查父指针/路径/显式栈、节点缺失和复杂度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L462",
+  "line": 462,
+  "kind": "question",
+  "text": "请按 ACM 模式实现二叉树的序列化与反序列化（LC297）。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查空节点标记、序列化格式、队列/栈和往返一致性。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L463",
+  "line": 463,
+  "kind": "question",
+  "text": "请实现二叉树层序遍历，并说明队列空间复杂度。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查逐层边界、空树和 O(n)/O(width)。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L464",
+  "line": 464,
+  "kind": "question",
+  "text": "请实现编辑距离，并说明动态规划状态、转移和空间优化。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查插入/删除/替换转移、初始化、滚动数组和复杂度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L465",
+  "line": 465,
+  "kind": "question",
+  "text": "LC667：构造相邻数字绝对差恰好有 k 种的数组。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查构造不变量、边界、去重和复杂度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L466",
+  "line": 466,
+  "kind": "question",
+  "text": "给定 n 和一组数字，组成一个不超过 n 的最大数字。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查位数/字典序比较、前导零、不可行情况和搜索复杂度。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L467",
+  "line": 467,
+  "kind": "question",
+  "text": "最长无重复字符子串如何用滑动窗口和 Set 在 O(n) 内解决？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查左右指针、不变量、删除/移动规则和边界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L468",
+  "line": 468,
+  "kind": "question",
+  "text": "请手写一个带超时控制的工具调用函数，超时后自动重试或降级。",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "Leetcode相关",
+  "minor": "Leetcode相关",
+  "tag": null,
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查取消传播、超时预算、重试条件、幂等和 fallback。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L469",
+  "line": 469,
+  "kind": "question",
+  "text": "介绍你负责的核心模块、项目功能点和完整架构；如何用证据讲清最难技术问题的排查与收获？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "国企特别版",
+  "minor": "国企特别版",
+  "tag": "项目表达/行为面",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查贡献边界、架构主线、问题定位证据和诚实划界。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
+ },
+ {
+  "id": "L470",
+  "line": 470,
+  "kind": "question",
+  "text": "HR 面如何回答稳定性、到岗、岗位意愿、常用 App、AI 使用和 Codex 解决实际问题？",
+  "in_comment": false,
+  "comment_label": null,
+  "major": "国企特别版",
+  "minor": "国企特别版",
+  "tag": "项目表达/行为面",
+  "assigned": true,
+  "depth": 3,
+  "answer": {
+   "core": "检查事实一致、时间条件、个人贡献和可验证案例。",
+   "steps": [
+    "概念与场景澄清",
+    "架构/机制拆解",
+    "工程权衡与失败边界",
+    "证据、指标与验证"
+   ]
+  },
+  "prereq": [],
+  "downstream": [],
+  "status": "待复习"
  }
 ]

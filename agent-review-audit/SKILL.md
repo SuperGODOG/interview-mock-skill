@@ -1,6 +1,6 @@
 ---
 name: agent-review-audit
-description: 基于项目代码特征自动路由匹配 243 道大厂高品质 AI Agent & RAG 面试审查题，进行硬核代码诊断、架构 Gap 分析与交互提问。
+description: 基于项目代码特征自动路由匹配 321 道大厂高品质 AI Agent & RAG 面试审查题，进行硬核代码诊断、架构 Gap 分析与交互提问。
 version: 3.1.0
 ---
 
@@ -13,7 +13,7 @@ version: 3.1.0
 - **L0 路由**：运行 `python3 scripts/route_project.py --path <代码路径>`，读取输出的 matched_concept / target_cards / candidates / evidence_anchors（约 400 tokens）
 - **L1 题卡**：按需读取 Top2 题卡全文 `references/03_Cards/Qxxx.md`（每张约 1.5KB）
 - **L2 证据切片**：对 evidence_anchors 中的文件运行 `python3 scripts/slice_code.py <file> <start_line>`，每片 ≤150 行（约 1,200 tokens）
-- **禁止**：整读 references/03_Cards 全量（243 张）、对未命中文件全量扫描、一次性读入多个大文件
+- **禁止**：整读 references/03_Cards 全量（321 张）、对未命中文件全量扫描、一次性读入多个大文件
 
 ## 🎯 审查 SOP（严格按序执行）
 
@@ -64,6 +64,6 @@ version: 3.1.0
 
 本仓库按 **1 主入口 + 5 依赖**整包安装，勿单拆或单独关闭组件；六个目录必须位于同一个 skills 父目录。以下相对路径均以本 SKILL.md 所在目录为基准。缺失组件时先明确报告降级，按下列内联规则继续可执行部分，不虚构题号、项目档案或已完成步骤。
 
-本 skill 是 `agent-project-grill` 的可选体检依赖，仅在用户要求审查时使用。243 题卡、schema 与三维打分体系是独立语料，不读取公共 240 题库。
+本 skill 是 `agent-project-grill` 的可选体检依赖，仅在用户要求审查时使用。321 题卡、schema 与三维打分体系是独立语料，不读取公共 318 题库。
 
 单件安装缺主入口或其余组件时，直接按本 SKILL 的路由、证据切片、打分与复盘流程执行；无须调用缺失组件。题卡未命中按上文既有通用架构审查兜底，不用公共题库替换独立题卡。

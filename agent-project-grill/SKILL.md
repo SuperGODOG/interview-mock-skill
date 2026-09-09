@@ -5,7 +5,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 # Agent 项目拷打（建档检查 → 出题 → 拷打 → 深挖 → 复盘）
 
-整场上下文预算 ≤20K tokens。四个 skill 的分工：interview-bank-pipeline 建档（生产端），interview-resume-pack 备战包/漏斗稿（生产端，拷打前置，见其 SKILL.md），project-mock-interview 出题点评（主循环），grilling 深挖（补课）。核心承诺：**每题有记录、低分有 grilling、场场有复盘、复习有学习卡**。
+整场上下文预算 ≤20K tokens。五个依赖 skill 的分工：interview-bank-pipeline 建档（生产端），interview-resume-pack 备战包/漏斗稿（生产端，拷打前置，见其 SKILL.md），project-mock-interview 出题点评（主循环），agent-review-audit 代码体检（按需），grilling 深挖（补课）。核心承诺：**每题有记录、低分有 grilling、场场有复盘、复习有学习卡**。
 
 ## 依赖与整包安装
 
@@ -17,7 +17,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 - 缺 pipeline：已有项目档案照常使用；未建档时基于用户提供的代码与公共题库按题提问，标注“未建档临时练习”，不声称建档或同步成功。
 - 缺 resume-pack：使用已有完整备战包；没有则跳过表达材料前置，正常练习。
 - 缺 project-mock-interview：从本 skill 公共题库按 id 提取单题，一次一问；按概念理解、原理深度、落地证据、结构完整度各 1–5 分点评（1=错误/空泛，3=方向对但缺细节，5=准确且有证据）；无档案则仅用实际代码证据，继续阶段 2–3。
-- 缺 agent-review-audit：日常练习不受影响；用户要求体检时按架构、生产就绪、健壮性检查给定代码片段，记录证据与待核实项，不冒充 243 题卡审查。
+- 缺 agent-review-audit：日常练习不受影响；用户要求体检时按架构、生产就绪、健壮性检查给定代码片段，记录证据与待核实项，不冒充 321 题卡审查。
 - 缺 grilling：执行阶段 2 的一次一问、推荐答案、先查代码内联规则。
 - 工作区不可用且 pipeline 缺失：仅在会话内记录复盘与学习卡，明确尚未落盘，待提供可写工作区后保存。
 

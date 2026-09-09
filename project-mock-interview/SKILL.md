@@ -1,6 +1,6 @@
 ---
 name: project-mock-interview
-description: 针对 GitHub 项目的面试拷问引擎。根据项目内容路由匹配内嵌题库（240 道大厂面试题合集），逐题提问、四维点评、复盘沉淀；也支持对代码做三维诊断审查。当用户说"练面试 / 拷问我 / 针对我的项目出题 / 模拟面试 / 开一场 / 审查这个项目"时使用。题库由同包 agent-project-grill 提供，项目档案位于自身 references/。
+description: 针对 GitHub 项目的面试拷问引擎。根据项目内容路由匹配内嵌题库（318 道大厂面试题合集），逐题提问、四维点评、复盘沉淀；也支持对代码做三维诊断审查。当用户说"练面试 / 拷问我 / 针对我的项目出题 / 模拟面试 / 开一场 / 审查这个项目"时使用。题库由同包 agent-project-grill 提供，项目档案位于自身 references/。
 use_when: 用户要求针对其 GitHub 项目（tripplanner/skillforge/JeecgBoot 或其他）进行面试拷问、模拟面试、出题练习，或要求对代码做面试向审查诊断时。触发词：练面试/拷问我/模拟面试/针对我的项目出题/审查这个项目。
 version: 2.1.0
 ---
@@ -19,7 +19,7 @@ version: 2.1.0
 
 先绑定 `BANK_ROOT` 为 `../agent-project-grill/references/题库/`；相对路径不存在时回退自身 `references/题库/`（兼容单件安装）。检查 items.json、concepts.yaml、schema.json 齐全后再读；不可用时执行上方降级规则。
 
-- `BANK_ROOT/items.json` — 240 题结构化语料（id/line/text/major/minor/**answer 答题框架**/**prereq+downstream 学习路径**/**status 初始值**）。注意：**不包含 concepts/depth 字段**（概念与深度在 match.json 里），**status 只作初始快照**（运行期状态写 vault 复盘文件）
+- `BANK_ROOT/items.json` — 318 题结构化语料（id/line/text/major/minor/**answer 答题框架**/**prereq+downstream 学习路径**/**status 初始值**）。题库不保存 concepts；`depth` 仅作为新增题的初始深度，项目路由以 `match.json` 的命中深度为准。**status 只作初始快照**（运行期状态写 vault 复盘文件）
 - `BANK_ROOT/concepts.yaml` + `BANK_ROOT/schema.json` — 概念词典与分类骨架
 - `references/项目/<slug>/` — 每个项目一套：
   - `match.json` 路由表（候选题目 + 命中概念 + 证据文件 + depth）

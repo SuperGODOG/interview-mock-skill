@@ -603,3 +603,239 @@ concept_career_interview:
   - 国企
   cards:
   - Q243
+
+concept_flash_sale_batch:
+  name: 秒杀库存与高并发扣减
+  keywords:
+  - 秒杀
+  - 秒杀系统
+  - 库存
+  - 分桶库存
+  - 预扣
+  - 超卖
+  cards:
+  - Q244
+  - Q245
+  - Q246
+  - Q247
+  - Q248
+  - Q249
+  - Q250
+  - Q252
+  - Q258
+  - Q260
+
+concept_rabbitmq_reliability_batch:
+  name: RabbitMQ与可靠消息
+  keywords:
+  - RabbitMQ
+  - Quorum Queue
+  - Producer
+  - Exchange
+  - Queue
+  - Consumer
+  - Outbox
+  - PendingList
+  cards:
+  - Q251
+  - Q254
+  - Q255
+  - Q256
+  - Q257
+
+concept_rpc_service_batch:
+  name: RPC、服务发现与容错
+  keywords:
+  - RPC
+  - 序列化
+  - 半包
+  - 粘包
+  - 动态代理
+  - 注册中心
+  - watch
+  - 假死
+  - 重试
+  - 服务发现
+  - 微服务
+  cards:
+  - Q262
+  - Q263
+  - Q264
+  - Q265
+  - Q266
+  - Q267
+
+concept_rag_engineering_batch:
+  name: RAG检索与代码知识库
+  keywords:
+  - RAG
+  - Embedding
+  - 向量数据库
+  - 余弦相似度
+  - BM25
+  - 关键词
+  - 混合召回
+  - Chunk
+  - 切分
+  - JavaParser
+  - MyBatis
+  - Code RAG
+  cards:
+  - Q269
+  - Q270
+  - Q271
+  - Q272
+  - Q273
+  - Q274
+  - Q275
+  - Q276
+
+concept_agent_state_tools_batch:
+  name: Agent状态、工具与多智能体
+  keywords:
+  - Agent
+  - 会话
+  - sessionID
+  - ReAct
+  - Tool
+  - A2A
+  - SubAgent
+  - 决策树
+  - Workflow
+  - MCP
+  - 死循环
+  cards:
+  - Q280
+  - Q281
+  - Q282
+  - Q283
+  - Q284
+  - Q285
+  - Q286
+  - Q287
+  - Q288
+  - Q289
+  - Q292
+  - Q293
+  - Q294
+  - Q295
+
+concept_agent_eval_batch:
+  name: Agent评测、Trace与成本
+  keywords:
+  - 评测
+  - Evaluation
+  - Case
+  - Grader
+  - Trace
+  - Hit@1
+  - Hit@3
+  - 数据飞轮
+  - 成本
+  - Token
+  cards:
+  - Q277
+  - Q278
+  - Q279
+  - Q290
+  - Q291
+
+concept_java_batch:
+  name: Java集合、并发与JVM
+  keywords:
+  - HashMap
+  - ConcurrentHashMap
+  - synchronized
+  - volatile
+  - ThreadLocal
+  - CompletableFuture
+  - JVM
+  - CMS
+  - G1
+  - 泛型
+  - Spring
+  cards:
+  - Q268
+  - Q302
+  - Q303
+  - Q304
+  - Q305
+  - Q306
+  - Q307
+
+concept_mysql_redis_batch:
+  name: MySQL事务索引与Redis基础
+  keywords:
+  - Redis
+  - MULTI
+  - EXEC
+  - WATCH
+  - BigKey
+  - ZSet
+  - MySQL
+  - 隔离级别
+  - 幻读
+  - Redo Log
+  - Undo Log
+  - Binlog
+  - B+Tree
+  - 联合索引
+  cards:
+  - Q253
+  - Q259
+  - Q261
+  - Q296
+  - Q297
+  - Q298
+  - Q299
+  - Q300
+  - Q301
+
+concept_network_batch:
+  name: 网络、消息与基础设施
+  keywords:
+  - TCP
+  - UDP
+  - Elasticsearch
+  - 软连接
+  - 阻塞队列
+  - 消息队列
+  cards:
+  - Q308
+  - Q309
+  - Q310
+
+concept_algorithm_batch:
+  name: 算法与手撕补充
+  keywords:
+  - 摩尔投票
+  - 最近公共祖先
+  - 序列化
+  - 层序遍历
+  - 编辑距离
+  - LC667
+  - 最大数
+  - 最长无重复
+  - 超时控制
+  cards:
+  - Q311
+  - Q312
+  - Q313
+  - Q314
+  - Q315
+  - Q316
+  - Q317
+  - Q318
+  - Q319
+
+concept_project_story_batch:
+  name: 项目表达与行为面
+  keywords:
+  - 项目功能
+  - 核心模块
+  - 最难问题
+  - HR
+  - Codex
+  cards:
+  - Q320
+  - Q321
