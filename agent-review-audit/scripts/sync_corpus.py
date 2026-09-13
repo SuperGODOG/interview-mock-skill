@@ -35,8 +35,8 @@ def main():
     readme = os.path.join(SKILL_ROOT, "references", "README.md")
     with open(readme, "w", encoding="utf-8") as f:
         f.write("# Agent Review Audit Skill 语料库\n\n"
-                "- 包含 243 道带精准 YAML 锚点的大厂面试题卡（references/03_Cards/）\n"
-                "- 包含 33 概念映射表（config/concepts.yaml）\n"
+                "- 包含 342 道带精准 YAML 锚点的大厂面试题卡（references/03_Cards/）\n"
+                "- 包含 44 概念映射表（config/concepts.yaml）\n"
                 "- 一键同步: `python3 scripts/sync_corpus.py --source <源目录>`\n"
                 "- 链接自检: `python3 scripts/check_links.py --fix`\n")
     print(f"已同步 {n} 张题卡 -> {CARDS_TARGET}")

@@ -9583,5 +9583,530 @@
   "prereq": [],
   "downstream": [],
   "status": "待复习"
- }
+ },
+{
+ "id": "L471",
+ "line": 471,
+ "kind": "question",
+ "text": "通过 Redis 加 Lua 脚本去实现秒杀库存的原子性是吗？后续还有其他流程做配合吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "五_业务流相关",
+ "minor": "五_业务流相关",
+ "tag": "秒杀/Redis",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查 Lua 脚本内库存判断、去重与扣减的单线程原子边界，并说明 MQ、落库、超时与补偿如何接力。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L472",
+ "line": 472,
+ "kind": "question",
+ "text": "改进之前的 DB 请求量能扛住多少呢？有过压测吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "五_业务流相关",
+ "minor": "五_业务流相关",
+ "tag": "性能压测",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查压测口径（并发、QPS、成功率、P99）、旧 DB 直写与 Redis/MQ 异步后的瓶颈和容量证据。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L473",
+ "line": 473,
+ "kind": "question",
+ "text": "Redis 加 Lua 脚本去扣减库存了之后，Kafka 消息如果发送失败了会怎么样？开启消息重试机制，那重试也失败了呢？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "五_业务流相关",
+ "minor": "五_业务流相关",
+ "tag": "Kafka/可靠消息",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查预扣与 Kafka 发布的事务边界、重试退避、死信/补偿、幂等与最终一致性，不能把重试当成保证。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L474",
+ "line": 474,
+ "kind": "question",
+ "text": "一个 Partition 可以被几个消费者消费？如果一个消费组里面有多个消费者，一个 Partition 会被几个消费者消费？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Kafka",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "检查 Kafka 分区与消费者组的独占关系：同组一个分区同一时刻只分配给一个消费者，跨组可各自消费，受分区数限制并支持再均衡。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L475",
+ "line": 475,
+ "kind": "question",
+ "text": "如果数据进行更新的话，缓存应该怎么更新？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存一致性",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查缓存更新策略、双写一致性、失效/删除顺序、旁路缓存与消息驱动更新的失败补偿。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L476",
+ "line": 476,
+ "kind": "question",
+ "text": "那这样的话，不会有一些突发流量会击穿或者穿透吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存高并发",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "检查击穿、穿透、雪崩的边界与识别，并按热点、空值、过期集中分别给出隔离方案。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L477",
+ "line": 477,
+ "kind": "question",
+ "text": "那你什么时候去更新 Redis 呢？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存更新",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查数据变更后的缓存时机、先写库后删缓存/失效消息、延迟双删与重试，以及读写并发下的一致性边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L478",
+ "line": 478,
+ "kind": "question",
+ "text": "缓存击穿、缓存穿透、缓存雪崩分别是什么？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存问题",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "检查缓存击穿、穿透、雪崩的定义、触发条件和对应防护是否一一匹配。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L479",
+ "line": 479,
+ "kind": "question",
+ "text": "缓存击穿用哪一种方法来解决的？使用的是逻辑过期，还有别的方法吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存击穿",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查逻辑过期加互斥重建的适用性，并比较互斥锁、热点永不过期、预热、限流和随机 TTL 的取舍。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L480",
+ "line": 480,
+ "kind": "question",
+ "text": "你 Caffeine 的本地缓存是怎么用的呢？对缓存击穿有缓解吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Caffeine/多级缓存",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查 Caffeine 的本地命中、容量/TTL/淘汰、与 Redis 的多级缓存协同，以及它对热点击穿只能缓解不能替代重建控制。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L481",
+ "line": 481,
+ "kind": "question",
+ "text": "你知道 Redis 有多少个 slot 吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Redis Cluster",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "检查 Redis Cluster 的 16384 个 hash slot、key 到 slot 的映射、迁移/故障转移与多 key/Lua 同 slot 约束。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L482",
+ "line": 482,
+ "kind": "question",
+ "text": "知道一致性哈希吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "一致性哈希",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查一致性哈希的虚拟节点、负载均衡、扩缩容迁移比例与热点倾斜，并区分它和 Redis Cluster slot。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L483",
+ "line": 483,
+ "kind": "question",
+ "text": "你用了一个滑动窗口的限流，你知道还有哪几种限流的方式吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "限流",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查滑动窗口实现和令牌桶、漏桶、固定窗口、计数器等算法的精度、突发处理、分布式一致性与成本。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L484",
+ "line": 484,
+ "kind": "question",
+ "text": "MySQL 主要接触的是哪一个存储引擎？InnoDB 的内部数据结构是什么样的？B+ 树的结构有什么优点？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "MySQL/InnoDB",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查 InnoDB 的聚簇 B+Tree、页/节点与叶子链表，说明 B+Tree 扇出、范围扫描和回表优势。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L485",
+ "line": 485,
+ "kind": "question",
+ "text": "MySQL 会涉及哪几种 log？分别是做什么用的？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "MySQL日志",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查 redo log、undo log、binlog、slow log 等日志的写入方、作用、持久化与故障恢复边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L486",
+ "line": 486,
+ "kind": "question",
+ "text": "了解过两阶段提交吗？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "MySQL事务",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查两阶段提交的参与者、prepare/commit、协调者故障与幂等恢复，并区分分布式 2PC 与 InnoDB redo/binlog 协调。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L487",
+ "line": 487,
+ "kind": "question",
+ "text": "redo log 跟 binlog 在事务提交时的执行顺序是怎样的？redo log prepare 完之后写 binlog 失败，或者 binlog 写成功后 redo log commit 失败，会怎么样？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "MySQL日志",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查事务提交中 redo prepare→binlog→redo commit 的顺序，以及 binlog 写失败、commit 阶段失败时的恢复判定。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L488",
+ "line": 488,
+ "kind": "question",
+ "text": "除了 DB、Redis、Kafka，还用了哪些中间件？用 LangChain4j 如何保证智能客服回答的准确性？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "LangChain4j/RAG",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查中间件职责与 LangChain4j 的 RAG、工具、结构化输出和后校验如何共同控制客服准确性。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L489",
+ "line": 489,
+ "kind": "question",
+ "text": "能举个例子说明具体业务场景吗？怎么保证你说的商家是真实存在的，不是大模型随便生成的？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "事实性/工具",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查商家存在性验证的数据源、工具返回证据、时间/权限边界、引用约束和模型无法查询时的降级，不让模型臆造。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L490",
+ "line": 490,
+ "kind": "question",
+ "text": "讲讲持久化机制。",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "持久化",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "检查持久化对象、写入时机、同步/异步策略、崩溃恢复、幂等和一致性目标，结合具体中间件说明。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+"status": "待复习"
+},
+{
+ "id": "L491",
+ "line": 491,
+ "kind": "question",
+ "text": "RDB 在什么场景下会用到？你的主从同步是怎么做的？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Redis复制",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "检查 RDB 触发场景、fork/快照成本、主从全量与增量同步、复制积压和故障切换边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+}
 ]

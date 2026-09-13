@@ -513,6 +513,9 @@ concept_high_concurrency_limiter:
   - 熔断
   - 降级
   - 点赞/计数
+  - 滑动窗口
+  - 令牌桶
+  - 漏桶
   cards:
   - Q060
   - Q061
@@ -534,6 +537,7 @@ concept_high_concurrency_limiter:
   - Q212
   - Q225
   - Q241
+  - Q334
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -624,6 +628,9 @@ concept_flash_sale_batch:
   - Q252
   - Q258
   - Q260
+  - Q322
+  - Q323
+  - Q324
 
 concept_rabbitmq_reliability_batch:
   name: RabbitMQ与可靠消息
@@ -636,12 +643,20 @@ concept_rabbitmq_reliability_batch:
   - Consumer
   - Outbox
   - PendingList
+  - Kafka
+  - Partition
+  - 分区
+  - 消费者组
+  - consumer group
+  - 消息重试
   cards:
   - Q251
   - Q254
   - Q255
   - Q256
   - Q257
+  - Q324
+  - Q325
 
 concept_rpc_service_batch:
   name: RPC、服务发现与容错
@@ -680,6 +695,11 @@ concept_rag_engineering_batch:
   - JavaParser
   - MyBatis
   - Code RAG
+  - LangChain4j
+  - 智能客服
+  - 商家
+  - 事实性
+  - 准确性
   cards:
   - Q269
   - Q270
@@ -689,6 +709,8 @@ concept_rag_engineering_batch:
   - Q274
   - Q275
   - Q276
+  - Q339
+  - Q340
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -780,6 +802,19 @@ concept_mysql_redis_batch:
   - Binlog
   - B+Tree
   - 联合索引
+  - 缓存
+  - 缓存击穿
+  - 缓存穿透
+  - 缓存雪崩
+  - Caffeine
+  - 逻辑过期
+  - 缓存一致性
+  - 多级缓存
+  - 一致性哈希
+  - slot
+  - 持久化
+  - RDB
+  - 主从同步
   cards:
   - Q253
   - Q259
@@ -790,6 +825,20 @@ concept_mysql_redis_batch:
   - Q299
   - Q300
   - Q301
+  - Q326
+  - Q327
+  - Q328
+  - Q329
+  - Q330
+  - Q331
+  - Q332
+  - Q333
+  - Q335
+  - Q336
+  - Q337
+  - Q338
+  - Q341
+  - Q342
 
 concept_network_batch:
   name: 网络、消息与基础设施

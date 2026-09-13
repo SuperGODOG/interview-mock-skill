@@ -144,7 +144,7 @@ concepts:
     related: [Agent 记忆机制, 向量数据库与 HNSW]
   - name: Redis 与缓存
     aliases: [缓存穿透, 缓存雪崩, RDB, AOF]
-    keywords: [Redis, 缓存穿透, 缓存雪崩, RDB, AOF, 内存淘汰, 主从复制, 过期键]
+    keywords: [Redis, 缓存, 缓存穿透, 缓存击穿, 缓存雪崩, 缓存更新, 缓存一致性, 多级缓存, Caffeine, 逻辑过期, 一致性哈希, slot, RDB, AOF, 内存淘汰, 主从复制, 过期键]
     summary: 经典缓存中间件八股：持久化机制、过期与淘汰策略、穿透/雪崩/击穿、主从同步。
     related: [容错限流与高可用]
   - name: JVM 与 Java 并发
@@ -154,7 +154,7 @@ concepts:
     related: [数据库索引与事务]
   - name: 数据库索引与事务
     aliases: [MySQL, 慢查询, 分库分表, 2PC]
-    keywords: [索引, 慢查询, 聚簇索引, InnoDB, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL]
+    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log]
     summary: 关系库八股群：索引结构与失效、锁机制、日志体系、事务一致性、分库分表与跨片查询。
     related: [JVM 与 Java 并发, 存储选型与状态持久化]
   - name: 网络与操作系统基础
@@ -170,14 +170,19 @@ concepts:
 
   - name: 秒杀库存与高并发扣减
     aliases: [秒杀系统, 秒杀库存, 分桶库存, Flash Sale]
-    keywords: [秒杀, 秒杀系统, 秒杀库存, 分桶库存, 库存热点, Flash Sale, 超卖]
+    keywords: [秒杀, 秒杀系统, 秒杀库存, 分桶库存, 库存热点, Flash Sale, 超卖, Lua, 原子性, 预扣, 压测, DB 请求]
     summary: 高并发秒杀的库存与订单链路；核心权衡是流量保护、原子扣减、热点拆分、异步落库与一致性修复。
     related: [Redis 与缓存, 容错限流与高可用, 存储选型与状态持久化]
   - name: RabbitMQ与可靠消息
     aliases: [RabbitMQ, Quorum Queue, Outbox]
-    keywords: [RabbitMQ, Quorum Queue, Producer, Exchange, Queue, Consumer, Outbox, PendingList]
+    keywords: [RabbitMQ, Kafka, Quorum Queue, Producer, Exchange, Queue, Consumer, Partition, 消费者组, 消息重试, Outbox, PendingList]
     summary: 消息发布、复制、确认、重试和延迟事件的可靠性设计。
     related: [容错限流与高可用, 幂等性与去重, 秒杀库存与高并发扣减]
+  - name: Kafka与分区消费
+    aliases: [Kafka, Partition, 消费者组]
+    keywords: [Kafka, Partition, 分区, 消费者组, consumer group, offset, 再均衡]
+    summary: Kafka 以分区提供有序追加日志和并行消费能力；同一消费组内一个分区同一时刻只分配给一个消费者，跨组可独立消费。
+    related: [RabbitMQ与可靠消息, 容错限流与高可用, 秒杀库存与高并发扣减]
   - name: RPC与服务治理
     aliases: [RPC, 服务发现, 动态代理]
     keywords: [RPC, 远程过程调用, 序列化, 半包, 粘包, 注册中心, 动态代理, 重试, 服务发现]
@@ -185,7 +190,7 @@ concepts:
     related: [容错限流与高可用, 存储选型与状态持久化]
   - name: RAG表示与代码知识库
     aliases: [Embedding, 向量数据库, Code RAG]
-    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG]
+    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性]
     summary: 表示学习、向量/关键词检索与代码结构化切块的知识库工程。
     related: [RAG 与知识库, 混合检索与重排, 文档切分与解析]
   - name: 文档切分与解析
