@@ -10,6 +10,8 @@ concept_react_loop:
   - Q002
   - Q003
   - Q056
+  - Q369
+  - Q377
 concept_plan_and_execute:
   name: Plan-and-Execute规划执行范式
   keywords:
@@ -24,6 +26,7 @@ concept_plan_and_execute:
   - Q056
   - Q127
   - Q017
+  - Q369
 concept_reflection:
   name: Reflection自我反思机制
   keywords:
@@ -37,6 +40,7 @@ concept_reflection:
   - Q180
   - Q183
   - Q031
+  - Q377
 concept_tree_of_thoughts:
   name: Tree of Thoughts (ToT)思维树
   keywords:
@@ -72,6 +76,7 @@ concept_multi_agent_topo:
   - Q133
   - Q134
   - Q349
+  - Q376
 concept_master_sub:
   name: Master-Sub主从代理架构
   keywords:
@@ -153,6 +158,7 @@ concept_ai_coding_arch:
   - Q242
   - Q351
   - Q352
+  - Q356
 concept_short_long_memory:
   name: 短/长期与摘要记忆分层
   keywords:
@@ -176,6 +182,7 @@ concept_short_long_memory:
   - Q111
   - Q130
   - Q345
+  - Q370
 concept_memory_persistence:
   name: 记忆持久化与Schema设计
   keywords:
@@ -255,6 +262,7 @@ concept_hybrid_search:
   - Q088
   - Q184
   - Q188
+  - Q373
 concept_topk_truncation:
   name: Top-K截断与召回/幻觉Trade-off
   keywords:
@@ -484,6 +492,7 @@ concept_prompt_see_saw:
   - Q086
   - Q156
   - Q183
+  - Q378
 concept_dspy_ape:
   name: DSPy与自动Prompt优化(APE)
   keywords:
@@ -533,6 +542,10 @@ concept_high_concurrency_limiter:
   - checkpoint
   - 幂等
   - 任务恢复
+  - 双重检查锁
+  - 分布式锁
+  - QPS
+  - 缓存击穿
   cards:
   - Q060
   - Q061
@@ -556,6 +569,10 @@ concept_high_concurrency_limiter:
   - Q241
   - Q334
   - Q344
+  - Q359
+  - Q361
+  - Q362
+  - Q363
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -649,6 +666,9 @@ concept_flash_sale_batch:
   - Q322
   - Q323
   - Q324
+  - Q366
+  - Q367
+  - Q368
 
 concept_rabbitmq_reliability_batch:
   name: RabbitMQ与可靠消息
@@ -675,6 +695,8 @@ concept_rabbitmq_reliability_batch:
   - Q257
   - Q324
   - Q325
+  - Q359
+  - Q368
 
 concept_rpc_service_batch:
   name: RPC、服务发现与容错
@@ -734,6 +756,11 @@ concept_rag_engineering_batch:
   - Q340
   - Q347
   - Q348
+  - Q371
+  - Q372
+  - Q373
+  - Q378
+  - Q379
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -786,6 +813,8 @@ concept_agent_eval_batch:
   - MRR
   - Fake LLM
   - Harness
+  - 高并发测试
+  - Mock
   - 数据飞轮
   - 成本
   - Token
@@ -798,6 +827,8 @@ concept_agent_eval_batch:
   - Q346
   - Q347
   - Q348
+  - Q374
+  - Q379
 
 concept_java_batch:
   name: Java集合、并发与JVM
@@ -821,6 +852,8 @@ concept_java_batch:
   - Q305
   - Q306
   - Q307
+  - Q365
+  - Q375
 
 concept_mysql_redis_batch:
   name: MySQL事务索引与Redis基础
@@ -876,6 +909,13 @@ concept_mysql_redis_batch:
   - Q338
   - Q341
   - Q342
+  - Q357
+  - Q358
+  - Q359
+  - Q360
+  - Q361
+  - Q362
+  - Q363
 
 concept_network_batch:
   name: 网络、消息与基础设施
@@ -913,6 +953,7 @@ concept_algorithm_batch:
   - Q317
   - Q318
   - Q319
+  - Q380
 
 concept_project_story_batch:
   name: 项目表达与行为面
@@ -932,3 +973,6 @@ concept_project_story_batch:
   - Q350
   - Q354
   - Q355
+  - Q356
+  - Q364
+  - Q375

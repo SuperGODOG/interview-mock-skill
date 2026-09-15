@@ -14,7 +14,7 @@ concepts:
     related: [MCP, 技能体系, 意图识别与分发]
   - name: RAG 与知识库
     aliases: [检索增强生成, 知识库, 向量检索]
-    keywords: [RAG, 检索增强生成, 知识库, 文档解析, Chunking, 切分, 召回, 知识图谱, HitRate, MRR, 召回评估, 消融实验]
+    keywords: [RAG, 检索增强生成, 知识库, 文档解析, Chunking, 切分, 召回, 知识图谱, HitRate, MRR, 召回评估, 消融实验, 多模态, 召回发散, RRF, 重排序]
     summary: 先检索后生成的架构范式；完整链路含解析/切分/索引/检索/生成与后校验，核心权衡是召回率与幻觉噪声的平衡。
     related: [Agentic RAG, 混合检索与重排, 向量数据库与 HNSW]
   - name: Agentic RAG
@@ -24,7 +24,7 @@ concepts:
     related: [RAG 与知识库, Query 改写, Multi-Agent 多智能体协作]
   - name: ReAct 与 Agent 工作流范式
     aliases: [ReAct, 思考行动观察循环, Execution Loop]
-    keywords: [ReAct, Execution Loop, 思考-行动-观察, 工作流范式, Plan-and-Execute, 范式]
+    keywords: [ReAct, Execution Loop, 思考-行动-观察, 工作流范式, Plan-and-Execute, Reflection, 范式]
     summary: ReAct 是"思考-行动-观察"交替的推理范式；与 Plan-and-Execute、Reflection 等的区别在于决策粒度与规划方式。
     related: [LangGraph 与图编排, 思维链与推理提示]
   - name: 思维链与推理提示
@@ -69,7 +69,7 @@ concepts:
     related: [Agent 记忆机制, 长上下文与注意力]
   - name: Prompt Engineering
     aliases: [提示词工程, System Prompt, 少样本, Few-Shot]
-    keywords: [Prompt, 提示词, System Prompt, 系统提示词, Few-Shot, 少样本, 指令遵循, 结构化输出]
+    keywords: [Prompt, 提示词, System Prompt, 系统提示词, Few-Shot, 少样本, 指令遵循, 结构化输出, 幻觉, 输出约束, 行为约束]
     summary: 通过输入设计稳定模型行为；基础原则+高级技术（Few-Shot/CoT/结构化输出）以及自动优化（APE/DSPy）。
     related: [思维链与推理提示, 评测体系与 Benchmark]
   - name: Prompt Injection 与安全
@@ -84,7 +84,7 @@ concepts:
     related: [Prompt Injection 与安全, 评测体系与 Benchmark]
   - name: 评测体系与 Benchmark
     aliases: [评估, Evaluation, LLM-as-a-judge, 评测指标]
-    keywords: [评测, 评估体系, Evaluation, Benchmark, LLM-as-a-judge, 大模型作为裁判, 测试集, 标注, 评估指标, 指标, HitRate, MRR, Fake LLM, Harness, 消融实验, A/B实验, 效果归因]
+    keywords: [评测, 评估体系, Evaluation, Benchmark, LLM-as-a-judge, 大模型作为裁判, 测试集, 标注, 评估指标, 指标, HitRate, MRR, Fake LLM, Harness, 消融实验, A/B实验, 效果归因, Mock, 高并发测试, 正确性判定]
     summary: 效果量化的整套方法：离线 Benchmark、在线指标（成功率/Recall@K/延迟/Token 成本）、人工标注与 LLM 裁判的取舍。
     related: [Badcase 闭环与数据飞轮, 模型微调与对齐]
   - name: Badcase 闭环与数据飞轮
@@ -114,7 +114,7 @@ concepts:
     related: [RAG 与知识库, 混合检索与重排, 存储选型与状态持久化]
   - name: 混合检索与重排
     aliases: [Hybrid Search, BM25, 重排, 双路召回]
-    keywords: [混合检索, Hybrid Search, BM25, Dense, Sparse, 稀疏检索, 稠密检索, 重排, Rerank, 双路召回, 召回率]
+    keywords: [混合检索, Hybrid Search, BM25, Dense, Sparse, 稀疏检索, 稠密检索, 重排, Rerank, 双路召回, 多路召回, RRF, Reciprocal Rank Fusion, 召回率]
     summary: 向量+关键词双路召回再融合重排的检索策略；解决语义与精确匹配互补问题，Top-K 与噪声平衡是调参重点。
     related: [RAG 与知识库, 向量数据库与 HNSW, 评测体系与 Benchmark]
   - name: Query 改写
@@ -134,7 +134,7 @@ concepts:
     related: [路由机制, Tool Calling 与 Function Calling]
   - name: AI Coding Agent
     aliases: [代码智能体, Claude Code, Cursor, Copilot]
-    keywords: [AI Coding, Code Agent, Claude Code, Cursor, Copilot, 代码编辑, 全自动软件工程, Vibe Coding, 代码生成, 核心代码, 大项目, AI辅助开发]
+    keywords: [AI Coding, Code Agent, Claude Code, Cursor, Copilot, 代码编辑, 全自动软件工程, Vibe Coding, 代码生成, 核心代码, 大项目, AI辅助开发, 提效]
     summary: 自动写码/改码的 Agent 产品方向；核心壁垒在文件编辑可靠性、代码库理解与端到端自动化的瓶颈。
     related: [评测体系与 Benchmark, Tool Calling 与 Function Calling]
   - name: 存储选型与状态持久化
@@ -144,12 +144,12 @@ concepts:
     related: [Agent 记忆机制, 向量数据库与 HNSW]
   - name: Redis 与缓存
     aliases: [缓存穿透, 缓存雪崩, RDB, AOF]
-    keywords: [Redis, 缓存, 缓存穿透, 缓存击穿, 缓存雪崩, 缓存更新, 缓存一致性, 多级缓存, Caffeine, 逻辑过期, 一致性哈希, slot, RDB, AOF, 内存淘汰, 主从复制, 过期键]
+    keywords: [Redis, 缓存, 缓存穿透, 缓存击穿, 缓存雪崩, 缓存更新, 缓存一致性, 多级缓存, Caffeine, 逻辑过期, 一致性哈希, slot, RDB, AOF, 内存淘汰, 主从复制, 过期键, 双重检查锁, 分布式锁, QPS, Mock, 高并发测试]
     summary: 经典缓存中间件八股：持久化机制、过期与淘汰策略、穿透/雪崩/击穿、主从同步。
     related: [容错限流与高可用]
   - name: JVM 与 Java 并发
     aliases: [线程池, 死锁, 垃圾回收, Spring]
-    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, 双亲委派, 上下文切换]
+    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, AOP, Spark, 双亲委派, 上下文切换]
     summary: Java 生态八股群：JVM 内存模型、GC、线程池参数、并发原语、Spring 启动与自动装配。
     related: [数据库索引与事务]
   - name: 数据库索引与事务
@@ -164,7 +164,7 @@ concepts:
     related: [JVM 与 Java 并发]
   - name: 算法与 LeetCode
     aliases: [算法题, 动态规划, LRU]
-    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, Leetcode]
+    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, 三数之和, LeetCode 15, Leetcode]
     summary: 手撕算法与代码题：经典 DP、数据结构实现与并发场景设计题。
     related: []
 
