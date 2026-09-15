@@ -255,6 +255,10 @@ concept_hybrid_search:
   - dense retrieval
   - sparse retrieval
   - 混合检索
+  - RRF
+  - reciprocal rank fusion
+  - 多路召回
+  - 重排序
   cards:
   - Q038
   - Q039
@@ -263,6 +267,7 @@ concept_hybrid_search:
   - Q184
   - Q188
   - Q373
+  - Q398
 concept_topk_truncation:
   name: Top-K截断与召回/幻觉Trade-off
   keywords:
@@ -546,6 +551,10 @@ concept_high_concurrency_limiter:
   - 分布式锁
   - QPS
   - 缓存击穿
+  - 慢查询
+  - 单线程轮询
+  - 任务调度
+  - 多实例
   cards:
   - Q060
   - Q061
@@ -573,6 +582,10 @@ concept_high_concurrency_limiter:
   - Q361
   - Q362
   - Q363
+  - Q389
+  - Q390
+  - Q392
+  - Q393
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -743,6 +756,11 @@ concept_rag_engineering_batch:
   - HitRate
   - MRR
   - 消融实验
+  - 多模态
+  - 召回发散
+  - 向量数据库选型
+  - 向量模型
+  - 幻觉
   cards:
   - Q269
   - Q270
@@ -761,6 +779,11 @@ concept_rag_engineering_batch:
   - Q373
   - Q378
   - Q379
+  - Q394
+  - Q395
+  - Q396
+  - Q397
+  - Q398
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -829,6 +852,8 @@ concept_agent_eval_batch:
   - Q348
   - Q374
   - Q379
+  - Q397
+  - Q399
 
 concept_java_batch:
   name: Java集合、并发与JVM
@@ -844,6 +869,9 @@ concept_java_batch:
   - G1
   - 泛型
   - Spring
+  - Executor
+  - 线程池
+  - Spark
   cards:
   - Q268
   - Q302
@@ -854,6 +882,8 @@ concept_java_batch:
   - Q307
   - Q365
   - Q375
+  - Q391
+  - Q392
 
 concept_mysql_redis_batch:
   name: MySQL事务索引与Redis基础
@@ -885,6 +915,13 @@ concept_mysql_redis_batch:
   - 持久化
   - RDB
   - 主从同步
+  - 慢查询
+  - 深分页
+  - 游标分页
+  - 延迟关联
+  - EXPLAIN
+  - 覆盖索引
+  - 索引失效
   cards:
   - Q253
   - Q259
@@ -916,6 +953,12 @@ concept_mysql_redis_batch:
   - Q361
   - Q362
   - Q363
+  - Q382
+  - Q383
+  - Q384
+  - Q385
+  - Q386
+  - Q387
 
 concept_network_batch:
   name: 网络、消息与基础设施
@@ -954,6 +997,7 @@ concept_algorithm_batch:
   - Q318
   - Q319
   - Q380
+  - Q400
 
 concept_project_story_batch:
   name: 项目表达与行为面
@@ -967,6 +1011,10 @@ concept_project_story_batch:
   - 到岗
   - 实习
   - 输入输出
+  - 实习感悟
+  - 项目优化
+  - 技术问题
+  - AI工具
   cards:
   - Q320
   - Q321
@@ -976,3 +1024,6 @@ concept_project_story_batch:
   - Q356
   - Q364
   - Q375
+  - Q381
+  - Q388
+  - Q399

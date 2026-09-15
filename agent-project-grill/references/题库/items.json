@@ -11071,5 +11071,505 @@
  "prereq": [],
  "downstream": [],
  "status": "待复习"
+},
+{
+ "id": "L531",
+ "line": 531,
+ "text": "你是如何在实习中有感悟并且去优化你的个人项目的（因为自我介绍提到了）？",
+ "major": "国企特别版",
+ "minor": "国企特别版",
+ "tag": "实习感悟/项目优化",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "用实习中观察到的真实问题触发个人项目改造，说明原状、判断依据、具体改动、验证结果和仍未解决的边界，区分事实与复盘设想。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L532",
+ "line": 532,
+ "text": "线上慢查询分析如何做？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "慢查询/SQL诊断",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从慢查询日志、监控告警和 Trace 定位 SQL，结合 EXPLAIN、执行耗时、扫描行数、锁等待和资源指标确认瓶颈，再验证优化前后效果。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L533",
+ "line": 533,
+ "text": "哪些情况会造成慢查询？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "慢查询原因",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "覆盖缺失或失效索引、扫描数据量大、深分页、排序分组、隐式类型转换、函数计算、锁等待、连接池和磁盘资源等原因。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L534",
+ "line": 534,
+ "text": "给场景手写 SQL（深分页）。",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "深分页/SQL",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "先写出可工作的 LIMIT offset 方案，再说明大 offset 的扫描代价，并给出基于有序索引游标或延迟关联的改写和边界条件。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L535",
+ "line": 535,
+ "text": "游标分页和延迟关联分页的利弊分别是什么？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "游标分页/延迟关联",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "比较游标分页稳定高效但不适合随机跳页，与延迟关联先用覆盖索引取主键再回表、兼容跳页但 SQL 更复杂的取舍。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L536",
+ "line": 536,
+ "text": "你如何针对这个 SQL 设计你的索引？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "索引设计",
+ "depth": 4,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按过滤、连接、排序、分组和选择性分析联合索引顺序，考虑最左匹配、范围列、覆盖索引和写入成本，并用执行计划验证。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L537",
+ "line": 537,
+ "text": "你怎么判断你的 SQL 是否走了索引，如何走？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "EXPLAIN/索引",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "用 EXPLAIN/EXPLAIN ANALYZE 观察 type、key、key_len、rows、filtered、Extra 和实际耗时，结合谓词改写解释为什么命中或失效。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L538",
+ "line": 538,
+ "text": "聊聊你实习的项目遇到的技术问题并如何解决的。",
+ "major": "国企特别版",
+ "minor": "国企特别版",
+ "tag": "实习项目/问题解决",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "选择个人负责且有证据的问题，按现象、影响、定位、方案、权衡、验证和复盘讲述，明确团队协作与个人贡献边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L539",
+ "line": 539,
+ "text": "单线程轮询的单点风险，如何兜底？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "轮询/高可用",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "识别单实例故障、阻塞和积压风险，用主备或多实例、租约/选主、持久化任务、监控告警和人工补偿提供兜底。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L540",
+ "line": 540,
+ "text": "多实例服务单线程轮询如何保证不会下发重复任务？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "任务幂等/多实例",
+ "depth": 4,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "用任务状态机、原子抢占或租约、唯一任务键和消费幂等控制并发领取，处理租约过期、重试和下游已成功等不确定结果。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L541",
+ "line": 541,
+ "text": "这个业务自定义 executor 的参数你如何设置？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "线程池/Executor",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "根据任务类型、CPU/IO 比例、峰值并发、队列容量和下游承载设置核心线程、最大线程、队列、KeepAlive、拒绝策略，并用压测和监控校准。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L542",
+ "line": 542,
+ "text": "多线程并发需要注意哪些问题，核心问题是什么？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "多线程/并发安全",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "围绕共享可变状态、可见性、有序性、原子性、竞态、死锁、线程池隔离和上下文传递说明风险，并给出锁、并发容器或无状态化方案。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L543",
+ "line": 543,
+ "text": "分布式需要注意的核心问题是什么？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "分布式/一致性",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "覆盖网络分区、时钟与故障检测、数据一致性、幂等、重复消息、分布式锁、选主、可观测性和降级边界，结合业务说明优先级。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L544",
+ "line": 544,
+ "text": "向量数据库如何选择、利弊是什么？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "向量数据库/选型",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按规模、过滤、混合检索、延迟、写入更新、运维成本和生态比较 pgvector、专用向量库与搜索引擎，说明选型依据和迁移边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L545",
+ "line": 545,
+ "text": "向量模型怎么选择？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "Embedding/向量模型",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从语言和领域覆盖、向量维度、召回质量、推理成本、部署方式、长文本能力和版本稳定性选择 Embedding 模型，并用离线集验证。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L546",
+ "line": 546,
+ "text": "造成大模型幻觉的几个原因是什么？",
+ "major": "二_Agent应用开发相关",
+ "minor": "4.Prompt_engineering",
+ "tag": "幻觉原因",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "说明训练知识缺失或过时、上下文不足或噪声、概率生成不确定性、提示冲突、工具/检索失败和评测约束不足等原因。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L547",
+ "line": 547,
+ "text": "如何解决大模型幻觉？",
+ "major": "二_Agent应用开发相关",
+ "minor": "4.Prompt_engineering",
+ "tag": "幻觉治理",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "通过可靠知识源与 RAG、工具调用、结构化输出、引用和规则校验、拒答降级、人工复核及持续评测共同降低幻觉。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L548",
+ "line": 548,
+ "text": "你怎么实现混合检索的？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "混合检索/BM25",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "并行执行向量和关键词召回，按归一化分数或 RRF 融合候选，再用重排模型和元数据过滤控制相关性、延迟与成本。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L549",
+ "line": 549,
+ "text": "平时用什么 AI 工具和模型？",
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "AI工具/模型",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按真实使用频率说明工具和模型分别解决什么问题，比较上下文、代码能力、成本、隐私和稳定性，给出一个可验证的使用案例。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L550",
+ "line": 550,
+ "text": "手撕：湍流子数组最大和。",
+ "major": "Leetcode相关",
+ "minor": "Leetcode相关",
+ "tag": "最大子数组和",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "将题意还原为连续子数组最大和时，用 Kadane 动态规划维护以当前位置结尾的最优和与全局最大值，并处理全负数和边界输入。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
 }
 ]

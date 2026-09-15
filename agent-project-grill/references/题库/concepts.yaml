@@ -104,12 +104,12 @@ concepts:
     related: [容错限流与高可用, 上下文管理与压缩]
   - name: 容错限流与高可用
     aliases: [熔断, 降级, 限流, 重试, Failover]
-    keywords: [熔断, 降级, 限流, 重试, 容错, 高可用, Failover, 故障转移, 回切, 超时, 负载均衡, 退避]
+    keywords: [熔断, 降级, 限流, 重试, 容错, 高可用, Failover, 故障转移, 回切, 超时, 负载均衡, 退避, 单线程轮询, 任务调度, 多实例, 任务幂等, 选主]
     summary: 外部依赖与自身服务的稳定性工程：超时/重试/退避、熔断降级、故障转移与自动回切、成本与稳定性平衡。
     related: [推理优化与 KV Cache, 存储选型与状态持久化]
   - name: 向量数据库与 HNSW
     aliases: [向量检索, 向量存储]
-    keywords: [向量数据库, HNSW, 向量检索, 相似度计算, 向量, 索引, efConstruction, efSearch]
+    keywords: [向量数据库, HNSW, 向量检索, 相似度计算, 向量, 向量模型, Embedding, 索引, efConstruction, efSearch, 选型]
     summary: 向量近邻检索的存储与索引技术；HNSW 的 M/efConstruction/efSearch 参数权衡精度与读写性能。
     related: [RAG 与知识库, 混合检索与重排, 存储选型与状态持久化]
   - name: 混合检索与重排
@@ -154,7 +154,7 @@ concepts:
     related: [数据库索引与事务]
   - name: 数据库索引与事务
     aliases: [MySQL, 慢查询, 分库分表, 2PC]
-    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log]
+    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log, 深分页, 游标分页, 延迟关联, EXPLAIN, 覆盖索引, 索引失效]
     summary: 关系库八股群：索引结构与失效、锁机制、日志体系、事务一致性、分库分表与跨片查询。
     related: [JVM 与 Java 并发, 存储选型与状态持久化]
   - name: 网络与操作系统基础
@@ -190,7 +190,7 @@ concepts:
     related: [容错限流与高可用, 存储选型与状态持久化]
   - name: RAG表示与代码知识库
     aliases: [Embedding, 向量数据库, Code RAG]
-    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性, HitRate, MRR]
+    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性, HitRate, MRR, 向量模型, 混合检索, 幻觉]
     summary: 表示学习、向量/关键词检索与代码结构化切块的知识库工程。
     related: [RAG 与知识库, 混合检索与重排, 文档切分与解析]
   - name: 文档切分与解析
