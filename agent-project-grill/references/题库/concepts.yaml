@@ -9,12 +9,12 @@ concepts:
     related: [Tool Calling 与 Function Calling, 路由机制, 技能体系]
   - name: Tool Calling 与 Function Calling
     aliases: [工具调用, 函数调用, FunctionCalling, ToolCalling]
-    keywords: [工具调用, Tool Calling, ToolCalling, Function Calling, FunctionCalling, 函数调用, 工具参数, 工具链]
+    keywords: [工具调用, Tool Calling, ToolCalling, Function Calling, FunctionCalling, 函数调用, 工具参数, 工具链, Confirmation, 权限确认, 调用次数, 工具预算, 工具滥用, 副作用审计]
     summary: 模型按结构化 schema 生成调用外部工具的指令；关键难点是参数生成可靠性、纠错机制与跨域工具编排。
     related: [MCP, 技能体系, 意图识别与分发]
   - name: RAG 与知识库
     aliases: [检索增强生成, 知识库, 向量检索]
-    keywords: [RAG, 检索增强生成, 知识库, 文档解析, Chunking, 切分, 召回, 知识图谱]
+    keywords: [RAG, 检索增强生成, 知识库, 文档解析, Chunking, 切分, 召回, 知识图谱, HitRate, MRR, 召回评估, 消融实验]
     summary: 先检索后生成的架构范式；完整链路含解析/切分/索引/检索/生成与后校验，核心权衡是召回率与幻觉噪声的平衡。
     related: [Agentic RAG, 混合检索与重排, 向量数据库与 HNSW]
   - name: Agentic RAG
@@ -34,17 +34,17 @@ concepts:
     related: [Prompt Engineering, ReAct 与 Agent 工作流范式]
   - name: LangGraph 与图编排
     aliases: [LangGraph, 图结构状态机, Node/Edge/State]
-    keywords: [LangGraph, Node, Edge, State, 状态机, 图结构, 防死循环, 循环结构]
+    keywords: [LangGraph, Node, Edge, State, 状态机, 图结构, 防死循环, 循环结构, 框架选型, 框架比较, 自研编排]
     summary: 以图（节点/边/状态）显式建模 Agent 链路的编排框架；价值在可控性、循环与条件分支、失败回退边界。
     related: [ReAct 与 Agent 工作流范式, Multi-Agent 多智能体协作, 路由机制]
   - name: Multi-Agent 多智能体协作
     aliases: [多Agent, 多智能体, 主从代理, Master-Sub]
-    keywords: [Multi-Agent, 多Agent, 多智能体, Master-Sub, 主从代理, 多Agent协同, Agent分工, 跨工具共享]
+    keywords: [Multi-Agent, 多Agent, 多智能体, Master-Sub, 主从代理, 多Agent协同, Agent分工, 跨工具共享, Worker, A2A, 消息协议, Agent交互]
     summary: 多角色 Agent 分工协作的架构模式；核心问题是角色划分、通信协议、基座模型分配与任务路由。
     related: [LangGraph 与图编排, 路由机制, Agent 记忆机制]
   - name: Agent 记忆机制
     aliases: [记忆, 长期记忆, 短期记忆, 情景记忆, 记忆压缩]
-    keywords: [记忆, Memory, 短期记忆, 长期记忆, 情景记忆, 摘要记忆, 记忆压缩, 记忆检索, 遗忘]
+    keywords: [记忆, Memory, 短期记忆, 长期记忆, 情景记忆, 摘要记忆, 记忆压缩, 记忆检索, 遗忘, 上下文窗口, token预算, 超过窗口]
     summary: Agent 跨会话利用信息的能力分层：短/中/长期与情景记忆；实现难点在写入时机、检索召回、压缩与持久化选型。
     related: [上下文管理与压缩, 存储选型与状态持久化]
   - name: Workflow 与自主 Agent 权衡
@@ -64,7 +64,7 @@ concepts:
     related: [技能体系, Multi-Agent 多智能体协作, 意图识别与分发]
   - name: 上下文管理与压缩
     aliases: [上下文裁剪, Context Compression, 上下文窗口]
-    keywords: [上下文, Context, 上下文压缩, Context Compression, 上下文裁剪, 截断, 拼接, 长对话, 上下文组装]
+    keywords: [上下文, Context, 上下文压缩, Context Compression, 上下文裁剪, 截断, 拼接, 长对话, 上下文组装, token预算, 上下文窗口]
     summary: 在有限窗口内组织信息的策略：组装/截断/压缩/裁剪/渐进式披露；目标是在降 Token 成本的同时保决策准确度。
     related: [Agent 记忆机制, 长上下文与注意力]
   - name: Prompt Engineering
@@ -84,7 +84,7 @@ concepts:
     related: [Prompt Injection 与安全, 评测体系与 Benchmark]
   - name: 评测体系与 Benchmark
     aliases: [评估, Evaluation, LLM-as-a-judge, 评测指标]
-    keywords: [评测, 评估体系, Evaluation, Benchmark, LLM-as-a-judge, 大模型作为裁判, 测试集, 标注, 评估指标, 指标]
+    keywords: [评测, 评估体系, Evaluation, Benchmark, LLM-as-a-judge, 大模型作为裁判, 测试集, 标注, 评估指标, 指标, HitRate, MRR, Fake LLM, Harness, 消融实验, A/B实验, 效果归因]
     summary: 效果量化的整套方法：离线 Benchmark、在线指标（成功率/Recall@K/延迟/Token 成本）、人工标注与 LLM 裁判的取舍。
     related: [Badcase 闭环与数据飞轮, 模型微调与对齐]
   - name: Badcase 闭环与数据飞轮
@@ -134,7 +134,7 @@ concepts:
     related: [路由机制, Tool Calling 与 Function Calling]
   - name: AI Coding Agent
     aliases: [代码智能体, Claude Code, Cursor, Copilot]
-    keywords: [AI Coding, Code Agent, Claude Code, Cursor, Copilot, 代码编辑, 全自动软件工程, Vibe Coding]
+    keywords: [AI Coding, Code Agent, Claude Code, Cursor, Copilot, 代码编辑, 全自动软件工程, Vibe Coding, 代码生成, 核心代码, 大项目, AI辅助开发]
     summary: 自动写码/改码的 Agent 产品方向；核心壁垒在文件编辑可靠性、代码库理解与端到端自动化的瓶颈。
     related: [评测体系与 Benchmark, Tool Calling 与 Function Calling]
   - name: 存储选型与状态持久化
@@ -190,7 +190,7 @@ concepts:
     related: [容错限流与高可用, 存储选型与状态持久化]
   - name: RAG表示与代码知识库
     aliases: [Embedding, 向量数据库, Code RAG]
-    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性]
+    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性, HitRate, MRR]
     summary: 表示学习、向量/关键词检索与代码结构化切块的知识库工程。
     related: [RAG 与知识库, 混合检索与重排, 文档切分与解析]
   - name: 文档切分与解析
@@ -200,16 +200,16 @@ concepts:
     related: [RAG 与知识库, 长上下文与注意力]
   - name: Agent会话与状态恢复
     aliases: [会话隔离, sessionID, checkpoint]
-    keywords: [会话隔离, sessionID, 重连, checkpoint, 中断恢复, 状态机]
+    keywords: [会话隔离, sessionID, 重连, checkpoint, 中断恢复, 状态机, Worker, 幂等, 任务恢复, 半完成, 失败恢复]
     summary: 多会话隔离、清理、断线重连和任务恢复的状态管理。
     related: [Agent 记忆机制, 上下文管理与压缩]
   - name: Agent工具与多智能体协作
     aliases: [Tool Registry, A2A, SubAgent]
-    keywords: [Tool Registry, 自定义工具, A2A, SubAgent, 决策树, Workflow, 工具执行器]
+    keywords: [Tool Registry, 自定义工具, A2A, SubAgent, 决策树, Workflow, 工具执行器, Worker, 消息协议, Confirmation, 权限确认, 调用预算]
     summary: 工具注册、权限确认、跨 Agent 通信、上下文边界和故障兜底。
     related: [技能体系, Multi-Agent 多智能体协作, 容错限流与高可用]
   - name: Agent评测与Trace事实
     aliases: [Eval Case, Grader, Trace]
-    keywords: [Eval Case, Grader, Trace, Hit@1, Hit@3, 数据飞轮, 评测事实]
+    keywords: [Eval Case, Grader, Trace, Hit@1, Hit@3, HitRate, MRR, Fake LLM, Harness, 数据飞轮, 评测事实, 消融实验, 效果归因]
     summary: 从 Case/Run/Trace 到评分的可复现评测链路，以及时效 Case 和数据飞轮治理。
     related: [评测体系与 Benchmark, Badcase 闭环与数据飞轮]

@@ -10108,5 +10108,343 @@
  "prereq": [],
  "downstream": [],
  "status": "待复习"
+},
+{
+ "id": "L492",
+ "line": 492,
+ "kind": "question",
+ "text": "Agent 项目参考了哪些现有 Agent 框架？为什么不用 LangGraph？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "2.agent主流框架",
+ "tag": "Agent框架/LangGraph",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "比较候选框架的状态管理、编排表达、可观测性、生态与团队约束，说明选择自研或其他框架而不用 LangGraph 的证据与边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L493",
+ "line": 493,
+ "kind": "question",
+ "text": "Worker 挂了怎么办？幂等怎么做？checkpoint 什么时候保存？如果只完成了一半怎么办？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "Worker/Checkpoint/幂等",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "说明 Worker 故障检测、任务租约与重试，副作用幂等键，checkpoint 的保存边界，以及半完成任务如何恢复、补偿或人工介入。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L494",
+ "line": 494,
+ "kind": "question",
+ "text": "你的记忆模块怎么设计？会不会超过上下文窗口？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "5.agent记忆设计",
+ "tag": "记忆/上下文窗口",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "按短期对话、任务状态与长期记忆分层，说明写入、检索、摘要压缩和淘汰策略，并用 token 预算和截断降级控制上下文窗口。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L495",
+ "line": 495,
+ "kind": "question",
+ "text": "Harness test 里的 Fake LLM 测什么？不能测什么？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "9.业务评估(性能优化与诊断)",
+ "tag": "Harness/Fake LLM",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "Fake LLM 适合稳定测试编排、协议解析、工具调用、错误分支和断言逻辑；不能代表真实模型的质量、随机性、延迟、成本与复杂推理能力。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L496",
+ "line": 496,
+ "kind": "question",
+ "text": "RAG 怎么做？HitRate/MRR 怎么评估？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "9.业务评估(性能优化与诊断)",
+ "tag": "RAG/HitRate/MRR",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "从文档解析、切块、索引、召回、重排到生成说明 RAG 链路，并用带标准答案的查询集计算 HitRate、MRR 及分层误差。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L497",
+ "line": 497,
+ "kind": "question",
+ "text": "RAG 对最终效果有没有影响？怎么证明？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "9.业务评估(性能优化与诊断)",
+ "tag": "RAG/效果归因",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "用固定模型、固定 Case 和 A/B 或消融实验比较无 RAG、不同召回策略与带 RAG 的最终任务成功率，并同时观察事实性、延迟和成本。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L498",
+ "line": 498,
+ "kind": "question",
+ "text": "多 Agent 之间怎么交互？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "Multi-Agent/A2A",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "说明 Agent 间的角色边界、消息或共享状态协议、任务转交与结果回传、超时重试和上下文裁剪，避免隐式共享导致失控。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L499",
+ "line": 499,
+ "kind": "question",
+ "text": "用户输入是什么？最终输出是什么？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "1.agent宏观认知",
+ "tag": "输入输出/项目表达",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "先用一个真实业务例子界定输入契约、上下文和约束，再说明 Agent 的中间状态、工具副作用与最终输出格式、质量标准和失败返回。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L500",
+ "line": 500,
+ "kind": "question",
+ "text": "AI Coding 你具体怎么用？核心代码是不是 AI 写的？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "AI Coding/代码责任",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "说明 AI Coding 在需求拆解、检索、生成、测试和审查中的具体边界，区分生成代码与自己负责的设计、验证、修复和上线责任。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L501",
+ "line": 501,
+ "kind": "question",
+ "text": "用 AI Coding 做大项目有什么经验？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "AI Coding/大型项目",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "围绕上下文切片、任务边界、增量提交、自动测试、代码审查和回滚说明大项目使用经验，并给出效率与缺陷的可验证指标。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L502",
+ "line": 502,
+ "kind": "question",
+ "text": "如果 Agent 调用工具几千次，甚至用你的账号往群里发消息，怎么办？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "工具安全/权限确认",
+ "assigned": true,
+ "depth": 4,
+ "answer": {
+  "core": "建立调用次数、预算和时间上限，按风险分级做权限与 Confirmation，隔离账号和凭据，提供审计、撤销、幂等和人工熔断，禁止无界副作用。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L503",
+ "line": 503,
+ "kind": "question",
+ "text": "你觉得项目最大的难点是什么？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "项目难点/复盘",
+ "assigned": true,
+ "depth": 3,
+ "answer": {
+  "core": "选择一个能体现个人负责范围的难点，按现象、定位、方案、权衡、验证和复盘讲清楚，避免把团队成果泛化成个人实现。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L504",
+ "line": 504,
+ "kind": "comment_title",
+ "text": "此处和岗位似乎强相关",
+ "in_comment": true,
+ "comment_label": "岗位相关追问",
+ "major": null,
+ "minor": null,
+ "tag": null,
+ "assigned": false,
+ "depth": null
+},
+{
+ "id": "L505",
+ "line": 505,
+ "kind": "question",
+ "text": "到岗时间和实习时长？",
+ "in_comment": false,
+ "comment_label": null,
+ "major": "国企特别版",
+ "minor": "国企特别版",
+ "tag": "HR/到岗",
+ "assigned": true,
+ "depth": 2,
+ "answer": {
+  "core": "按真实可到岗日期、每周可投入时间和可持续实习时长直接回答，并说明学校或现有安排的确定边界，保持承诺可兑现。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
 }
 ]

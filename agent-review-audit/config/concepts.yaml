@@ -71,6 +71,7 @@ concept_multi_agent_topo:
   - Q131
   - Q133
   - Q134
+  - Q349
 concept_master_sub:
   name: Master-Sub主从代理架构
   keywords:
@@ -93,6 +94,8 @@ concept_langgraph_workflow:
   - 工作流编排
   - node
   - edge
+  - 框架选型
+  - 框架比较
   cards:
   - Q131
   - Q004
@@ -101,6 +104,7 @@ concept_langgraph_workflow:
   - Q116
   - Q152
   - Q056
+  - Q343
 concept_ai_coding_arch:
   name: AI Coding工具底层架构
   keywords:
@@ -108,6 +112,9 @@ concept_ai_coding_arch:
   - claude code
   - copilot workspace
   - agentic workflow
+  - 核心代码
+  - 大项目
+  - AI辅助开发
   cards:
   - Q005
   - Q007
@@ -144,6 +151,8 @@ concept_ai_coding_arch:
   - Q182
   - Q206
   - Q242
+  - Q351
+  - Q352
 concept_short_long_memory:
   name: 短/长期与摘要记忆分层
   keywords:
@@ -152,6 +161,8 @@ concept_short_long_memory:
   - summary memory
   - 短期记忆
   - 长期记忆
+  - 上下文窗口
+  - token预算
   cards:
   - Q011
   - Q012
@@ -164,6 +175,7 @@ concept_short_long_memory:
   - Q109
   - Q111
   - Q130
+  - Q345
 concept_memory_persistence:
   name: 记忆持久化与Schema设计
   keywords:
@@ -178,6 +190,7 @@ concept_memory_persistence:
   - Q111
   - Q108
   - Q133
+  - Q345
   - Q100
 concept_memory_router:
   name: 记忆路由与指代消解
@@ -516,6 +529,10 @@ concept_high_concurrency_limiter:
   - 滑动窗口
   - 令牌桶
   - 漏桶
+  - Worker
+  - checkpoint
+  - 幂等
+  - 任务恢复
   cards:
   - Q060
   - Q061
@@ -538,6 +555,7 @@ concept_high_concurrency_limiter:
   - Q225
   - Q241
   - Q334
+  - Q344
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -700,6 +718,9 @@ concept_rag_engineering_batch:
   - 商家
   - 事实性
   - 准确性
+  - HitRate
+  - MRR
+  - 消融实验
   cards:
   - Q269
   - Q270
@@ -711,6 +732,8 @@ concept_rag_engineering_batch:
   - Q276
   - Q339
   - Q340
+  - Q347
+  - Q348
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -726,6 +749,11 @@ concept_agent_state_tools_batch:
   - Workflow
   - MCP
   - 死循环
+  - Worker
+  - checkpoint
+  - 幂等
+  - 工具预算
+  - 权限确认
   cards:
   - Q280
   - Q281
@@ -741,6 +769,8 @@ concept_agent_state_tools_batch:
   - Q293
   - Q294
   - Q295
+  - Q350
+  - Q353
 
 concept_agent_eval_batch:
   name: Agent评测、Trace与成本
@@ -752,6 +782,10 @@ concept_agent_eval_batch:
   - Trace
   - Hit@1
   - Hit@3
+  - HitRate
+  - MRR
+  - Fake LLM
+  - Harness
   - 数据飞轮
   - 成本
   - Token
@@ -761,6 +795,9 @@ concept_agent_eval_batch:
   - Q279
   - Q290
   - Q291
+  - Q346
+  - Q347
+  - Q348
 
 concept_java_batch:
   name: Java集合、并发与JVM
@@ -885,6 +922,13 @@ concept_project_story_batch:
   - 最难问题
   - HR
   - Codex
+  - 岗位
+  - 到岗
+  - 实习
+  - 输入输出
   cards:
   - Q320
   - Q321
+  - Q350
+  - Q354
+  - Q355
