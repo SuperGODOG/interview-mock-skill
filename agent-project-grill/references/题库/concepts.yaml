@@ -149,22 +149,22 @@ concepts:
     related: [容错限流与高可用]
   - name: JVM 与 Java 并发
     aliases: [线程池, 死锁, 垃圾回收, Spring]
-    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, AOP, Spark, 双亲委派, 上下文切换]
+    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, AOP, Spark, 进程, 线程, ReentrantLock, 双亲委派, 上下文切换]
     summary: Java 生态八股群：JVM 内存模型、GC、线程池参数、并发原语、Spring 启动与自动装配。
     related: [数据库索引与事务]
   - name: 数据库索引与事务
     aliases: [MySQL, 慢查询, 分库分表, 2PC]
-    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log, 深分页, 游标分页, 延迟关联, EXPLAIN, 覆盖索引, 索引失效]
+    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log, 深分页, 游标分页, 延迟关联, EXPLAIN, 覆盖索引, 索引失效, PostgreSQL, MySQL]
     summary: 关系库八股群：索引结构与失效、锁机制、日志体系、事务一致性、分库分表与跨片查询。
     related: [JVM 与 Java 并发, 存储选型与状态持久化]
   - name: 网络与操作系统基础
     aliases: [TCP, HTTP, IO多路复用, epoll]
-    keywords: [TCP, HTTP, 三次握手, "503", "504", IO多路复用, epoll, select, poll, 阻塞IO, 非阻塞IO, 进程创建]
+    keywords: [TCP, HTTP, 三次握手, "503", "504", IO多路复用, epoll, select, poll, 阻塞IO, 非阻塞IO, 进程创建, Nginx, 正向代理, 反向代理, AccessLog]
     summary: 网络与 OS 八股群：TCP 握手、HTTP 状态码、IO 模型演进、进程/线程与事件循环。
     related: [JVM 与 Java 并发]
   - name: 算法与 LeetCode
     aliases: [算法题, 动态规划, LRU]
-    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, 三数之和, LeetCode 15, Leetcode]
+    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, 三数之和, LeetCode 15, 最大子数组和, Leetcode]
     summary: 手撕算法与代码题：经典 DP、数据结构实现与并发场景设计题。
     related: []
 
@@ -175,7 +175,7 @@ concepts:
     related: [Redis 与缓存, 容错限流与高可用, 存储选型与状态持久化]
   - name: RabbitMQ与可靠消息
     aliases: [RabbitMQ, Quorum Queue, Outbox]
-    keywords: [RabbitMQ, Kafka, Quorum Queue, Producer, Exchange, Queue, Consumer, Partition, 消费者组, 消息重试, Outbox, PendingList]
+    keywords: [RabbitMQ, Kafka, Celery, 任务队列, Quorum Queue, Producer, Exchange, Queue, Consumer, Partition, 消费者组, 消息重试, Outbox, PendingList]
     summary: 消息发布、复制、确认、重试和延迟事件的可靠性设计。
     related: [容错限流与高可用, 幂等性与去重, 秒杀库存与高并发扣减]
   - name: Kafka与分区消费
@@ -190,7 +190,7 @@ concepts:
     related: [容错限流与高可用, 存储选型与状态持久化]
   - name: RAG表示与代码知识库
     aliases: [Embedding, 向量数据库, Code RAG]
-    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性, HitRate, MRR, 向量模型, 混合检索, 幻觉]
+    keywords: [Embedding, 向量数据库, 余弦相似度, BM25, JavaParser, MyBatis, Code RAG, LangChain4j, 智能客服, 商家, 事实性, HitRate, MRR, 向量模型, 混合检索, 幻觉, 普通检索, 向量检索, PostgreSQL]
     summary: 表示学习、向量/关键词检索与代码结构化切块的知识库工程。
     related: [RAG 与知识库, 混合检索与重排, 文档切分与解析]
   - name: 文档切分与解析

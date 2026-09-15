@@ -11571,5 +11571,505 @@
  "prereq": [],
  "downstream": [],
  "status": "待复习"
+},
+{
+ "id": "L551",
+ "line": 551,
+ "text": "项目使用了什么样的技术栈？",
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "技术栈/项目表达",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按业务链路分层说明语言、框架、存储、中间件、部署和观测组件，区分实际使用、验证过和只了解的技术，避免罗列名词。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L552",
+ "line": 552,
+ "text": "什么是 Celery？Kafka 和 Celery 有什么区别？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Celery/Kafka/消息",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "说明 Celery 是任务队列与 Worker 执行模型，比较 Kafka 的持久化事件流、分区顺序和消费组与 Celery 的任务投递、调度、重试和结果管理。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L553",
+ "line": 553,
+ "text": "如何保证幂等？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "幂等/一致性",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按请求、消息和任务三类场景说明幂等键、唯一约束、状态机、去重表、分布式锁和重试边界，并处理下游已成功但响应丢失。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L554",
+ "line": 554,
+ "text": "普通检索和向量检索的区别是什么？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "关键词检索/向量检索",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "比较倒排或关键词检索的精确匹配与可解释性和向量检索的语义泛化与近似召回，说明数据准备、过滤、延迟和混合使用边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L555",
+ "line": 555,
+ "text": "为什么使用 PostgreSQL 而不是 MySQL？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "PostgreSQL/MySQL/选型",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从已有生态、SQL 能力、事务与并发、JSON/向量扩展、运维成本和团队熟悉度比较，并用项目需求解释选型而非泛泛比较。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L556",
+ "line": 556,
+ "text": "请求失败时候的策略是什么样的？",
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "失败策略/重试降级",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按可重试与不可重试分类，设计超时、指数退避、重试上限、熔断、降级、补偿和用户可见状态，避免重试风暴与重复副作用。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L557",
+ "line": 557,
+ "text": "如果出现 CPU 负载过高会怎么排查问题？怎么解决？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "CPU/线上排障",
+ "depth": 4,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从主机、进程、线程、GC、锁等待、慢请求和外部依赖逐层采样定位，结合火焰图和指标判断 CPU 消耗，再限流扩容或优化热点。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L558",
+ "line": 558,
+ "text": "如果出现 OutOfMemory 应该怎么排查问题？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "OOM/JVM排障",
+ "depth": 4,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "先区分堆、元空间、直接内存和容器限制，保留堆转储与 GC 日志定位泄漏或突发分配，再修复引用、限制缓存并验证回归。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L559",
+ "line": 559,
+ "text": "负责负载均衡的 Nginx 挂了怎么办？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Nginx/高可用",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "通过主备或多实例、VIP/健康检查、DNS 或云负载均衡切换和配置版本化降低单点，说明连接耗尽、切换延迟和回切验证。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L560",
+ "line": 560,
+ "text": "平时部署的服务都会关注哪些指标？",
+ "major": "二_Agent应用开发相关",
+ "minor": "9.业务评估(性能优化与诊断)",
+ "tag": "可观测性/服务指标",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "覆盖流量、错误、延迟、饱和度四类黄金指标，并补充 JVM、线程池、缓存、消息、数据库、业务成功率和 Trace 关联。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L561",
+ "line": 561,
+ "text": "什么是进程和线程？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "进程/线程",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从资源隔离、地址空间、调度和通信说明进程与线程的关系，补充创建切换成本、共享资源和适用场景。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L562",
+ "line": 562,
+ "text": "如何保证多线程并发安全？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "并发安全",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "围绕共享可变状态、原子性、可见性、有序性和竞态选择无状态化、原子类、锁、并发容器或消息串行化，并说明性能代价。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L563",
+ "line": 563,
+ "text": "Java 的锁如何实现？怎么用 synchronized 和 ReentrantLock？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Java锁/synchronized/ReentrantLock",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "比较 synchronized 的对象监视器与 ReentrantLock 的显式锁、可中断、公平和多条件队列，说明加锁范围、释放和异常边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L564",
+ "line": 564,
+ "text": "缓存穿透、缓存击穿和缓存雪崩的区别是什么？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "缓存三大问题",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "按无效请求、热点 Key 失效、大量 Key 同时失效区分三种问题，分别给出布隆/空值、互斥重建/逻辑过期、TTL 抖动/限流降级方案。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L565",
+ "line": 565,
+ "text": "Redis 如何持久化？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Redis持久化",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "比较 RDB 快照与 AOF 追加日志的触发、数据丢失窗口、恢复速度、文件体积和 fork/重写成本，并说明混合持久化。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L566",
+ "line": 566,
+ "text": "Redis 有哪些常用的数据类型？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Redis数据结构",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "说明 String、Hash、List、Set、ZSet 及 Stream 等类型的底层语义、典型命令、复杂度和业务使用边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L567",
+ "line": 567,
+ "text": "数据库为什么使用 B+ 树？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "B+Tree/数据库索引",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "从磁盘页、扇出、树高、范围扫描和叶子链表解释 B+ 树相对二叉树和 B 树的优势，并联系聚簇与二级索引。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L568",
+ "line": 568,
+ "text": "正向代理和反向代理有什么区别？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "代理/网络",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "以客户端视角区分正向代理隐藏客户端与反向代理隐藏服务端，说明网关、负载均衡、缓存、鉴权和部署位置。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L569",
+ "line": 569,
+ "text": "如何写一个脚本查询 Nginx AccessLog 中特定的状态码或者字段？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Nginx日志/脚本",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "先明确日志格式和字段位置，再用 awk/grep/sed 或 Python 流式读取、过滤、聚合并处理转义和大文件，给出可复现命令与边界。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L570",
+ "line": 570,
+ "text": "手撕：LRU。",
+ "major": "Leetcode相关",
+ "minor": "Leetcode相关",
+ "tag": "LRU",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "用哈希表定位节点、双向链表维护最近使用顺序，实现 get/put O(1)，处理容量为零、更新已有键和淘汰尾节点。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
 }
 ]

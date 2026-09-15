@@ -555,6 +555,10 @@ concept_high_concurrency_limiter:
   - 单线程轮询
   - 任务调度
   - 多实例
+  - CPU
+  - OutOfMemory
+  - OOM
+  - Nginx
   cards:
   - Q060
   - Q061
@@ -586,6 +590,12 @@ concept_high_concurrency_limiter:
   - Q390
   - Q392
   - Q393
+  - Q403
+  - Q406
+  - Q407
+  - Q409
+  - Q410
+  - Q412
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -700,6 +710,9 @@ concept_rabbitmq_reliability_batch:
   - 消费者组
   - consumer group
   - 消息重试
+  - Celery
+  - 任务队列
+  - Worker
   cards:
   - Q251
   - Q254
@@ -710,6 +723,7 @@ concept_rabbitmq_reliability_batch:
   - Q325
   - Q359
   - Q368
+  - Q402
 
 concept_rpc_service_batch:
   name: RPC、服务发现与容错
@@ -761,6 +775,9 @@ concept_rag_engineering_batch:
   - 向量数据库选型
   - 向量模型
   - 幻觉
+  - 普通检索
+  - 向量检索
+  - PostgreSQL
   cards:
   - Q269
   - Q270
@@ -784,6 +801,7 @@ concept_rag_engineering_batch:
   - Q396
   - Q397
   - Q398
+  - Q404
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -854,6 +872,7 @@ concept_agent_eval_batch:
   - Q379
   - Q397
   - Q399
+  - Q410
 
 concept_java_batch:
   name: Java集合、并发与JVM
@@ -872,6 +891,10 @@ concept_java_batch:
   - Executor
   - 线程池
   - Spark
+  - 进程
+  - 线程
+  - ReentrantLock
+  - OOM
   cards:
   - Q268
   - Q302
@@ -884,6 +907,11 @@ concept_java_batch:
   - Q375
   - Q391
   - Q392
+  - Q407
+  - Q408
+  - Q411
+  - Q412
+  - Q413
 
 concept_mysql_redis_batch:
   name: MySQL事务索引与Redis基础
@@ -959,6 +987,11 @@ concept_mysql_redis_batch:
   - Q385
   - Q386
   - Q387
+  - Q405
+  - Q414
+  - Q415
+  - Q416
+  - Q417
 
 concept_network_batch:
   name: 网络、消息与基础设施
@@ -969,10 +1002,16 @@ concept_network_batch:
   - 软连接
   - 阻塞队列
   - 消息队列
+  - Nginx
+  - 正向代理
+  - 反向代理
+  - AccessLog
   cards:
   - Q308
   - Q309
   - Q310
+  - Q418
+  - Q419
 
 concept_algorithm_batch:
   name: 算法与手撕补充
@@ -986,6 +1025,7 @@ concept_algorithm_batch:
   - 最大数
   - 最长无重复
   - 超时控制
+  - LRU
   cards:
   - Q311
   - Q312
@@ -998,6 +1038,7 @@ concept_algorithm_batch:
   - Q319
   - Q380
   - Q400
+  - Q420
 
 concept_project_story_batch:
   name: 项目表达与行为面
@@ -1027,3 +1068,4 @@ concept_project_story_batch:
   - Q381
   - Q388
   - Q399
+  - Q401

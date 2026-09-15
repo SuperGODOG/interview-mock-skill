@@ -1,1 +1,1 @@
-# Agent Review Audit Skill 语料库\n\n- 包含 400 道带精准 YAML 锚点的大厂面试题卡\n- 包含 44 概念映射表\n- 一键同步脚本: `python3 scripts/sync_corpus.py`\n
+# Agent Review Audit Skill 语料库\n\n- 包含 420 道带精准 YAML 锚点的大厂面试题卡\n- 包含 44 概念映射表\n- 一键同步脚本: `python3 scripts/sync_corpus.py`\n
