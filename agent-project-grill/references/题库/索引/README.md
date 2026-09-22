@@ -8,6 +8,7 @@
 | 索引名称与链接 | 机器检索 JSON | 题数 | 分类范围与说明 |
 |---|---|---|---|
 | [业务线与项目实战面试题索引](./01_business_projects.md) | `01_business_projects.json` | **33** | 涵盖业务流程拆解、秒杀架构、大文件分片上传与断点续传、跨集群多节点部署及实际生产落地问题。 |
+| [前端工程、渲染与页面交互题索引](./02_frontend.md) | `02_frontend.json` | **3** | 涵盖从浏览器 URL 到页面渲染完整链路、前端大文件分片与 Hash 计算、AI 生成代码前端端到端（E2E）与影响面回归测试。 |
 | [后端基建 · 操作系统（OS）面试题索引](./02_backend_os.md) | `02_backend_os.json` | **11** | 涵盖 Linux 内核调度、进程/线程/协程原理、用户态上下文切换、IPC 进程间通信、系统调用与资源监控。 |
 | [后端基建 · 计算机网络面试题索引](./02_backend_network.md) | `02_backend_network.json` | **12** | 涵盖 TCP/IP 协议栈、三次握手/四次挥手、HTTP/1.1 与 HTTP/2、SSE 流式、WebSocket、Nginx 反向代理与负载均衡。 |
 | [后端基建 · 数据库与存储面试题索引](./02_backend_database.md) | `02_backend_database.json` | **65** | 涵盖 MySQL 与 PostgreSQL 引擎机制、B+ 树、聚簇与联合索引、事务隔离级别与 MVCC、锁机制、CAS/状态机、Redis 缓存与持久化。 |
@@ -24,6 +25,7 @@
 
 1. **分类精准路由**:
    - 业务与项目考察：优先读取 `01_business_projects.json`
+   - 前端工程与渲染交互：优先读取 `02_frontend.json`
    - 后端计算机基础：按需选择 OS (`02_backend_os.json`)、网络 (`02_backend_network.json`)、数据库 (`02_backend_database.json`)、消息队列 (`02_backend_mq.json`)
    - Agent Harness 评测与沙箱：优先读取 `03_agent_harness.json`
 2. **唯一内容回源**:

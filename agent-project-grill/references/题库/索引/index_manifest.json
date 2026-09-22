@@ -9,6 +9,12 @@
    "json_index": "01_business_projects.json",
    "md_index": "01_business_projects.md"
   },
+  "frontend": {
+   "title": "前端工程、渲染与页面交互题索引",
+   "count": 3,
+   "json_index": "02_frontend.json",
+   "md_index": "02_frontend.md"
+  },
   "backend_os": {
    "title": "后端基建 · 操作系统（OS）面试题索引",
    "count": 11,

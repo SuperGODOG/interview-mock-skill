@@ -25,6 +25,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 为加速出题与检索分类，在 `references/题库/索引/` 下维护稳定分类索引（不冗余复制答案正文）：
 - `01_business_projects.json`：业务线与项目实战题（秒杀、分片上传、多集群）
+- `02_frontend.json`：前端工程、渲染与页面交互题（URL到渲染、分片上传前端流、E2E/前端影响测试）
 - `02_backend_os.json` / `02_backend_network.json` / `02_backend_database.json` / `02_backend_mq.json`：后端基础（操作系统、网络、数据库与存储、消息队列）
 - `03_agent_harness.json`：Agent Harness 评测、沙箱与测试闭环题
 - `04_agent_architecture.json` / `05_rag_retrieval.json` / `06_backend_java.json` / `07_algorithms.json` / `08_general_behavior.json`：其余专业分类
