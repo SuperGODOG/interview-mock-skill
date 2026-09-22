@@ -114,7 +114,7 @@ concepts:
     related: [RAG 与知识库, 混合检索与重排, 存储选型与状态持久化]
   - name: 混合检索与重排
     aliases: [Hybrid Search, BM25, 重排, 双路召回]
-    keywords: [混合检索, Hybrid Search, BM25, Dense, Sparse, 稀疏检索, 稠密检索, 重排, Rerank, 双路召回, 多路召回, RRF, Reciprocal Rank Fusion, 召回率]
+    keywords: [混合检索, Hybrid Search, BM25, Dense, Sparse, 稀疏检索, 稠密检索, 重排, Rerank, 精排, Cross-Encoder, Bi-Encoder, 重排模型, 双路召回, 多路召回, RRF, Reciprocal Rank Fusion, 召回率]
     summary: 向量+关键词双路召回再融合重排的检索策略；解决语义与精确匹配互补问题，Top-K 与噪声平衡是调参重点。
     related: [RAG 与知识库, 向量数据库与 HNSW, 评测体系与 Benchmark]
   - name: Query 改写
@@ -149,22 +149,22 @@ concepts:
     related: [容错限流与高可用]
   - name: JVM 与 Java 并发
     aliases: [线程池, 死锁, 垃圾回收, Spring]
-    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, AOP, Spark, 进程, 线程, ReentrantLock, 双亲委派, 上下文切换]
+    keywords: [JVM, 线程池, 死锁, 单例, volatile, OOM, 内存溢出, 垃圾回收, GC, Spring, AOP, Spark, 进程, 线程, ReentrantLock, 双亲委派, 上下文切换, JMM, 内存屏障, happens-before, 扰动函数]
     summary: Java 生态八股群：JVM 内存模型、GC、线程池参数、并发原语、Spring 启动与自动装配。
     related: [数据库索引与事务]
   - name: 数据库索引与事务
     aliases: [MySQL, 慢查询, 分库分表, 2PC]
-    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log, 深分页, 游标分页, 延迟关联, EXPLAIN, 覆盖索引, 索引失效, PostgreSQL, MySQL]
+    keywords: [索引, 慢查询, 存储引擎, 聚簇索引, InnoDB, B+Tree, B+ 树, 行锁, 表锁, 意向锁, 分库分表, 2PC, 两阶段提交, binlog, redo log, undo log, SQL, log, 深分页, 游标分页, 延迟关联, EXPLAIN, 覆盖索引, 索引失效, PostgreSQL, MySQL, CAS, 状态机, 乐观锁, 自旋, 联合索引]
     summary: 关系库八股群：索引结构与失效、锁机制、日志体系、事务一致性、分库分表与跨片查询。
     related: [JVM 与 Java 并发, 存储选型与状态持久化]
   - name: 网络与操作系统基础
     aliases: [TCP, HTTP, IO多路复用, epoll]
-    keywords: [TCP, HTTP, 三次握手, "503", "504", IO多路复用, epoll, select, poll, 阻塞IO, 非阻塞IO, 进程创建, Nginx, 正向代理, 反向代理, AccessLog]
+    keywords: [TCP, HTTP, 三次握手, "503", "504", IO多路复用, epoll, select, poll, 阻塞IO, 非阻塞IO, 进程创建, Nginx, 正向代理, 反向代理, AccessLog, 协程, FastAPI, asyncio, IPC, 进程间通信]
     summary: 网络与 OS 八股群：TCP 握手、HTTP 状态码、IO 模型演进、进程/线程与事件循环。
     related: [JVM 与 Java 并发]
   - name: 算法与 LeetCode
     aliases: [算法题, 动态规划, LRU]
-    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, 三数之和, LeetCode 15, 最大子数组和, Leetcode]
+    keywords: [算法, 动态规划, 二叉搜索树, 回文, 快速排序, LRU, 双蛋, 抢红包, 合并两个有序数组, 三数之和, LeetCode 15, 最大子数组和, Leetcode, 快速选择, 反转链表, 多叉树, LeetCode 215, LeetCode 206]
     summary: 手撕算法与代码题：经典 DP、数据结构实现与并发场景设计题。
     related: []
 

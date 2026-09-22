@@ -17,9 +17,18 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 - 缺 pipeline：已有项目档案照常使用；未建档时基于用户提供的代码与公共题库按题提问，标注“未建档临时练习”，不声称建档或同步成功。
 - 缺 resume-pack：使用已有完整备战包；没有则跳过表达材料前置，正常练习。
 - 缺 project-mock-interview：从本 skill 公共题库按 id 提取单题，一次一问；按概念理解、原理深度、落地证据、结构完整度各 1–5 分点评（1=错误/空泛，3=方向对但缺细节，5=准确且有证据）；无档案则仅用实际代码证据，继续阶段 2–3。
-- 缺 agent-review-audit：日常练习不受影响；用户要求体检时按架构、生产就绪、健壮性检查给定代码片段，记录证据与待核实项，不冒充 432 题卡审查。
+- 缺 agent-review-audit：日常练习不受影响；用户要求体检时按架构、生产就绪、健壮性检查给定代码片段，记录证据与待核实项，不冒充 448 题卡审查。
 - 缺 grilling：执行阶段 2 的一次一问、推荐答案、先查代码内联规则。
 - 工作区不可用且 pipeline 缺失：仅在会话内记录复盘与学习卡，明确尚未落盘，待提供可写工作区后保存。
+
+### 题库索引与检索路由（references/题库/索引/）
+
+为加速出题与检索分类，在 `references/题库/索引/` 下维护稳定分类索引（不冗余复制答案正文）：
+- `01_business_projects.json`：业务线与项目实战题（秒杀、分片上传、多集群）
+- `02_backend_os.json` / `02_backend_network.json` / `02_backend_database.json` / `02_backend_mq.json`：后端基础（操作系统、网络、数据库与存储、消息队列）
+- `03_agent_harness.json`：Agent Harness 评测、沙箱与测试闭环题
+- `04_agent_architecture.json` / `05_rag_retrieval.json` / `06_backend_java.json` / `07_algorithms.json` / `08_general_behavior.json`：其余专业分类
+- **降级回退**：若索引文件缺失或不可读，出题与检索模块自动回退遍历 `items.json` 全量语料或使用 `concepts.yaml` 关键词匹配。
 
 ## 0. 环境与建档自检（开工前必做）
 

@@ -559,6 +559,10 @@ concept_high_concurrency_limiter:
   - OutOfMemory
   - OOM
   - Nginx
+  - 分片上传
+  - 断点续传
+  - 文件服务器
+  - 代码沙箱
   cards:
   - Q060
   - Q061
@@ -595,7 +599,12 @@ concept_high_concurrency_limiter:
   - Q407
   - Q409
   - Q410
+  - Q443
+  - Q444
   - Q412
+  - Q436
+  - Q437
+  - Q445
 concept_prefix_caching:
   name: Prefix Caching前缀缓存结构优化
   keywords:
@@ -778,6 +787,9 @@ concept_rag_engineering_batch:
   - 普通检索
   - 向量检索
   - PostgreSQL
+  - Rerank
+  - 精排
+  - Cross-Encoder
   cards:
   - Q269
   - Q270
@@ -802,6 +814,7 @@ concept_rag_engineering_batch:
   - Q397
   - Q398
   - Q404
+  - Q433
 
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
@@ -873,6 +886,8 @@ concept_agent_eval_batch:
   - Q397
   - Q399
   - Q410
+  - Q443
+  - Q444
 
 concept_java_batch:
   name: Java集合、并发与JVM
@@ -894,6 +909,10 @@ concept_java_batch:
   - 进程
   - 线程
   - ReentrantLock
+  - JMM
+  - 内存屏障
+  - happens-before
+  - 扰动函数
   - OOM
   cards:
   - Q268
@@ -911,7 +930,12 @@ concept_java_batch:
   - Q408
   - Q411
   - Q412
+  - Q436
+  - Q437
+  - Q445
   - Q413
+  - Q441
+  - Q442
 
 concept_mysql_redis_batch:
   name: MySQL事务索引与Redis基础
@@ -992,6 +1016,8 @@ concept_mysql_redis_batch:
   - Q415
   - Q416
   - Q417
+  - Q434
+  - Q435
 
 concept_network_batch:
   name: 网络、消息与基础设施
@@ -1003,15 +1029,26 @@ concept_network_batch:
   - 阻塞队列
   - 消息队列
   - Nginx
+  - 分片上传
+  - 断点续传
+  - 文件服务器
+  - 代码沙箱
   - 正向代理
   - 反向代理
   - AccessLog
+  - 协程
+  - FastAPI
+  - asyncio
+  - IPC
+  - 进程间通信
   cards:
   - Q308
   - Q309
   - Q310
   - Q418
   - Q419
+  - Q439
+  - Q440
 
 concept_algorithm_batch:
   name: 算法与手撕补充
@@ -1026,6 +1063,9 @@ concept_algorithm_batch:
   - 最长无重复
   - 超时控制
   - LRU
+  - 快速选择
+  - 反转链表
+  - 多叉树
   cards:
   - Q311
   - Q312
@@ -1039,6 +1079,9 @@ concept_algorithm_batch:
   - Q380
   - Q400
   - Q420
+  - Q446
+  - Q447
+  - Q448
 
 concept_project_story_batch:
   name: 项目表达与行为面

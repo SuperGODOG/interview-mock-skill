@@ -1,0 +1,305 @@
+{
+ "category": "business_projects",
+ "title": "业务线与项目实战面试题索引",
+ "description": "涵盖业务流程拆解、秒杀架构、大文件分片上传与断点续传、跨集群多节点部署及实际生产落地问题。",
+ "count": 33,
+ "items": [
+  {
+   "id": "L13",
+   "line": 13,
+   "text": "请介绍一下你最近（或核心）负责的 AI/Agent 系统的架构设计与核心业务场景。",
+   "major": null,
+   "minor": null,
+   "tag": null,
+   "depth": null
+  },
+  {
+   "id": "L16",
+   "line": 16,
+   "text": "针对类似 Claude Code / GitHub Copilot Workspace 的 AI Coding 工具，其底层的 Agentic Workflow 与系统架构是怎样的？",
+   "major": null,
+   "minor": null,
+   "tag": null,
+   "depth": null
+  },
+  {
+   "id": "L80",
+   "line": 80,
+   "text": "在大模型应用落地中，确定性工作流（Workflow）与自主智能体（Agent）在业务场景选择、决策机制及容错成本上有何本质区别？如何理解自主智能体（Agent）与工作流（Workflow）的区别、联系及适用场景？",
+   "major": "二_Agent应用开发相关",
+   "minor": "1.agent宏观认知",
+   "tag": "传统区别",
+   "depth": null
+  },
+  {
+   "id": "L83",
+   "line": 83,
+   "text": "谈谈你对“多Agent协同”在复杂业务场景（例如信息解析、方案生成、执行协调分工合作）中应用前景的看法，这会带来哪些新的技术挑战？",
+   "major": "二_Agent应用开发相关",
+   "minor": "1.agent宏观认知",
+   "tag": "传统区别",
+   "depth": null
+  },
+  {
+   "id": "L86",
+   "line": 86,
+   "text": "针对AI Agent系统的并发能力与高可靠性，通常可以从哪些维度进行深度优化？请详细拆解系统架构。",
+   "major": "二_Agent应用开发相关",
+   "minor": "1.agent宏观认知",
+   "tag": "高并发场景",
+   "depth": null
+  },
+  {
+   "id": "L187",
+   "line": 187,
+   "text": "如果Agent需要处理文本、图片、文档等多模态输入，并在架构上进行联合理解与分析，在系统架构上应如何设计？涉及哪些关键组件和技术选型？",
+   "major": "二_Agent应用开发相关",
+   "minor": "6.agent处理情景的架构设计",
+   "tag": "多模态",
+   "depth": null
+  },
+  {
+   "id": "L190",
+   "line": 190,
+   "text": "您的业务场景是纯文本模态的交互，还是涉及多模态/语音Agent的交互？",
+   "major": null,
+   "minor": null,
+   "tag": null,
+   "depth": null
+  },
+  {
+   "id": "L305",
+   "line": 305,
+   "text": "请对比SFT、DPO和RLHF三种大模型微调方案的异同，并结合具体业务场景说明如何进行技术选型。",
+   "major": "三_transformer相关",
+   "minor": "三_transformer相关",
+   "tag": "微调",
+   "depth": null
+  },
+  {
+   "id": "L393",
+   "line": 393,
+   "text": "请完整介绍一个秒杀库存项目：业务场景、核心功能，以及从限流到订单落库、超时关单和对账补偿的完整链路。",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L394",
+   "line": 394,
+   "text": "秒杀中用 Redis Set 保存领取用户会遇到什么问题？用户达到一亿时如何处理 BigKey、拆桶失衡和一人一单？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L395",
+   "line": 395,
+   "text": "单实例秒杀系统改造成分布式系统时，需要改造哪些状态、锁、库存、消息和数据存储部分？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L396",
+   "line": 396,
+   "text": "分布式秒杀中如何同时保证稳定性、库存不超卖和关键数据一致性？哪些约束必须强一致？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L397",
+   "line": 397,
+   "text": "Redis Cluster 中 Lua 涉及多个 key 时如何处理跨 slot？库存先 GET 再减一、GET+SET 与直接 DECR 有什么差异？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L398",
+   "line": 398,
+   "text": "秒杀系统的分桶库存如何设计？固定按 userId 哈希会不会出现有库存却领不到？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L399",
+   "line": 399,
+   "text": "Redis 与 MySQL 库存同步有哪些方式？如何选择数据源、同步频率和扣减结果的合并策略？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L400",
+   "line": 400,
+   "text": "Redis 到 MySQL 异步消息积压或 PendingList 长时间未处理时怎么办？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "消息队列",
+   "depth": 4
+  },
+  {
+   "id": "L401",
+   "line": 401,
+   "text": "MySQL 单行库存成为热点写入时如何改造？为什么项目中可能同时使用乐观锁和 Redisson 分布式锁？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L403",
+   "line": 403,
+   "text": "为什么秒杀项目选 RabbitMQ 而不是吞吐更高的 Kafka？Producer、Exchange、Queue、Consumer 如何串联？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "消息队列",
+   "depth": 4
+  },
+  {
+   "id": "L404",
+   "line": 404,
+   "text": "RabbitMQ 如何在 Producer、Broker、Consumer 三端防止消息丢失？Quorum Queue 的 Leader 故障和多数派提交如何工作？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "消息队列",
+   "depth": 4
+  },
+  {
+   "id": "L405",
+   "line": 405,
+   "text": "消费者业务成功但 ACK 失败导致消息重投时，唯一索引、分布式锁和 Inbox/messageId 哪种幂等方案更合适？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "消息队列",
+   "depth": 4
+  },
+  {
+   "id": "L406",
+   "line": 406,
+   "text": "订单落库后要发送十五分钟关单事件，如何保证订单写入和延迟事件一致？Outbox 的事务边界是什么？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "消息队列",
+   "depth": 4
+  },
+  {
+   "id": "L407",
+   "line": 407,
+   "text": "前端拿 orderId 轮询订单结果时，高并发轮询压力如何控制？Redis 回滚超时时如何用 ZSet 对账补偿？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L408",
+   "line": 408,
+   "text": "用户签到统计如何设计？Bitmap、Set、HyperLogLog 等方案如何选择，内存规模如何估算？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L409",
+   "line": 409,
+   "text": "DB 扣了十条库存而 Redis 显示扣了十二条，能否直接认定有两条失败？如何建立对账证据？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/分布式",
+   "depth": 4
+  },
+  {
+   "id": "L471",
+   "line": 471,
+   "text": "通过 Redis 加 Lua 脚本去实现秒杀库存的原子性是吗？后续还有其他流程做配合吗？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "秒杀/Redis",
+   "depth": 3
+  },
+  {
+   "id": "L472",
+   "line": 472,
+   "text": "改进之前的 DB 请求量能扛住多少呢？有过压测吗？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "性能压测",
+   "depth": 4
+  },
+  {
+   "id": "L473",
+   "line": 473,
+   "text": "Redis 加 Lua 脚本去扣减库存了之后，Kafka 消息如果发送失败了会怎么样？开启消息重试机制，那重试也失败了呢？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "Kafka/可靠消息",
+   "depth": 4
+  },
+  {
+   "id": "L489",
+   "line": 489,
+   "text": "能举个例子说明具体业务场景吗？怎么保证你说的商家是真实存在的，不是大模型随便生成的？",
+   "major": "二_Agent应用开发相关",
+   "minor": "8.工程落地",
+   "tag": "事实性/工具",
+   "depth": 4
+  },
+  {
+   "id": "L516",
+   "line": 516,
+   "text": "讲一下高并发抢券完整链路，Redis、Lua、MQ 分别起什么作用？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "抢券/Redis Lua MQ",
+   "depth": 4
+  },
+  {
+   "id": "L517",
+   "line": 517,
+   "text": "Lua 为什么能解决库存判断、扣减的并发与超卖问题？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "Redis Lua/库存原子性",
+   "depth": 3
+  },
+  {
+   "id": "L518",
+   "line": 518,
+   "text": "为什么使用消息队列异步下单？",
+   "major": "五_业务流相关",
+   "minor": "五_业务流相关",
+   "tag": "MQ/异步下单",
+   "depth": 3
+  },
+  {
+   "id": "L551",
+   "line": 551,
+   "text": "项目使用了什么样的技术栈？",
+   "major": "二_Agent应用开发相关",
+   "minor": "8.工程落地",
+   "tag": "技术栈/项目表达",
+   "depth": 2
+  },
+  {
+   "id": "L579",
+   "line": 579,
+   "text": "你使用什么编程语言？",
+   "major": "二_Agent应用开发相关",
+   "minor": "8.工程落地",
+   "tag": "技术栈/编程语言",
+   "depth": 2
+  }
+ ]
+}
