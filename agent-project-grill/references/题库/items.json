@@ -12071,5 +12071,305 @@
  "prereq": [],
  "downstream": [],
  "status": "待复习"
+},
+{
+ "id": "L571",
+ "line": 571,
+ "text": "Think、Plan、Action、Observation 四个阶段分别保存什么状态？怎么影响下一轮？",
+ "major": "二_Agent应用开发相关",
+ "minor": "1.agent宏观认知",
+ "tag": "Agent工作流/状态机",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "Think 存决策意图与推理链，Plan 存待执行子任务与依赖，Action 存工具调用参数与签名，Observation 存执行返回值与错误；通过状态机或上下文追加驱动下一轮决策与修正。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L572",
+ "line": 572,
+ "text": "Agent 怎么决定继续检索，还是已经可以停止并给出答案？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "Agent检索/停止条件",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "结合信息充分度评分、置信度阈值、确定性终止判断、最大迭代预算以及反思校验，若当前证据已能完全支撑回答或达到收敛边界则终止检索直接作答。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L573",
+ "line": 573,
+ "text": "这套 Agent 的评测条件怎么设计？",
+ "major": "二_Agent应用开发相关",
+ "minor": "9.业务评估(性能优化与诊断)",
+ "tag": "Agent评测/门禁条件",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "设计黄金基准集与对抗用例、离线沙箱环境隔离、多维断言指标（工具准确率、轨迹正确率、幻觉率、延迟与成本），并制定准入发布门禁与 Badcase 自动化回归条件。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L574",
+ "line": 574,
+ "text": "多轮检索时，怎么避免重复查询、循环调用和上下文无限增长？",
+ "major": "二_Agent应用开发相关",
+ "minor": "3.工具相关",
+ "tag": "多轮检索/上下文管理",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "维护已查询指纹表/动作历史哈希去重，引入循环调用检测与惩罚机制，采用滑动窗口、按相关性剪枝和中间观察摘要压缩上下文，控制窗口增长。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L575",
+ "line": 575,
+ "text": "除了设置最大循环次数，还有没有其他办法抑制循环调用？",
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "循环抑制/死循环防护",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "通过工具调用参数指纹去重、动作序列 N-gram 重复检测、状态增量（Delta）校验、Critic/Reflect 介入提示与动态降级策略多层抑制循环调用。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L576",
+ "line": 576,
+ "text": "负向 Prompt 和“不要重复调用工具”这样的简单声明有什么区别？怎么验证它是否有效？",
+ "major": "二_Agent应用开发相关",
+ "minor": "4.Prompt_engineering",
+ "tag": "负向Prompt/评测验证",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "简单声明容易被注意力机制忽略或引发粉色大象效应；规范的负向约束需结合正反示例、边界触发判定与格式拦截；通过压力扰动用例、重复率统计与 A/B Benchmark 验证有效性。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L577",
+ "line": 577,
+ "text": "如果把系统放到业务中，面对简单、中等、困难问题，怎么设计整体流程以控制延迟？",
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "分级路由/延迟控制",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "设计轻量规则/小模型前置语义路由：简单问题走直接生成或缓存（Fast-path），中等问题走单次 RAG 召回，困难长链路问题才流转给多步 Agent ReAct，严格按 SLA 实施超时中断与流式降级。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L578",
+ "line": 578,
+ "text": "多 Agent 协同应该怎么设计？怎么决定哪些功能放在主 Agent、哪些放在 Sub Agent，以及是否需要 Sub Agent？",
+ "major": "二_Agent应用开发相关",
+ "minor": "6.agent处理情景的架构设计",
+ "tag": "多Agent协同/主从架构",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "主 Agent 负责意图分发、上下文聚合与全局状态编排，Sub Agent 封装领域工具与隔离上下文；当单 Agent 上下文超载或工具冲突时拆分 Sub Agent，简单线性链路优先单 Agent 避免协同开销。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L579",
+ "line": 579,
+ "text": "你使用什么编程语言？",
+ "major": "二_Agent应用开发相关",
+ "minor": "8.工程落地",
+ "tag": "技术栈/编程语言",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "明确主用语言（如 Python 做 Agent/算法流，Java/Go 做高性能后端服务），结合生态选型理由、类型安全、并发模型与生产项目实战说明技术掌握深度。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L580",
+ "line": 580,
+ "text": "既然有 GC，为什么还会出现内存泄漏？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "Java/JVM内存泄漏",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "GC 仅回收不可达对象；当对象逻辑上已废弃但仍被 GC Roots（如静态集合、未清理的 ThreadLocal、未关闭的连接或长生命周期监听器）强引用持有可达链时，GC 无法回收导致内存泄漏。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L581",
+ "line": 581,
+ "text": "能介绍一下 SSE 是什么吗？",
+ "major": "四_八股相关",
+ "minor": "四_八股相关",
+ "tag": "网络协议/SSE流式",
+ "depth": 2,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "Server-Sent Events 是基于标准 HTTP 长连接的轻量单向文本流协议（text/event-stream），自带断线重连与事件机制，在大模型流式打字机输出中相比 WebSocket 更简单且穿透防火墙更友好。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
+},
+{
+ "id": "L582",
+ "line": 582,
+ "text": "算法：二叉树的直径，直接秒。",
+ "major": "Leetcode相关",
+ "minor": "Leetcode相关",
+ "tag": "二叉树直径/LeetCode543",
+ "depth": 3,
+ "kind": "question",
+ "in_comment": false,
+ "comment_label": null,
+ "assigned": true,
+ "answer": {
+  "core": "后序 DFS 递归遍历二叉树，每个节点返回其最大深度，并在遍历过程中动态用左右子树深度之和更新全局最大直径，时间复杂度 O(N)，空间复杂度 O(H)。",
+  "steps": [
+   "概念与场景澄清",
+   "架构/机制拆解",
+   "工程权衡与失败边界",
+   "证据、指标与验证"
+  ]
+ },
+ "prereq": [],
+ "downstream": [],
+ "status": "待复习"
 }
 ]

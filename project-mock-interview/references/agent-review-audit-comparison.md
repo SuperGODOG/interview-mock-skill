@@ -3,7 +3,7 @@
 ## 姊妹技能位置与结构
 
 - 路径：`~/.gemini/antigravity-cli/builtin/skills/agent-review-audit/`（用户 Antigravity/Gemini CLI 的内置 skill，与本技能并行）
-- 结构：SKILL.md（轻量路由表，6 大类）+ `references/03_Cards/Q001~Q420.md`（420 张题卡）+ `scripts/route_project.py`（关键词路由）
+- 结构：SKILL.md（轻量路由表，6 大类）+ `references/03_Cards/Q001~Q420.md`（432 张题卡）+ `scripts/route_project.py`（关键词路由）
 - 题源关系：Q001~Q243 保留原有同源映射；Q244~Q420 是本轮面经扩充后按独立 schema 新增的 177 张审查卡
 
 ## 题卡 schema（它比我们强的部分）
