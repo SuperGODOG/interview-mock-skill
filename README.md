@@ -131,7 +131,7 @@
    - 新设备：直接放入 `~/.codex/skills/`（Codex）或 `~/.claude/skills/`（Claude）
 2. 设置数据工作区：`export INTERVIEW_WORKSPACE=<数据目录>`（写入 shell 配置长期生效）
    - 生产/建档时初始化：从 `agent-project-grill/references/题库/` 复制缺少的 `items.json` / `concepts.yaml` / `schema.json` 到工作区；已有文件不覆盖。练习直接读取整包公共题库；个人记录保存在 `obsidian_vault/`
-   - 未设置时兼容回退 `~/桌面/面试文档裁切`（仅旧本机；跨平台必须显式设置）
+   - 未设置时兼容回退 `~/.interview-workbench`（仅旧本机；跨平台必须显式设置）
 3. 依赖：python3、PyYAML、git、jq（仅 project-mock-interview 路由提取用，macOS 用 `brew install jq`）
 
 **macOS 迁移三步**：拷全部 6 个 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目同时携带 `agent-project-grill/references/题库/` 与 `project-mock-interview/references/项目/`（拷打只需要题库 + 项目快照，不需要 repos_cache）。注意：要**生成备战包**（interview-resume-pack）时还需要可解析的项目源码仓库根（本地 clone 或可 fetch 的 URL），仅带快照不够。
@@ -179,7 +179,7 @@ interview-mock-skill/
 
 - 三个 SKILL.md 的 `version` / `use_when` 为非标准 frontmatter 字段（校验提示，不影响加载）
 - `map_cards.py` 正则 SyntaxWarning（一次性迁移工具）
-- `~/桌面/面试文档裁切` 兼容回退字符串为有意保留（完整可用且正在工作，新设备用 `INTERVIEW_WORKSPACE`）
+- `~/.interview-workbench` 兼容回退字符串为有意保留（完整可用且正在工作，新设备用 `INTERVIEW_WORKSPACE`）
 
 续审记录：
 

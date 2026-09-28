@@ -12,7 +12,7 @@ import os
 import re
 import shutil
 
-ROOT = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/桌面/面试文档裁切")
+ROOT = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/.interview-workbench")
 CARDS = os.environ.get("AGENT_REVIEW_CARDS") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "agent-review-audit", "references", "03_Cards")
 
 PUNCT = re.compile(r"[\s，。！？、；：\"\"''（）()\[\]【】.,!?;:'\"\-—_…~～<>《》]+")

@@ -93,7 +93,7 @@ def find_snapshot_dirs(slug: str) -> list[str]:
     candidates.append(os.path.expanduser(f"~/.cc-switch/skills/project-mock-interview/references/项目/{slug}"))
     
     # 2. Obsidian vault 档案区
-    vault_root = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/桌面/面试文档裁切")
+    vault_root = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/.interview-workbench")
     candidates.append(os.path.join(vault_root, "obsidian_vault", "40_项目档案", slug))
 
     # 去重
@@ -165,7 +165,7 @@ def check_snapshot(target: str) -> dict:
     
     # 若无法根据目标直接推导 repo_dir，但 cache 存在
     if not repo_dir:
-        root_ws = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/桌面/面试文档裁切")
+        root_ws = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/.interview-workbench")
         cached_repo = os.path.join(root_ws, "repos_cache", slug)
         if os.path.isdir(cached_repo):
             repo_dir = cached_repo

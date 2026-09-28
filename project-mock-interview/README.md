@@ -32,7 +32,7 @@ project-mock-interview/
 
 1. 克隆或下载本仓库
 2. 将六个 skill 目录整包放入任一 agent 的 skills 目录（本机统一入口 `~/.cc-switch/skills/`，Codex/Claude/Gemini/Hermes 用软链指向）
-3. 重启 / 新开会话即可使用（整包语料自包含；复盘需 `INTERVIEW_WORKSPACE`，未设置时回退 `~/桌面/面试文档裁切`）
+3. 重启 / 新开会话即可使用（整包语料自包含；复盘需 `INTERVIEW_WORKSPACE`，未设置时回退 `~/.interview-workbench`）
 
 ## 使用
 
@@ -62,7 +62,7 @@ project-mock-interview/
 
 ## 配套流水线（可选）
 
-数据源位于 `$INTERVIEW_WORKSPACE`（未设置时回退 `~/桌面/面试文档裁切`），生成工具已内嵌于 interview-bank-pipeline 的 `scripts/`：
+数据源位于 `$INTERVIEW_WORKSPACE`（未设置时回退 `~/.interview-workbench`），生成工具已内嵌于 interview-bank-pipeline 的 `scripts/`：
 
 - **interview-bank-pipeline skill**：文档清洗分类（pipeline.py）+ Obsidian 知识图谱（concepts.yaml → export）+ GitHub 项目融合（repo_fuse.py fetch/match/finalize）
 - 新项目接入三步：`repo_fuse fetch <url>` → subagent 逐题作答 → `finalize` → 同步 references

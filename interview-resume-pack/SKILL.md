@@ -32,7 +32,7 @@ version: 0.1.0
 
 ## 0. 前置检查
 
-1. **解析工作区**：`INTERVIEW_WORKSPACE` 非空时绑定为 `<workspace>`；未设置时，仅当兼容目录 `$HOME/桌面/面试文档裁切` 已存在才绑定它。两者都不可用则停止写入，提示先按 interview-bank-pipeline「跨平台部署」设置 `INTERVIEW_WORKSPACE`；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录。
+1. **解析工作区**：`INTERVIEW_WORKSPACE` 非空时绑定为 `<workspace>`；未设置时，仅当兼容目录 `$HOME/.interview-workbench` 已存在才绑定它。两者都不可用则停止写入，提示先按 interview-bank-pipeline「跨平台部署」设置 `INTERVIEW_WORKSPACE`；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录。
 2. **校验建档三件套与快照版本新鲜度**：
    - 定位 slug（`owner__repo`），从当前 runtime 已加载的 project-mock-interview skill 根定位 `references/项目/<slug>/`，检查 `match.json`、`项目画像.md`、`项目内作答.md` 是否存在可读；
    - **快照新鲜度核验（关键防线）**：运行 `python3 <interview-bank-pipeline>/scripts/check_snapshot.py <repo-root>`：

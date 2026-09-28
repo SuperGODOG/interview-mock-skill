@@ -33,7 +33,7 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 
 ## 0. 环境与建档自检（开工前必做）
 
-1. 解析工作区并绑定 `WORKSPACE_ROOT`：`INTERVIEW_WORKSPACE` 非空时使用它；未设置时仅在 `$HOME/桌面/面试文档裁切` 已存在时使用该兼容目录。两者都不可用则先按 interview-bank-pipeline 的「跨平台部署」设置/初始化后再继续；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录
+1. 解析工作区并绑定 `WORKSPACE_ROOT`：`INTERVIEW_WORKSPACE` 非空时使用它；未设置时仅在 `$HOME/.interview-workbench` 已存在时使用该兼容目录。两者都不可用则先按 interview-bank-pipeline 的「跨平台部署」设置/初始化后再继续；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录
 2. 定位项目 slug（`owner__repo`），**运行快照版本新鲜度检查**：
    运行 `python3 <interview-bank-pipeline>/scripts/check_snapshot.py <target_path_or_slug>`：
    - **FRESH**（快照 commit 与当前代码 100% 一致）或 **DIRTY_WORKTREE** → 直接进入阶段 1，interview-bank-pipeline 不参与；

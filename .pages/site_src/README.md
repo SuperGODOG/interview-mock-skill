@@ -66,7 +66,7 @@ project-mock-interview/
 
 ## 配套流水线（可选）
 
-数据源与生成工具位于 `~/桌面/面试文档裁切/`：
+数据源与生成工具位于 `~/.interview-workbench/`：
 
 - **interview-bank-pipeline skill**：文档清洗分类（pipeline.py）+ Obsidian 知识图谱（concepts.yaml → export）+ GitHub 项目融合（repo_fuse.py fetch/match/finalize）
 - 新项目接入三步：`repo_fuse fetch <url>` → subagent 逐题作答 → `finalize` → 同步 references

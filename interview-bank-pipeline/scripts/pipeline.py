@@ -18,13 +18,13 @@ import os
 import re
 import sys
 
-ROOT = os.environ.get("INTERVIEW_WORKSPACE") or (os.path.expanduser("~/桌面/面试文档裁切") if os.path.isdir(os.path.expanduser("~/桌面/面试文档裁切")) else os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get("INTERVIEW_WORKSPACE") or (os.path.expanduser("~/.interview-workbench") if os.path.isdir(os.path.expanduser("~/.interview-workbench")) else os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "agent_review.md")
 
 if not os.path.isdir(ROOT) or not (os.path.isfile(SRC) or os.path.isdir(os.path.join(ROOT, "categories"))):
     print(f"警告: 工作区 {ROOT} 中未找到 agent_review.md / categories/。"
           "请设置 INTERVIEW_WORKSPACE 指向真实数据目录（如 export INTERVIEW_WORKSPACE=$HOME/.interview-workbench），"
-          "或确认旧路径 ~/桌面/面试文档裁切 存在。", file=sys.stderr)
+          "或确认旧路径 ~/.interview-workbench 存在。", file=sys.stderr)
 BATCH_DIR = os.path.join(ROOT, "batches")
 CLS_DIR = os.path.join(BATCH_DIR, "classified")
 CAT_DIR = os.path.join(ROOT, "categories")

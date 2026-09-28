@@ -1,6 +1,6 @@
 ---
 name: interview-bank-pipeline
-description: 面试题库文档清洗分类 + Obsidian 知识图谱 + GitHub 项目融合三合一流水线。当用户要求清洗/分类面试文档、把题库建成 Obsidian 图谱、或根据 GitHub 项目链接生成面试设计档案时使用。脚本已内嵌于本 skill 的 scripts/，数据工作区由 INTERVIEW_WORKSPACE 指定（未设置时回退 ~/桌面/面试文档裁切）。
+description: 面试题库文档清洗分类 + Obsidian 知识图谱 + GitHub 项目融合三合一流水线。当用户要求清洗/分类面试文档、把题库建成 Obsidian 图谱、或根据 GitHub 项目链接生成面试设计档案时使用。脚本已内嵌于本 skill 的 scripts/，数据工作区由 INTERVIEW_WORKSPACE 指定（未设置时回退 ~/.interview-workbench）。
 version: 1.1.0
 ---
 
@@ -19,7 +19,7 @@ version: 1.1.0
 ## 工作区（INTERVIEW_WORKSPACE）
 
 - 生产数据（源文档/题库中间态/图谱/缓存）在**数据工作区**；发布题库仅同步到主入口的公共目录
-- 解析顺序：环境变量 `INTERVIEW_WORKSPACE` → 未设置时回退 `~/桌面/面试文档裁切`（旧本机默认，仅为兼容）
+- 解析顺序：环境变量 `INTERVIEW_WORKSPACE` → 未设置时回退 `~/.interview-workbench`（旧本机默认，仅为兼容）
 - 跨平台/新设备：先设置 `INTERVIEW_WORKSPACE`（如 `export INTERVIEW_WORKSPACE=$HOME/.interview-workbench`），再按「跨平台部署」初始化数据
 - 脚本已内嵌于本 skill 的 `scripts/`（pipeline.py / repo_fuse.py / verify_categories.py），通过环境变量定位工作区，可在任意目录执行
 

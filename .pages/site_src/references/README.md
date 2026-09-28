@@ -1,6 +1,6 @@
 # 语料同步说明（project-mock-interview skill）
 
-本目录是快照，源在 `~/桌面/面试文档裁切/`。题库或项目档案更新后，在项目目录执行：
+本目录是快照，源在 `~/.interview-workbench/`。题库或项目档案更新后，在项目目录执行：
 
 ```bash
 S=~/.hermes/skills/project-mock-interview

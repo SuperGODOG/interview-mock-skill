@@ -1,6 +1,6 @@
 # 语料同步说明（project-mock-interview skill）
 
-本目录保留项目快照；公共题库唯一仓库副本位于 `../../agent-project-grill/references/题库/`（相对本 README）。题库生产源在数据工作区。工作区路径取 `INTERVIEW_WORKSPACE` 环境变量；未设置时回退 `~/桌面/面试文档裁切`（旧本机默认）。新设备请先设置：
+本目录保留项目快照；公共题库唯一仓库副本位于 `../../agent-project-grill/references/题库/`（相对本 README）。题库生产源在数据工作区。工作区路径取 `INTERVIEW_WORKSPACE` 环境变量；未设置时回退 `~/.interview-workbench`（旧本机默认）。新设备请先设置：
 
 ```bash
 export INTERVIEW_WORKSPACE=/path/to/your/interview-workspace
@@ -9,7 +9,7 @@ export INTERVIEW_WORKSPACE=/path/to/your/interview-workspace
 题库或项目档案更新后，在任意目录执行（自动遍历已有项目）：
 
 ```bash
-WS="${INTERVIEW_WORKSPACE:-$HOME/桌面/面试文档裁切}"
+WS="${INTERVIEW_WORKSPACE:-$HOME/.interview-workbench}"
 S="/absolute/path/to/skills/project-mock-interview" # 改为真实 skill 根目录；发布时使用真理源仓库中的目录
 
 # 题库层
@@ -26,7 +26,7 @@ for slug_dir in "$WS"/obsidian_vault/40_项目档案/*/; do
 done
 ```
 
-注意：`$HOME/桌面/面试文档裁切` 只是兼容回退，跨平台场景必须显式设置 `INTERVIEW_WORKSPACE`，否则中文桌面路径在其他系统不存在。
+注意：`$HOME/.interview-workbench` 只是兼容回退，跨平台场景必须显式设置 `INTERVIEW_WORKSPACE`，否则中文桌面路径在其他系统不存在。
 
 ## 文件清单
 

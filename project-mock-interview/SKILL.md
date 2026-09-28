@@ -54,7 +54,7 @@ version: 2.1.0
 
 ## 复盘沉淀
 
-- 每场结束写 `$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/面试复盘.md`（`INTERVIEW_WORKSPACE` 未设置时回退 `~/桌面/面试文档裁切`；以实际为准）：题目清单、四维得分表、薄弱主题、下场建议
+- 每场结束写 `$INTERVIEW_WORKSPACE/obsidian_vault/40_项目档案/<slug>/面试复盘.md`（`INTERVIEW_WORKSPACE` 未设置时回退 `~/.interview-workbench`；以实际为准）：题目清单、四维得分表、薄弱主题、下场建议
 - 答错/低分（任一维 ≤2）的题 id 记入复盘文件末尾的「待复习清单」（题 id + 薄弱维度）；已掌握的记入「已掌握清单」
 - 复习状态只写在 vault 复盘文件，**不写 items.json**（skill 目录是只读快照，同步会覆盖）
 - 文件不存在则创建；下一场开场先读它决定出题策略（复习优先）
@@ -77,7 +77,7 @@ version: 2.1.0
 - L2 题目段：只读 `### Lxx` 锚点段（约 500 tokens）
 - L3 证据：点评需要时按证据锚点 grep/read 源码片段（约 200 tokens/处）
 - **禁止**：整读 项目内作答.md / items.json / vault 全量；一次只加载当前题的相关切片
-- 语料是快照：仓库题库唯一来源为 `../agent-project-grill/references/题库/`；生产工作区在 `$INTERVIEW_WORKSPACE`（未设置时回退 `~/桌面/面试文档裁切`），题库或项目档案更新后按 `references/README.md` 的同步命令刷新
+- 语料是快照：仓库题库唯一来源为 `../agent-project-grill/references/题库/`；生产工作区在 `$INTERVIEW_WORKSPACE`（未设置时回退 `~/.interview-workbench`），题库或项目档案更新后按 `references/README.md` 的同步命令刷新
 
 ## 坑
 

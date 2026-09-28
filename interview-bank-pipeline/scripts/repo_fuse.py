@@ -27,7 +27,7 @@ def _find_bank_root():
     ws = os.environ.get("INTERVIEW_WORKSPACE")
     if ws and os.path.isfile(os.path.join(ws, "concepts.yaml")):
         return ws
-    legacy = os.path.expanduser("~/桌面/面试文档裁切")
+    legacy = os.path.expanduser("~/.interview-workbench")
     if os.path.isfile(os.path.join(legacy, "concepts.yaml")):
         return legacy
     cur = os.path.dirname(os.path.abspath(__file__))
@@ -45,7 +45,7 @@ def check_concepts_workspace():
     if not os.path.isfile(os.path.join(ROOT, "concepts.yaml")):
         print(f"警告: 工作区 {ROOT} 中未找到 concepts.yaml。"
               "请设置 INTERVIEW_WORKSPACE 指向真实数据目录（如 export INTERVIEW_WORKSPACE=$HOME/.interview-workbench），"
-              "或确认旧路径 ~/桌面/面试文档裁切 存在。", file=sys.stderr)
+              "或确认旧路径 ~/.interview-workbench 存在。", file=sys.stderr)
 
 SKIP_DIRS = {".git", "node_modules", "venv", ".venv", "__pycache__", "dist", "build",
              "target", ".idea", ".vscode", "assets", "images", "docs", ".github"}

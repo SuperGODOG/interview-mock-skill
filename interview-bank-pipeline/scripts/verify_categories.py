@@ -9,7 +9,7 @@ import os
 import re
 import sys
 
-ROOT = os.environ.get("INTERVIEW_WORKSPACE") or (os.path.expanduser("~/桌面/面试文档裁切") if os.path.isdir(os.path.expanduser("~/桌面/面试文档裁切")) else os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get("INTERVIEW_WORKSPACE") or (os.path.expanduser("~/.interview-workbench") if os.path.isdir(os.path.expanduser("~/.interview-workbench")) else os.path.dirname(os.path.abspath(__file__)))
 CAT_DIR = os.path.join(ROOT, "categories")
 CLS_DIR = os.path.join(ROOT, "batches", "classified")
 ITEMS_JSON = os.path.join(ROOT, "items.json")
