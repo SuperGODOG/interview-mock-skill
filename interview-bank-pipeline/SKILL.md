@@ -57,15 +57,16 @@ version: 1.1.0
 3. 保留区：30_手写笔记 与 40_项目档案 重跑时自动保留（内部实现：先移到 vault 外再 rmtree，注意 shutil.move 遇已存在目录会嵌套进去，移回前需 rmdir 空壳）
 4. 概念笔记链接用 `[[20_索引/<大类>/<小类>.md#L6|L6 · 摘要]]` 锚点直达题目
 
-## 阶段三：GitHub 项目融合（URL → 双落点档案）
+## 阶段三：GitHub 项目融合（URL/本地路径 → 双落点档案 + 版本快照）
 
-1. `python3 <本skill>/scripts/repo_fuse.py fetch <url>` — 浅克隆 + 指纹（语言/框架/树）+ concepts.yaml 关键词匹配 → profile.json
-2. `python3 <本skill>/scripts/repo_fuse.py match <slug>` — 命中概念 → 候选题目 → match.json
+0. **快照版本检查（前置）**：`python3 <本skill>/scripts/check_snapshot.py <url_or_dir>` — 检查是否已建档及代码新鲜度（`FRESH` / `STALE` / `MISSING` / `LEGACY_UNTRACKED`）。若快照过时或未追踪 commit，必须重新走 1-5 步刷新，严禁使用旧代码快照进行面试出题。
+1. `python3 <本skill>/scripts/repo_fuse.py fetch <url_or_dir>` — 支持 Git URL 或本地仓库路径，浅克隆/同步 + 提取 Git commit hash、分支、时间戳与树指纹 → `snapshot_meta.json` + `profile.json`
+2. `python3 <本skill>/scripts/repo_fuse.py match <slug>` — 命中概念 → 候选题目 → match.json（内嵌版本 meta）
 3. 派 subagent（3 个并行）：
    - 画像：自研项目写 30秒介绍+钩子+框架给的 vs 我设计的；第三方项目写"学习谈资档案"，必须排查概念误报
    - 作答（按大类分组）：每题 = 一句话回答 + 展开细节一/二/三，必须引用真实 文件:行号，未实现的部分诚实标注"对应物+一般方向"，无关题可弃（末尾弃题说明）
-4. `python3 <本skill>/scripts/repo_fuse.py finalize <slug>` — 汇总 sections/ → obsidian_vault/40_项目档案/<slug>/（项目画像/匹配表/项目内作答）+ 仓库 docs/INTERVIEW_DESIGN_MAP.md
-5. **同步快照到拷打引擎（联动，必做）**：把建档产物同步到 project-mock-interview 的 `references/项目/<slug>/`（match.json + 项目画像/面试题匹配表/项目内作答）。目标目录按当前 agent 解析：统一入口 `~/.cc-switch/skills/project-mock-interview`（Codex/Claude/Gemini/Hermes 均软链于此）。命令见 project-mock-interview 的 `references/README.md`；编排 skill（agent-project-grill）会在建档后自动执行
+4. `python3 <本skill>/scripts/repo_fuse.py finalize <slug>` — 汇总 sections/ → obsidian_vault/40_项目档案/<slug>/（写入 commit/synced_at 元数据的前置头，产出项目画像/匹配表/项目内作答/snapshot_meta.json）+ 仓库 docs/INTERVIEW_DESIGN_MAP.md
+5. **同步快照到拷打引擎（联动，必做）**：把建档产物同步到 project-mock-interview 的 `references/项目/<slug>/`（match.json + snapshot_meta.json + 项目画像/面试题匹配表/项目内作答）。目标目录按当前 agent 解析：统一入口 `~/.cc-switch/skills/project-mock-interview`（Codex/Claude/Gemini/Hermes 均软链于此）。命令见 project-mock-interview 的 `references/README.md`；编排 skill（agent-project-grill）会在建档后自动执行
 6. `python3 <本skill>/scripts/pipeline.py export` 刷新总览（项目档案区）
 7. 推送（可选）：自己的仓库 push_files 到 master；第三方仓库先 fork → create_branch → push_files → 验证 get_file_contents
 
@@ -97,4 +98,5 @@ version: 1.1.0
 - [ ] export 链接校验 0 断链
 - [ ] subagent 作答摘要包含每题证据文件列表（自报不可全信，抽查 2-3 处行号）
 - [ ] GitHub 推送后用 get_file_contents 验证文件存在
-- [ ] 建档后快照已同步到 project-mock-interview `references/项目/<slug>/`（联动步骤 5）
+- [ ] check_snapshot.py 校验返回 FRESH（commit_hash 与代码库 100% 对齐）
+- [ ] 建档后快照已同步到 project-mock-interview `references/项目/<slug>/`（包含 snapshot_meta.json）

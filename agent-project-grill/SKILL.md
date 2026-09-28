@@ -34,9 +34,11 @@ description: Agent 项目面试拷打引擎。默认用 project-mock-interview �
 ## 0. 环境与建档自检（开工前必做）
 
 1. 解析工作区并绑定 `WORKSPACE_ROOT`：`INTERVIEW_WORKSPACE` 非空时使用它；未设置时仅在 `$HOME/桌面/面试文档裁切` 已存在时使用该兼容目录。两者都不可用则先按 interview-bank-pipeline 的「跨平台部署」设置/初始化后再继续；禁止把空变量拼成 `/obsidian_vault/...`，也禁止自动创建兼容目录
-2. 定位项目 slug（`owner__repo`），检查 project-mock-interview 的 `references/项目/<slug>/match.json` 是否存在
-   - 存在（已建档）→ 直接进入阶段 1，interview-bank-pipeline 不参与
-   - 不存在（新项目）→ 建档（按 interview-bank-pipeline 阶段三执行）：`repo_fuse.py fetch <url>` → `match <slug>` → 派 subagent 写画像/作答 → `finalize <slug>`（repo_fuse 会自动同步快照到 project-mock-interview `references/项目/<slug>/`；若脚本版本较旧没自动同步，按 `references/README.md` 手动同步）→ **校验** `references/项目/<slug>/match.json` 已存在，不存在则报错并重试 → 完成后回到本流程
+2. 定位项目 slug（`owner__repo`），**运行快照版本新鲜度检查**：
+   运行 `python3 <interview-bank-pipeline>/scripts/check_snapshot.py <target_path_or_slug>`：
+   - **FRESH**（快照 commit 与当前代码 100% 一致）或 **DIRTY_WORKTREE** → 直接进入阶段 1，interview-bank-pipeline 不参与；
+   - **MISSING**（未建档）→ 触发建档流水线（按 interview-bank-pipeline 阶段三执行）：`repo_fuse.py fetch <url_or_dir>` → `match <slug>` → 派 subagent 写画像/作答 → `finalize <slug>`（自动记录 commit_hash 与快照元数据并同步）→ 校验 `check_snapshot.py` 返回 FRESH 后进入阶段 1；
+   - **STALE**（快照过时，本地代码领先）或 **LEGACY_UNTRACKED**（旧版无版本快照）→ **严禁读取过时快照！** 向用户明确警示版本差距（如"快照落后 14 个 commit"），提示用户必须先刷新快照建档，防止因旧代码产生模型幻觉与误判。
 3. **备战包软前置**：检查 `$WORKSPACE_ROOT/obsidian_vault/40_项目档案/<slug>/备战包/README.md` 存在且含 `完整性状态: 完整`，并确认其六类正文相对链接均存在。否则按备战包缺失处理，提示一次："该项目还没有完整备战包（漏斗稿+深钻点+不会题防守）。建议先说『生成备战包』由 interview-resume-pack 生成——漏斗稿是表达地图，深钻点 L3 会成为本场优先出题源。" 用户坚持直接开打则照常继续，不阻塞
 4. 读复习源：`$WORKSPACE_ROOT/obsidian_vault/40_项目档案/<slug>/学习卡.md` 与 `面试复盘.md` 的待复习清单，有则阶段 1 复习优先（先清未复习的学习卡）
 

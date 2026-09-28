@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""证据门：校验备战包产物中的 文件:行号 证据锚点是否真实存在。
+"""证据门：校验备战包产物中的 文件:行号 证据锚点是否真实存在，并对账代码版本一致性。
 
-用法: python3 evidence_gate.py <产物.md> <仓库根目录>
+用法: python3 evidence_gate.py <产物.md> <仓库根目录> [--strict-commit]
 规则:
   - 提取 路径.ext:行号 形式锚点 → 文件必须存在、是普通文件、行号 >=1 且不超文件行数
   - 提取反引号内的裸路径 → 文件必须存在
   - 空产物 / 零锚点 → FAIL（产物必须有证据）
+  - 自动检测 snapshot_meta.json 并校验仓库 Git HEAD 是否一致，防止代码版本漂移导致行号失效
   - 任一悬空 → exit 1（打回重修）；全部通过 → exit 0
 """
-import re
-import sys
+import json
+import os
 import pathlib
+import re
+import subprocess
+import sys
 
 EXT = r'(?:py|java|go|js|ts|jsx|tsx|md|yaml|yml|json|toml|xml|sh|sql|html|css)'
 ANCHOR = re.compile(rf'([\w\-./]+?\.{EXT}):(\d+)')
@@ -23,16 +27,44 @@ def fail(msg):
 
 
 def main():
-    if len(sys.argv) != 3:
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    strict_commit = '--strict-commit' in sys.argv
+    if len(args) != 2:
         print(__doc__)
         sys.exit(2)
-    doc, root = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+    doc, root = pathlib.Path(args[0]), pathlib.Path(args[1])
     if not doc.exists():
         fail(f'产物不存在: {doc}')
     if not doc.is_file():          # 目录 → FAIL（原版 read_text 崩溃）
         fail(f'产物不是普通文件: {doc}')
     if not root.is_dir():
         fail(f'仓库根不存在: {root}')
+
+    # 1. 检查快照 Commit 版本一致性（防代码漂移）
+    meta_candidates = [
+        doc.parent / "snapshot_meta.json",
+        doc.parent.parent / "snapshot_meta.json",
+    ]
+    meta_file = next((p for p in meta_candidates if p.is_file()), None)
+    if meta_file and (root / ".git").is_dir():
+        try:
+            snap_meta = json.loads(meta_file.read_text(encoding="utf-8"))
+            snap_commit = snap_meta.get("commit_hash", "")
+            if snap_commit:
+                head_res = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"],
+                                          capture_output=True, text=True, check=False)
+                head_commit = head_res.stdout.strip()
+                if head_commit and snap_commit != head_commit:
+                    warn_msg = (
+                        f"⚠️  警告 [版本漂移]: 快照锁定 Commit ({snap_commit[:7]}) 与代码库当前 HEAD ({head_commit[:7]}) 不一致！\n"
+                        f"    产物可能基于旧代码生成，文件行号或逻辑可能已发生位移。建议先重新建档刷新快照。"
+                    )
+                    if strict_commit:
+                        fail(warn_msg)
+                    else:
+                        print(warn_msg)
+        except Exception:
+            pass
 
     raw = doc.read_bytes()
     if not raw.strip():            # 空产物 → FAIL（原版静默 exit 0）
