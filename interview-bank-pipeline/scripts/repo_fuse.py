@@ -401,7 +401,7 @@ synced_at: {synced_str}
 
     # 仓库注入: docs/INTERVIEW_DESIGN_MAP.md (若源目录可写且存在 docs/)
     target_docdir = os.path.join(profile["dir"], "docs")
-    if os.path.isdir(target_docdir):
+    if os.path.isdir(target_docdir) and os.environ.get("INJECT_REPO_DOCS") == "1":
         top = []
         for q in matchd["candidates"]:
             if q["hit_concepts"][0] not in {t[0] for t in top}:
@@ -440,11 +440,25 @@ synced_at: {synced_str}
     sync_snapshot(slug)
 
 
+def _find_project_mock_skill_dir():
+    if os.environ.get("PROJECT_MOCK_SKILL_DIR") and os.path.isdir(os.environ["PROJECT_MOCK_SKILL_DIR"]):
+        return os.environ["PROJECT_MOCK_SKILL_DIR"]
+    cur = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        os.path.abspath(os.path.join(cur, "..", "..", "project-mock-interview")),
+        os.path.abspath(os.path.join(cur, "..", "project-mock-interview")),
+        os.path.expanduser("~/.cc-switch/skills/project-mock-interview"),
+        os.path.expanduser("~/.gemini/skills/project-mock-interview"),
+    ]
+    for c in candidates:
+        if os.path.isdir(c):
+            return c
+    return None
+
 def sync_snapshot(slug: str):
     """建档后自动同步快照到 project-mock-interview（拷打引擎消费端）。"""
-    pm_dir = os.environ.get("PROJECT_MOCK_SKILL_DIR") or os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "project-mock-interview")
-    if not os.path.isdir(pm_dir):
+    pm_dir = _find_project_mock_skill_dir()
+    if not pm_dir:
         print(f"警告: 未找到 project-mock-interview skill 目录（{pm_dir}），跳过快照同步。"
               "可用 PROJECT_MOCK_SKILL_DIR 指定，或手动按 references/README.md 同步。", file=sys.stderr)
         return
