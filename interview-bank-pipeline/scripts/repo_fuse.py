@@ -23,7 +23,20 @@ try:
 except ImportError:
     yaml = None
 
-ROOT = os.environ.get("INTERVIEW_WORKSPACE") or (os.path.expanduser("~/桌面/面试文档裁切") if os.path.isdir(os.path.expanduser("~/桌面/面试文档裁切")) else os.path.dirname(os.path.abspath(__file__)))
+def _find_bank_root():
+    ws = os.environ.get("INTERVIEW_WORKSPACE")
+    if ws and os.path.isfile(os.path.join(ws, "concepts.yaml")):
+        return ws
+    legacy = os.path.expanduser("~/桌面/面试文档裁切")
+    if os.path.isfile(os.path.join(legacy, "concepts.yaml")):
+        return legacy
+    cur = os.path.dirname(os.path.abspath(__file__))
+    sibling_bank = os.path.abspath(os.path.join(cur, "..", "..", "agent-project-grill", "references", "题库"))
+    if os.path.isfile(os.path.join(sibling_bank, "concepts.yaml")):
+        return sibling_bank
+    return cur
+
+ROOT = _find_bank_root()
 CACHE = os.path.join(ROOT, "repos_cache")
 VAULT = os.path.join(ROOT, "obsidian_vault")
 ARCHIVE = os.path.join(VAULT, "40_项目档案")
@@ -144,10 +157,10 @@ def fetch(url: str):
     top_ext = sorted(ext_count.items(), key=lambda kv: -kv[1])[:6]
 
     # ---- 概念匹配: README + manifests + 文件路径 + 抽样内容 ----
+    if yaml is None:
+        raise SystemExit("错误: 缺少 pyyaml 依赖，请在有 PyYAML 的环境中运行 (如 .venv)")
     with open(os.path.join(ROOT, "concepts.yaml"), encoding="utf-8") as f:
-        if yaml is None:
-            raise SystemExit("错误: 缺少 pyyaml 依赖，请在有 PyYAML 的环境中运行 (如 .venv)")
-    concepts = yaml.safe_load(f)["concepts"]
+        concepts = yaml.safe_load(f)["concepts"]
 
     # 抽样内容: 树内文件采样(上限 400 个) + 各扩展名最大文件
     sampled = {}
@@ -234,27 +247,31 @@ def load_bank():
     items = json.load(open(os.path.join(ROOT, "items.json"), encoding="utf-8"))
     classified = {}
     cdir = os.path.join(ROOT, "batches", "classified")
-    for cf in os.listdir(cdir):
-        if cf.endswith(".json"):
-            for c in json.load(open(os.path.join(cdir, cf), encoding="utf-8"))["items"]:
-                classified[c["id"]] = c
+    if os.path.isdir(cdir):
+        for cf in os.listdir(cdir):
+            if cf.endswith(".json"):
+                for c in json.load(open(os.path.join(cdir, cf), encoding="utf-8"))["items"]:
+                    classified[c["id"]] = c
+    if yaml is None:
+        raise SystemExit("错误: 缺少 pyyaml 依赖，请在有 PyYAML 的环境中运行 (如 .venv)")
     with open(os.path.join(ROOT, "concepts.yaml"), encoding="utf-8") as f:
-        if yaml is None:
-            raise SystemExit("错误: 缺少 pyyaml 依赖，请在有 PyYAML 的环境中运行 (如 .venv)")
-    concepts = yaml.safe_load(f)["concepts"]
+        concepts = yaml.safe_load(f)["concepts"]
     qs = []
     for it in items:
-        if it["kind"] != "question":
+        if it.get("kind") != "question":
             continue
         c = classified.get(it["id"])
-        if c is None and not it.get("assigned"):
-            continue
-        major, minor = (c["major"], c["minor"]) if c else (it["major"], it["minor"])
-        depth = int((c or {}).get("depth") or it.get("depth") or 99)
-        tl = it["text"].lower()
+        if c is not None:
+            major, minor = c.get("major"), c.get("minor")
+            depth = int(c.get("depth") or 3)
+        else:
+            major = it.get("major") or "通用"
+            minor = it.get("minor") or "基础"
+            depth = int(it.get("depth") or 3)
+        tl = it.get("text", "").lower()
         q_concepts = [cc["name"] for cc in concepts
-                      if any(str(kw).lower() in tl for kw in cc["keywords"])]
-        qs.append({"id": it["id"], "text": it["text"], "major": major,
+                      if any(str(kw).lower() in tl for kw in cc.get("keywords", []))]
+        qs.append({"id": it["id"], "text": it.get("text", ""), "major": major,
                    "minor": minor, "depth": depth, "concepts": q_concepts})
     return qs
 
