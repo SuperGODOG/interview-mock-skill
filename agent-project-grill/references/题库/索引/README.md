@@ -19,7 +19,8 @@
 | [Java 核心、JVM 与并发编程面试题索引](./06_backend_java.md) | `06_backend_java.json` | **21** | 涵盖 HashMap 底层与位运算寻址、ConcurrentHashMap、线程池核心参数、JMM 内存模型、volatile 内存屏障、GC 垃圾收集与类加载机制。 |
 | [算法与手撕代码题索引](./07_algorithms.md) | `07_algorithms.json` | **31** | 涵盖 LeetCode 经典题、快速选择、反转单链表、多叉树路径查找、动态规划、LRU 缓存、二叉树遍历与高并发算法设计。 |
 | [通用综合、行为面与反问面试题索引](./08_general_behavior.md) | `08_general_behavior.json` | **16** | 涵盖国企特别版、团队反问、业务反问、综合行为面、技术成长与职业规划沟通。 |
-| **全库总计** | `index_manifest.json` | **445** | 覆盖全部公共提问题目 |
+| [AI Infra · 高性能算子、分布式并行与加速卡架构面试题索引](./09_ai_infra.md) | `09_ai_infra.json` | **9** | 涵盖 TensorFlow/PyTorch 算子适配与交付边界、CUDA Graph 与 TP/NCCL 融合通信挂死定位、Triton 与 CuTe DSL 选型权衡、MoE/Router Replay/EP 并行通信数据流、滑动窗口 Attention 确定性反向优化 (dQ)、国产 GPU 算子 Benchmark 及硬件架构与互联通信 Profiling。 |
+| **全库总计** | `index_manifest.json` | **452** | 覆盖全部公共提问题目（全库 512 条语料中 452 道唯一索引题目） |
 
 ## 检索路由与降级策略
 
@@ -28,6 +29,7 @@
    - 前端工程与渲染交互：优先读取 `02_frontend.json`
    - 后端计算机基础：按需选择 OS (`02_backend_os.json`)、网络 (`02_backend_network.json`)、数据库 (`02_backend_database.json`)、消息队列 (`02_backend_mq.json`)
    - Agent Harness 评测与沙箱：优先读取 `03_agent_harness.json`
+   - AI Infra 与高性能计算：优先读取 `09_ai_infra.json`
 2. **唯一内容回源**:
    - 索引文件仅保存稳定 `id`、`line`、`text`、`tag` 和 `depth`，不复制长文本答案。
    - 提取题目完整四步答题框架（core/steps）时，直接以 `id` 索引回查 `../items.json`。

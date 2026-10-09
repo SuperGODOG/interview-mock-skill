@@ -213,3 +213,8 @@ concepts:
     keywords: [Eval Case, Grader, Trace, Hit@1, Hit@3, HitRate, MRR, Fake LLM, Harness, 数据飞轮, 评测事实, 消融实验, 效果归因]
     summary: 从 Case/Run/Trace 到评分的可复现评测链路，以及时效 Case 和数据飞轮治理。
     related: [评测体系与 Benchmark, Badcase 闭环与数据飞轮]
+  - name: AI Infra 与高性能算子
+    aliases: [AI Infra, 高性能算子, CUDA Graph, 分布式并行, 算子优化]
+    keywords: [AI Infra, CUDA Graph, Triton, CuTe, Tensor Parallelism, Expert Parallelism, Router Replay, MoE, 滑动窗口 Attention, GPU Benchmark, NCCL, 算子优化, 显存带宽, 算子适配, 确定性反向]
+    summary: 大模型底层基础设施与算子加速；涵盖单卡 Kernel 开发（CUDA/Triton/CuTe）、分布式并行（TP/EP/All-to-All）、图捕获与通信协同（CUDA Graph × TP）、确定性梯度反向及硬件 Benchmark。
+    related: [评测体系与 Benchmark, 存储选型与状态持久化]

@@ -1112,3 +1112,36 @@ concept_project_story_batch:
   - Q388
   - Q399
   - Q401
+
+concept_ai_infra_operators:
+  name: AI Infra与高性能算子优化
+  keywords:
+  - cuda graph
+  - triton
+  - cute
+  - cute dsl
+  - tensor parallelism
+  - expert parallelism
+  - router replay
+  - moe
+  - sliding window attention
+  - nccl
+  - gpu benchmark
+  - 算子优化
+  - 显存带宽
+  - 算子适配
+  - deterministic backward
+  - 通信flag
+  - 国产GPU
+  - 国产加速卡
+  - 国产GPU benchmark
+  - dQ累加
+  cards:
+  - Q449
+  - Q450
+  - Q451
+  - Q452
+  - Q453
+  - Q454
+  - Q455
+  - Q188
