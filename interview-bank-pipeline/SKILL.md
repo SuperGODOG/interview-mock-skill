@@ -59,7 +59,10 @@ version: 1.1.0
 
 ## 阶段三：GitHub 项目融合（URL/本地路径 → 双落点档案 + 版本快照）
 
-0. **快照版本检查（前置）**：`python3 <本skill>/scripts/check_snapshot.py <url_or_dir>` — 检查是否已建档及代码新鲜度（`FRESH` / `STALE` / `MISSING` / `LEGACY_UNTRACKED`）。若快照过时或未追踪 commit，必须重新走 1-5 步刷新，严禁使用旧代码快照进行面试出题。
+0. **快照版本检查（前置）**：`python3 <本skill>/scripts/check_snapshot.py <url_or_dir>` — 检查是否已建档及代码与题库双向新鲜度（`FRESH` / `STALE` / `MISSING` / `LEGACY_UNTRACKED`）。
+   - **关联生命周期与语义审查**：只有代码（commit 一致且工作树 clean）与公共题库（items/concepts/schema 指纹一致）双 FRESH，且题目链接全部有效时，快照才可免重算复用。注意：`FRESH` 仅代表代码/题库/题号版本联通，不等于每个答案语义与代码证据已审查完毕。公共题库每次扩容后，旧项目关联自动变为待刷新（`STALE`），需按项目实际技术栈重新运行 match 对齐新题，无关的 Infra 新题绝不强挂在普通 Agent/秒杀项目上。
+   - **项目作答资产保护与代码变更约束**：已生成的《项目内作答.md》属于项目专有资产（包含文件:行号真实证据锚点与定制解答）。若代码发生变更，旧证据与旧答案必须先经过审查刷新后方可用于当前项目；只有在代码证据依然有效的前提下，才可保留原有成熟作答并增量提示追加新题，严禁在代码未变时因题库变动被机械整篇覆盖。
+   - **严格区分 L 题与 Q 卡空间**：项目 match.json 与匹配表只关联公共真题 L 编号（来自 items.json 的有效 question 条目），严禁混用 03_Cards 中的 Qxxx 题卡编号，两者属于独立空间。
 1. `python3 <本skill>/scripts/repo_fuse.py fetch <url_or_dir>` — 支持 Git URL 或本地仓库路径，浅克隆/同步 + 提取 Git commit hash、分支、时间戳与树指纹 → `snapshot_meta.json` + `profile.json`
 2. `python3 <本skill>/scripts/repo_fuse.py match <slug>` — 命中概念 → 候选题目 → match.json（内嵌版本 meta）
 3. 派 subagent（3 个并行）：
@@ -98,5 +101,5 @@ version: 1.1.0
 - [ ] export 链接校验 0 断链
 - [ ] subagent 作答摘要包含每题证据文件列表（自报不可全信，抽查 2-3 处行号）
 - [ ] GitHub 推送后用 get_file_contents 验证文件存在
-- [ ] check_snapshot.py 校验返回 FRESH（commit_hash 与代码库 100% 对齐）
+- [ ] check_snapshot.py 校验返回 FRESH（commit_hash/工作树指纹与代码库 100% 对齐，且 bank_fingerprint 与当前公共题库一致，候选题目链接全部有效）
 - [ ] 建档后快照已同步到 project-mock-interview `references/项目/<slug>/`（包含 snapshot_meta.json）

@@ -36,9 +36,9 @@ version: 0.1.0
 2. **校验建档三件套与快照版本新鲜度**：
    - 定位 slug（`owner__repo`），从当前 runtime 已加载的 project-mock-interview skill 根定位 `references/项目/<slug>/`，检查 `match.json`、`项目画像.md`、`项目内作答.md` 是否存在可读；
    - **快照新鲜度核验（关键防线）**：运行 `python3 <interview-bank-pipeline>/scripts/check_snapshot.py <repo-root>`：
-     - 若返回 `STALE`（快照版本落后于仓库最新提交）或 `LEGACY_UNTRACKED`（旧版无版本快照）：**严禁直接出稿！** 必须先通过 interview-bank-pipeline 重新建档并刷新快照。防止基于已过时的旧代码生成过时的漏斗稿、深钻点和简历 bullet；
+     - 若返回 `STALE`（快照代码落后或公共题库已扩容未对齐）或 `LEGACY_UNTRACKED`（旧版无版本快照）：**严禁直接出稿！** 必须先通过 interview-bank-pipeline 重新建档并刷新快照。防止基于已过时的旧代码或旧题库生成过时的漏斗稿、深钻点和简历 bullet；
      - 若返回 `MISSING`：停止生成，先触发 interview-bank-pipeline 阶段三建档；
-     - 若返回 `FRESH` 或 `DIRTY_WORKTREE`：快照与代码对齐，安全通过，继续后续流程。
+     - 若返回 `FRESH` 或 `DIRTY_WORKTREE`：快照与代码/题库双向对齐，安全通过，继续后续流程。
 3. **解析源码根**：优先使用用户明确给出的仓库目录，否则检查 `<workspace>/repos_cache/<slug>/`，绑定为 `<repo-root>`；目录不存在则停止生成并报告缺失，因为代码锚点无法过证据门。
 4. **读取运行期输入**：`<workspace>/obsidian_vault/40_项目档案/<slug>/学习卡.md`、`面试复盘.md` 存在才抽取未完成学习卡、薄弱维度及未处理的「备战包修订建议」，不存在按空输入继续。用户提供了既有简历终稿路径时只读相关项目 bullet；未提供则跳过冲突比对，并在 README 标注「未核对既有简历」。
 5. **确认事实归属**：项目画像若标记为第三方项目/学习谈资，后续不得把仓库能力写成本人贡献；没有本人贡献证据时，`简历bullet.md` 明示「不适用：仅学习谈资」，不凑 3-5 条。

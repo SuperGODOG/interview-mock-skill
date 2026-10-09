@@ -18,6 +18,12 @@ import re
 import shutil
 import subprocess
 import sys
+
+cur_dir = os.path.dirname(os.path.abspath(__file__))
+if cur_dir not in sys.path:
+    sys.path.insert(0, cur_dir)
+import check_snapshot
+
 try:
     import yaml
 except ImportError:
@@ -212,6 +218,10 @@ def fetch(url: str):
             concept_hits[c["name"]] = files_hit[:8]
 
     # 生成版本元数据
+    wt_info = check_snapshot.get_worktree_info(rdir)
+    is_dirty = wt_info.get("is_dirty", False)
+    wt_hash = wt_info.get("worktree_hash", git_head)
+
     meta = {
         "slug": slug,
         "url": url,
@@ -220,6 +230,8 @@ def fetch(url: str):
         "branch": git_branch,
         "commit_date": git_date,
         "commit_message": git_msg,
+        "is_dirty": is_dirty,
+        "worktree_hash": wt_hash,
         "synced_at": datetime.now().isoformat(),
         "file_count": len(tree),
         "pipeline_version": "1.2.0"
@@ -281,6 +293,7 @@ def match(slug: str):
     rdir = os.path.join(CACHE, slug)
     profile = json.load(open(os.path.join(rdir, "profile.json"), encoding="utf-8"))
     meta = profile.get("meta", {})
+    bank_fp = check_snapshot.compute_bank_fingerprint(ROOT)
     qs = load_bank()
     hits = profile.get("concept_hits", {})
     cands, per_concept = [], {}
@@ -301,7 +314,7 @@ def match(slug: str):
     chosen.sort(key=lambda q: (q["major"], q["minor"], q["depth"], q["line"] if "line" in q else 0))
     chosen = chosen[:30]
     with open(os.path.join(rdir, "match.json"), "w", encoding="utf-8") as f:
-        json.dump({"meta": meta, "candidates": chosen, "per_concept": per_concept}, f,
+        json.dump({"meta": {**meta, "bank_fingerprint": bank_fp}, "candidates": chosen, "per_concept": per_concept}, f,
                   ensure_ascii=False, indent=1)
     print(f"命中概念 {len(hits)} 个 -> 候选题目 {len(chosen)} 道")
     for q in chosen:
