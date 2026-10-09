@@ -1,16 +1,16 @@
 # AI Infra · 高性能算子、分布式并行与加速卡架构面试题索引
 
-> **分类描述**: 涵盖 TensorFlow/PyTorch 算子适配与交付边界、CUDA Graph 与 TP/NCCL 融合通信挂死定位、Triton 与 CuTe DSL 选型权衡、MoE/Router Replay/EP 并行通信数据流、滑动窗口 Attention 确定性反向优化 (dQ)、国产 GPU 算子 Benchmark 及硬件架构与互联通信 Profiling。
+> **分类描述**: 涵盖 TensorFlow 算子适配与职责交付边界、CUDA Graph 与 TP 融合通信卡死定位、Triton 与 CuTe DSL 选型权衡、MoE/Router Replay/EP 并行通信数据流、滑动窗口 Attention 确定性反向优化 (dQ)、国产 GPU 算子 Benchmark 及硬件架构与互联通信 Profiling。
 > **题目统计**: 共 9 题
 > **唯一语料数据源**: `agent-project-grill/references/题库/items.json`
 
 | 题目 ID | 行号 | 深度 | 标签 | 题目简述 |
 |---|---|---|---|---|
-| `L599` | 599 | L3 | TensorFlow算子/工程交付 | 团队职责与算子工程交付：在 AI 基础设施团队中，算子开发/适配工作的上下游协作边界是什么（与上游算法模型团队、下游推理/训练部署框架团队）？针对特定计算场景适配定制 TensorFlow 算子时，输入输出规范、内存分配、性能指标与正确性验收流水线应如何设计？ |
-| `L600` | 600 | L4 | CUDA Graph/Tensor Parallelism/通信挂死 | CUDA Graph 与 Tensor Parallelism (TP) 融合通信挂死定位：在大模型分布式训练或推理中开启 CUDA Graph 且 TP > 1 时出现进程死锁/卡死（Hang），为何关闭 CUDA Graph 或将 TP 降为 1 现象消失只能作为“定位线索”而非“根因结论”？如何通过最小变量矩阵与 Trace/Stream 工具逐步缩小范围至融合通信算子？若通信状态标记（flag）位于特定内存且采用了浮点表示，原同步协议为何如此设计，该判断逻辑如何导致挂死？如何设计最小复现用例与模型级端到端回归？ |
-| `L601` | 601 | L3 | Kernel选型/Triton/CuTe | 算子开发工具与 Kernel 选型权衡：在现代大模型基础设施中，CUDA C++、OpenAI Triton 与 NVIDIA CuTe (CUTLASS 3.x) DSL 各自的适用边界与选型权衡是什么？请从算法协作效率、代码可读性与维护性、开发调试周期，以及底层硬件控制（如寄存器分配、Shared Memory Swizzling、Warp Specialization、TMA 异步拷贝）等具体优化约束展开对比。 |
-| `L602` | 602 | L4 | MoE/Router Replay/Expert Parallelism | MoE 前向数据流、Router Replay 与 Expert Parallelism (EP) 并行通信机制：一个 Token 进入混合专家模型（MoE）后的完整前向计算链路是什么（从 Router 计算、Top-K 门控、Token Permutation/Dispatch，到专家计算与 Token Combine）？在强化学习（RLHF/PPO）或离线评估链路中，Router Replay 记录的 Token、Layer、Top-K 路由信息是由谁消费的，在训练的哪一步消费？在多节点分布式训练中，Expert Parallelism (EP) 与 Tensor Parallelism (TP) 的 Rank 分组与通信角色有何不同？EP 的 Dispatch 和 Combine 通常采用什么集合通信原语？ |
-| `L603` | 603 | L4 | Attention反向/确定性计算/dQ累加 | 滑动窗口 Attention (SWA) 确定性反向传播优化与 dQ 累加同步：在滑动窗口 Attention 的反向计算中，梯度 dQ 的计算与累加面临哪些数据依赖和等待开销？如何通过缩小同步范围、调整执行顺序使独立的计算链重叠并行？在多线程块并发写 dQ 时，浮点加法的非结合性与原子加（atomicAdd）如何影响跨运行结果的确定性（Deterministic）？在追求极致速度时，如何通过算法设计与回归测试（涵盖不同 Shape/Window/Dtype）保证数值一致性与确定性边界？ |
+| `L599` | 599 | L3 | TensorFlow算子/工程交付 | 团队职责、上下游交付与算子场景：你在过去的团队中具体负责什么、算子研发工作的交付对象是谁（算法研究员、训练框架团队或线上推理部署团队）？定制的 TensorFlow 算子适配面向什么业务或模型场景？算子的输入输出规范、内存管理、性能收益与正确性验收流水线应如何设计？ |
+| `L600` | 600 | L4 | CUDA Graph/Tensor Parallelism/通信挂死 | CUDA Graph 与 TP 融合通信卡死定位：在大模型训练/推理开启 CUDA Graph 且 TP > 1 时出现进程死锁/卡死（Hang），为什么关闭 Graph 或将 TP 降为 1 现象消失只是“定位线索”而非“根因结论”？如何通过变量矩阵与 Profiler/Trace 工具逐步排查至融合通信算子？通信状态标记（flag）存放在何处、为何选用浮点类型、其内存一致性与同步协议在原实现中如何设计？修复后如何通过最小复现用例与模型级端到端回归进行验证？ |
+| `L601` | 601 | L3 | Kernel选型/Triton/CuTe | 算子开发工具选型：在现代 AI 基础设施与大模型算子研发中，原生 CUDA C++、OpenAI Triton 与 NVIDIA CuTe DSL（CUTLASS 提供的 Python 前端/元编程 DSL）各自的适用场景与设计权衡是什么？请从底层控制粒度、具体算子需求（如 Fused Pointwise vs GEMM/Attention）、团队协作效率（算法工程师与底层系统工程师协同）及工程可维护性展开对比。 |
+| `L602` | 602 | L4 | MoE/Router Replay/Expert Parallelism | MoE 前向数据流、Router Replay 与并行通信：一个 Token 进入混合专家模型（MoE）后的完整前向流程是什么（Gate 选路、Top-K 分配、Token Dispatch、专家计算与 Combine 汇聚）？在 Rollout 阶段记录的 Token、Layer、Top-K 路由（Router Replay）信息是在训练侧哪个具体环节被恢复与消费的？分布式训练中 Expert Parallelism (EP) 与 Tensor Parallelism (TP) 作为逻辑切分轴，其进程分组与实际通信实现（如 All-to-All、AllGather、Reduce-Scatter 等）有何不同？ |
+| `L603` | 603 | L4 | Attention反向/确定性计算/dQ累加 | 滑动窗口 Attention (SWA) 确定性反向传播优化与 dQ 累加：在 SWA 反向计算中，梯度 dQ 的累加等待开销来自哪里？如何通过收敛同步范围（如从全局同步下沉到局部/Tile 级）并调整执行顺序使独立的计算链重叠并行？多线程块并发 atomicAdd 累加 dQ 时，浮点加法的非结合性在何种条件下会导致跨运行 bitwise 结果漂移？优化后如何通过严格测试保证数值正确性与确定性边界？ |
 | `L604` | 604 | L3 | GPU Benchmark/国产加速卡 | 国产 AI 加速卡算子 Benchmark 与多基线对齐评测方法论：在国产 GPU / AI 加速卡上对自研或适配算子进行性能评测时，如何设计严谨的 Benchmark 测试矩阵（涵盖不同 Shape、Batch Size、Sequence Length 与 Dtype）？为了消除评测偏差，Warmup 次数、计时方式（如硬件 Event 同步 vs CPU 计时）、Stream 同步与 CUDA Graph/执行图配置应如何标准化？如何与芯片厂商高性能库、旧有开源实现及自写 Kernel 进行同语义、公平基线（Fair Baseline）的对比？ |
 | `L605` | 605 | L4 | 硬件架构/显存带宽/通信拓扑 | AI 加速卡硬件架构、显存带宽瓶颈与多卡互联通信 Profiling：面对未知或新型号的 AI 加速卡，如何系统化查证与度量其硬件核心指标（计算核心数、Tensor Core/专用矩阵单元峰值算力、寄存器堆、Shared Memory/L1/L2 缓存层次与容量、HBM 理论峰值带宽）？如何通过带宽测试（Bandwidth Test）测量实际显存带宽与卡间互联（如 PCIe vs 自研/专有互联）带宽？在分布式作业中，如何使用 Profiling 工具区分一个任务是计算受限（Compute-bound）、访存受限（Memory-bound）还是通信受限（Communication-bound）？ |
 | `L300` | 300 | LNone | - | 混合专家模型（MoE）与传统稠密（Dense）Transformer 架构的核心区别和优缺点是什么？ |

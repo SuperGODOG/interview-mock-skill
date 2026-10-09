@@ -1113,35 +1113,93 @@ concept_project_story_batch:
   - Q399
   - Q401
 
-concept_ai_infra_operators:
-  name: AI Infra与高性能算子优化
+concept_cuda_graph_tp_hang:
+  name: CUDA Graph与TP并行通信
   keywords:
   - cuda graph
-  - triton
-  - cute
-  - cute dsl
-  - tensor parallelism
-  - expert parallelism
-  - router replay
-  - moe
-  - sliding window attention
-  - nccl
-  - gpu benchmark
-  - 算子优化
-  - 显存带宽
-  - 算子适配
-  - deterministic backward
   - 通信flag
-  - 国产GPU
-  - 国产加速卡
-  - 国产GPU benchmark
-  - dQ累加
+  - nccl graph
+  - graph capture
+  - 融合通信
+  - tp卡死
   cards:
-  - Q449
   - Q450
-  - Q451
+  - Q449
+
+concept_moe_router_ep:
+  name: MoE架构Router Replay与EP通信
+  keywords:
+  - router replay
+  - expert parallelism
+  - moe
+  - ep通信
+  - token dispatch
+  - all-to-all
+  cards:
   - Q452
+  - Q188
+
+concept_deterministic_attention_backward:
+  name: 滑窗Attention与确定性反向计算
+  keywords:
+  - deterministic backward
+  - sliding window attention
+  - dQ累加
+  - 确定性反向
+  - 确定性计算
+  - atomicadd
+  cards:
   - Q453
+  - Q451
+
+concept_gpu_operator_benchmark:
+  name: 国产GPU算子Benchmark与性能评测
+  keywords:
+  - 国产gpu benchmark
+  - gpu benchmark
+  - 国产加速卡
+  - 算子benchmark
+  - 国产gpu
+  - 国产gpu算子
+  - 算子评测
+  - fair baseline
+  cards:
   - Q454
   - Q455
-  - Q188
+
+concept_kernel_tooling_cute_triton:
+  name: 算子开发工具与Triton/CuTe DSL选型
+  keywords:
+  - triton
+  - cute dsl
+  - kernel选型
+  - cute
+  - 算子优化
+  cards:
+  - Q451
+  - Q449
+
+concept_tf_operator_delivery:
+  name: TensorFlow算子工程交付与场景适配
+  keywords:
+  - tensorflow算子
+  - tensorflow 算子
+  - 算子适配
+  - 算子交付
+  - 团队职责
+  cards:
+  - Q449
+  - Q451
+
+concept_hardware_arch_profiling:
+  name: AI加速卡硬件架构与通信Profiling
+  keywords:
+  - 显存带宽
+  - 硬件架构
+  - roofline
+  - 卡间互联
+  - nvlink
+  - communication-bound
+  cards:
+  - Q455
+  - Q454

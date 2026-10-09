@@ -12775,7 +12775,7 @@
   {
     "id": "L599",
     "line": 599,
-    "text": "团队职责与算子工程交付：在 AI 基础设施团队中，算子开发/适配工作的上下游协作边界是什么（与上游算法模型团队、下游推理/训练部署框架团队）？针对特定计算场景适配定制 TensorFlow 算子时，输入输出规范、内存分配、性能指标与正确性验收流水线应如何设计？",
+    "text": "团队职责、上下游交付与算子场景：你在过去的团队中具体负责什么、算子研发工作的交付对象是谁（算法研究员、训练框架团队或线上推理部署团队）？定制的 TensorFlow 算子适配面向什么业务或模型场景？算子的输入输出规范、内存管理、性能收益与正确性验收流水线应如何设计？",
     "major": "六_AI_Infra与高性能算子",
     "minor": "1.算子开发与编译优化",
     "tag": "TensorFlow算子/工程交付",
@@ -12785,7 +12785,7 @@
     "comment_label": null,
     "assigned": true,
     "answer": {
-      "core": "明确算子上下游交付契约：上游对接算法团队的 Tensor 格式与动态/静态 Shape 约束，下游交付包含 OpKernel C++/CUDA 动态库、Shape Inference 函数、Python 封装与 CI 自动化精度校验用例。基于 TensorFlow Allocator 管理设备显存，杜绝未经生命周期托管的裸 cudaMalloc；通过与参考实现的数值误差对齐（前反向梯度）及端到端延迟/吞吐回归完成工程验收。",
+      "core": "明确在团队中的具体分工（Kernel优化/框架封装/性能分析）与上下游协作边界（算法团队提供模型数学语义与输入边界，部署团队消费动态库并负责上线）。准确定位目标算子适配的实际场景，严格定义输入输出 Tensor 的 Rank/Dtype/Layout 规范；遵循 TensorFlow OpKernel 内存分配由 Allocator 框架统一托管机制，避免裸内存分配；通过与参考实现的误差比对（前反向梯度）及多尺寸下的时延/吞吐基准完成量化验收。",
       "steps": [
         "概念与场景澄清：界定团队定位与上下游交付物边界（C++动态库、Python API、Shape推导函数、CI验收用例）",
         "架构/机制拆解：规范输入输出 Tensor 内存排布、生命周期托管（OpKernelContext/Allocator）及动态 Shape 兼容处理",
@@ -12800,7 +12800,7 @@
   {
     "id": "L600",
     "line": 600,
-    "text": "CUDA Graph 与 Tensor Parallelism (TP) 融合通信挂死定位：在大模型分布式训练或推理中开启 CUDA Graph 且 TP > 1 时出现进程死锁/卡死（Hang），为何关闭 CUDA Graph 或将 TP 降为 1 现象消失只能作为“定位线索”而非“根因结论”？如何通过最小变量矩阵与 Trace/Stream 工具逐步缩小范围至融合通信算子？若通信状态标记（flag）位于特定内存且采用了浮点表示，原同步协议为何如此设计，该判断逻辑如何导致挂死？如何设计最小复现用例与模型级端到端回归？",
+    "text": "CUDA Graph 与 TP 融合通信卡死定位：在大模型训练/推理开启 CUDA Graph 且 TP > 1 时出现进程死锁/卡死（Hang），为什么关闭 Graph 或将 TP 降为 1 现象消失只是“定位线索”而非“根因结论”？如何通过变量矩阵与 Profiler/Trace 工具逐步排查至融合通信算子？通信状态标记（flag）存放在何处、为何选用浮点类型、其内存一致性与同步协议在原实现中如何设计？修复后如何通过最小复现用例与模型级端到端回归进行验证？",
     "major": "六_AI_Infra与高性能算子",
     "minor": "2.分布式并行与通信",
     "tag": "CUDA Graph/Tensor Parallelism/通信挂死",
@@ -12810,7 +12810,7 @@
     "comment_label": null,
     "assigned": true,
     "answer": {
-      "core": "关 Graph 或 TP=1 消除卡死仅为剥离并发或时序的现象线索，不可草率断言 CUDA Graph 与 TP 不兼容；需通过 (Graph开关, TP规模, Shape, Dtype) 最小变量矩阵结合 Nsight Systems / PyTorch Profiler 隔离问题至跨卡融合通信算子。浮点 flag 在硬件层不具备原生原子同步语义，且 Graph 捕获固化了主机调度时序；原设计常出于 Tensor 统一存储或试图用 Kernel 轮询避免 CPU 介入，但一旦跨 Stream 事件依赖未被 Graph 捕获或分支条件被冻结即引发死锁。需通过最小单/多卡独立复现脚本与跨 rank 状态机校验，配合端到端模型回归验证稳定性和正确性。",
+      "core": "关 Graph 或 TP=1 消除卡死属于排他法线索，不可断言 CUDA Graph 与 TP 先验不兼容；TP=1 规避了跨卡通信竞争，关 Graph 改变了流捕获与主机调度的交互，两者均可能掩盖底层未定义同步。通过变量矩阵与 Profiler Trace 排查通信启动顺序与 Stream 依赖。CUDA 支持部分浮点 atomic 操作（如单双精度 atomicAdd），但普通浮点读写不因数据类型自动提供内存可见性与协议正确性；需结合候选人真实实现澄清 flag 内存位置（Device/Host）、volatile/fence/acquire-release 协议设计及死锁机理，并通过规范的 Stream Event 与官方 NCCL Graph 修复与全面回归。",
       "steps": [
         "概念与场景澄清：明确关 Graph/TP=1 属于排查排他法线索，澄清 NCCL 对 CUDA Graph 的官方支持约束",
         "架构/机制拆解：构建变量矩阵定位融合算子，分析通信 flag 物理存放（Device/Host）与生命周期，指出浮点非原子同步语义",
@@ -12825,7 +12825,7 @@
   {
     "id": "L601",
     "line": 601,
-    "text": "算子开发工具与 Kernel 选型权衡：在现代大模型基础设施中，CUDA C++、OpenAI Triton 与 NVIDIA CuTe (CUTLASS 3.x) DSL 各自的适用边界与选型权衡是什么？请从算法协作效率、代码可读性与维护性、开发调试周期，以及底层硬件控制（如寄存器分配、Shared Memory Swizzling、Warp Specialization、TMA 异步拷贝）等具体优化约束展开对比。",
+    "text": "算子开发工具选型：在现代 AI 基础设施与大模型算子研发中，原生 CUDA C++、OpenAI Triton 与 NVIDIA CuTe DSL（CUTLASS 提供的 Python 前端/元编程 DSL）各自的适用场景与设计权衡是什么？请从底层控制粒度、具体算子需求（如 Fused Pointwise vs GEMM/Attention）、团队协作效率（算法工程师与底层系统工程师协同）及工程可维护性展开对比。",
     "major": "六_AI_Infra与高性能算子",
     "minor": "1.算子开发与编译优化",
     "tag": "Kernel选型/Triton/CuTe",
@@ -12835,7 +12835,7 @@
     "comment_label": null,
     "assigned": true,
     "answer": {
-      "core": "选型基于计算特征与团队协作权衡：OpenAI Triton 采用 Block-level Python DSL，自动处理共享内存分配与指令流水，极大提升算法协作与中高层融合算子迭代效率；CUDA C++ 提供线程/指令级极致掌控力与底层系统状态管理，但开发与跨架构移植成本高；CuTe (CUTLASS 3.x) 通过 Layout 代数抽象在 C++ 模版层精准表达 Hopper TMA/WGMMA 与 Warp Specialization，适合极致性能的 GEMM/Attention 核心算子，但学习曲线极高。避免绝对化结论，依据算子计算访存比与硬件代际做工程选型。",
+      "core": "明确区分 CuTe 核心 C++ 模版库与 CuTe DSL（CUTLASS Python 前端/元编程 DSL，支持跨代跨架构张量表达）。原生 CUDA C++ 控制粒度最细（Thread/PTX级），适合高度不规则访存与复杂系统状态，但协作和维护成本高；OpenAI Triton 采用 Block-level Python DSL，由编译器自动负责共享内存与流水线编排，在中高层融合算子上算法协作与开发效率极高；CuTe DSL 允许在 Python 中直接以 Layout（Shape+Stride）代数和分层张量视角低层表达复杂高性能 GEMM/Attention Kernel，兼具 Python 元编程灵活性与近乎原生的张量硬件把控力。",
       "steps": [
         "概念与场景澄清：界定三种工具的技术定位（Python Block级DSL vs 线程级原生C++ vs Layout代数模版库）",
         "架构/机制拆解：横向对比协作成本、代码维护周期，以及对底层硬件细节（Bank Conflict、TMA、异步流水）的控制力",
@@ -12850,7 +12850,7 @@
   {
     "id": "L602",
     "line": 602,
-    "text": "MoE 前向数据流、Router Replay 与 Expert Parallelism (EP) 并行通信机制：一个 Token 进入混合专家模型（MoE）后的完整前向计算链路是什么（从 Router 计算、Top-K 门控、Token Permutation/Dispatch，到专家计算与 Token Combine）？在强化学习（RLHF/PPO）或离线评估链路中，Router Replay 记录的 Token、Layer、Top-K 路由信息是由谁消费的，在训练的哪一步消费？在多节点分布式训练中，Expert Parallelism (EP) 与 Tensor Parallelism (TP) 的 Rank 分组与通信角色有何不同？EP 的 Dispatch 和 Combine 通常采用什么集合通信原语？",
+    "text": "MoE 前向数据流、Router Replay 与并行通信：一个 Token 进入混合专家模型（MoE）后的完整前向流程是什么（Gate 选路、Top-K 分配、Token Dispatch、专家计算与 Combine 汇聚）？在 Rollout 阶段记录的 Token、Layer、Top-K 路由（Router Replay）信息是在训练侧哪个具体环节被恢复与消费的？分布式训练中 Expert Parallelism (EP) 与 Tensor Parallelism (TP) 作为逻辑切分轴，其进程分组与实际通信实现（如 All-to-All、AllGather、Reduce-Scatter 等）有何不同？",
     "major": "六_AI_Infra与高性能算子",
     "minor": "2.分布式并行与通信",
     "tag": "MoE/Router Replay/Expert Parallelism",
@@ -12860,7 +12860,7 @@
     "comment_label": null,
     "assigned": true,
     "answer": {
-      "core": "Token 经 Router 门控计算 Logits 与 Top-K 权重，经重排/All-to-All Dispatch 发往指定 Expert Rank 运算后经 All-to-All Combine 汇聚加权输出。Router Replay 记录的路由信息供训练侧 Loss 计算或策略梯度更新消费，确保 Rollout 与训练阶段 Token 路由严格对齐。TP 在 Transformer 层内切分权重矩阵并通过 All-Reduce 聚合（通信通常在机内 NVLink）；EP 将不同专家分配给不同 Rank，通过 All-to-All 集合通信交换 Token（跨节点网络敏感）。候选人需清晰区分局部算子理解与大规模集群调优的实际经验边界。",
+      "core": "Token 经 Gate 计算 Logits，经 Top-K 选路生成权重与索引，经重排与并行通信 Dispatch 到对应专家运算后回传 Combine 加权汇聚。Router Replay 记录的路由元数据在前向各层 MoE 的 Router 门控与 Dispatch 阶段被恢复与消费，直接控制该次前向的数据流与专家激活，进而影响后续 Loss 计算与策略/梯度更新（非仅在 Loss 步骤使用）。EP 与 TP 为逻辑切分轴，均可依据网络拓扑在机内或跨机部署；EP 通信具体可为 All-to-All-v 或 AllGather 组合，TP 通信可为 All-Reduce 或 Reduce-Scatter + All-Gather，需实事求是结合具体框架实现说明。",
       "steps": [
         "概念与场景澄清：梳理 Token 经 Gate->Top-K->Permute->Dispatch->Expert->Combine 的完整数据流",
         "架构/机制拆解：明确 Router Replay 消费方为策略更新/Loss 计算的前向反向链路，并核对 Token 顺序与 Padding 一致性",
@@ -12877,7 +12877,7 @@
   {
     "id": "L603",
     "line": 603,
-    "text": "滑动窗口 Attention (SWA) 确定性反向传播优化与 dQ 累加同步：在滑动窗口 Attention 的反向计算中，梯度 dQ 的计算与累加面临哪些数据依赖和等待开销？如何通过缩小同步范围、调整执行顺序使独立的计算链重叠并行？在多线程块并发写 dQ 时，浮点加法的非结合性与原子加（atomicAdd）如何影响跨运行结果的确定性（Deterministic）？在追求极致速度时，如何通过算法设计与回归测试（涵盖不同 Shape/Window/Dtype）保证数值一致性与确定性边界？",
+    "text": "滑动窗口 Attention (SWA) 确定性反向传播优化与 dQ 累加：在 SWA 反向计算中，梯度 dQ 的累加等待开销来自哪里？如何通过收敛同步范围（如从全局同步下沉到局部/Tile 级）并调整执行顺序使独立的计算链重叠并行？多线程块并发 atomicAdd 累加 dQ 时，浮点加法的非结合性在何种条件下会导致跨运行 bitwise 结果漂移？优化后如何通过严格测试保证数值正确性与确定性边界？",
     "major": "六_AI_Infra与高性能算子",
     "minor": "1.算子开发与编译优化",
     "tag": "Attention反向/确定性计算/dQ累加",
@@ -12887,7 +12887,7 @@
     "comment_label": null,
     "assigned": true,
     "answer": {
-      "core": "SWA 反向中 dQ 依赖滑动窗口范围内的 dO 与 V/K 乘积，全局 Barrier 会带来严重等待气泡；通过将同步细化至 Tile/Warp 级，并将 dK/dV 独立 GEMM 与 dQ 累加重叠可显著隐藏延迟。但浮点加法不满足结合律，多 Block 并发 atomicAdd 会因硬件调度乱序导致 Bitwise 不确定；必须采用固定分块归约顺序或专用 Reduce Buffer 实现确定性。验证时严格区分数值近似一致（allclose）与位级一致（torch.equal/Bitwise），在多 Shape、不同窗口与不同精度下跑确定性回归。",
+      "core": "SWA 反向 dQ 依赖滑动窗口范围内的梯度贡献，全局同步会导致严重流水线等待；将同步下沉到 Tile/Warp 级并重叠 dK/dV 独立计算链可有效隐藏延迟。IEEE 754 浮点加法不满足结合律，多 Block 并发 atomicAdd 到同一显存时，硬件动态调度的乱序到达容易导致跨运行 bitwise 结果漂移，因而无法提供确定性保证；需设计固定分块的归约顺序消除竞争。测试中严格区分 allclose（容差近似一致）与 bitwise 确定性（torch.equal 二进制逐位一致），全面覆盖多形状、多窗口与多精度。",
       "steps": [
         "概念与场景澄清：明确 dQ 反向依赖关系与滑动窗口边界条件，剖析全局同步导致的流水线停顿",
         "架构/机制拆解：精细化同步粒度至 Tile/Warp 级，重叠 dK/dV 与 dQ 独立计算链，实现双缓冲流水",
