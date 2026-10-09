@@ -964,6 +964,19 @@ concepts:
   - 显存带宽
   - 算子适配
   - 确定性反向
+  - 投机解码
+  - Speculative Decoding
+  - EAGLE3
+  - DFlash
+  - DSpark
+  - Tree Attention
+  - 拒绝采样
+  - Rejection Sampling
+  - 模型量化
+  - AWQ
+  - GPTQ
+  - SmoothQuant
+  - FP8
   summary: 大模型底层基础设施与算子加速；涵盖单卡 Kernel 开发（CUDA/Triton/CuTe）、分布式并行（TP/EP/All-to-All）、图捕获与通信协同（CUDA
     Graph × TP）、确定性梯度反向及硬件 Benchmark。
   related:
@@ -1036,3 +1049,46 @@ concepts:
   - ReAct 与 Agent 工作流范式
   - Tool Calling 与 Function Calling
   - 评测基准与 Harness
+- name: 投机解码与推理加速
+  aliases:
+  - 投机解码
+  - Speculative Decoding
+  - 草稿模型
+  - Draft Model
+  keywords:
+  - 投机解码
+  - Speculative Decoding
+  - EAGLE3
+  - DFlash
+  - DSpark
+  - Draft Model
+  - Tree Attention
+  - 拒绝采样
+  - Rejection Sampling
+  - Memory Bound
+  summary: 大模型推理加速范式；通过草稿模型并行生成候选 Token，由目标模型单次前向并行验证并保全输出分布一致性。
+  related:
+  - AI Infra 与高性能算子
+  - 推理优化与 KV Cache
+- name: 大模型量化与精度保持
+  aliases:
+  - 模型量化
+  - Quantization
+  - AWQ
+  - GPTQ
+  - SmoothQuant
+  keywords:
+  - 量化
+  - Quantization
+  - AWQ
+  - GPTQ
+  - SmoothQuant
+  - FP8
+  - Calibration Data
+  - Weight Error
+  - Output Reconstruction Error
+  - MoE Quantization
+  summary: 大模型低比特量化技术；涵盖激活感知缩放保护关键通道（AWQ）、二阶 Hessian 逆矩阵补偿（GPTQ）、异常值平滑迁移（SmoothQuant）及
+    MoE Router 保留高精度。
+  related:
+  - AI Infra 与高性能算子

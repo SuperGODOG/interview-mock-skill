@@ -1,8 +1,10 @@
-# AI Infra · 高性能算子、分布式并行与加速卡架构面试题索引
+# AI Infra · 高性能算子、分布式并行、投机解码与大模型量化面试题索引
 
-> **分类描述**: 涵盖 TensorFlow 算子适配与职责交付边界、CUDA Graph 与 TP 融合通信卡死定位、Triton 与 CuTe DSL 选型权衡、MoE/Router Replay/EP 并行通信数据流、滑动窗口 Attention 确定性反向优化 (dQ)、国产 GPU 算子 Benchmark 及硬件架构与互联通信 Profiling。
-> **题目统计**: 共 9 题
+> **分类描述**: 涵盖 TensorFlow/PyTorch 算子适配与交付、CUDA Graph/TP 融合通信挂死定位、Triton/CuTe DSL 选型、MoE/Router 并行数据流、滑动窗口 Attention 确定性反向优化 (dQ)、国产 GPU 算子 Benchmark 与互联通信 Profiling、投机解码（EAGLE3/DFlash/DSpark、Tree Attention Mask、拒绝采样保分布、长文本与单卡瓶颈）及大模型量化（AWQ/GPTQ/SmoothQuant、FP8 缩放、Router 保留 BF16 精度敏感性）。
+> **题目统计**: 共 31 题（基础 Infra 9 题 + 投机解码 17 题 + 模型量化 5 题）
 > **唯一语料数据源**: `agent-project-grill/references/题库/items.json`
+
+## 一、算子开发、分布式通信与硬件架构（9 题）
 
 | 题目 ID | 行号 | 深度 | 标签 | 题目简述 |
 |---|---|---|---|---|
@@ -15,3 +17,35 @@
 | `L605` | 605 | L4 | 硬件架构/显存带宽/通信拓扑 | AI 加速卡硬件架构、显存带宽瓶颈与多卡互联通信 Profiling：面对未知或新型号的 AI 加速卡，如何系统化查证与度量其硬件核心指标（计算核心数、Tensor Core/专用矩阵单元峰值算力、寄存器堆、Shared Memory/L1/L2 缓存层次与容量、HBM 理论峰值带宽）？如何通过带宽测试（Bandwidth Test）测量实际显存带宽与卡间互联（如 PCIe vs 自研/专有互联）带宽？在分布式作业中，如何使用 Profiling 工具区分一个任务是计算受限（Compute-bound）、访存受限（Memory-bound）还是通信受限（Communication-bound）？ |
 | `L300` | 300 | LNone | - | 混合专家模型（MoE）与传统稠密（Dense）Transformer 架构的核心区别和优缺点是什么？ |
 | `L229` | 229 | LNone | - | 线上大模型服务是否有应用Continuous Batching、KV Cache Manager（如PagedAttention）等优化机制？ |
+
+## 二、投机解码专项：EAGLE3、DFlash、DSpark、树状验证与采样（17 题）
+
+| 题目 ID | 行号 | 深度 | 标签 | 题目简述 |
+|---|---|---|---|---|
+| `L629` | 629 | L3 | 投机解码/草稿架构选型 | EAGLE3、DFlash、DSpark三者的区别是什么？ |
+| `L630` | 630 | L4 | 投机解码/推理引擎接入流程 | DFlash / DSpark在实际推理时需要哪些输入？接入vLLM / SGLang，整体流程是什么？ |
+| `L631` | 631 | L3 | 投机解码/KV Cache维护机制 | EAGLE3需要维护KV Cache，那么DFlash、DSpark需要吗？ |
+| `L632` | 632 | L4 | 投机解码/Hidden States与KV复用 | Target Model在推理过程中产生的Hidden States / KV Cache，DFlash、DSpark是怎么利用的？ |
+| `L633` | 633 | L4 | 投机解码/MoE架构显存与算力制约 | 为什么MoE模型做Speculative Decoding时，加速收益不能像Dense Model一样随着一次Verify的Token数增加而近似线性提升？ |
+| `L634` | 634 | L3 | 投机解码/EAGLE3三阶段流程 | EAGLE3的Proposal → Verify → Accept三个阶段分别是怎么做的？ |
+| `L635` | 635 | L4 | 投机解码/动态树生成与剪枝 | EAGLE3的Proposal阶段是怎么生成Tree的？如何控制Tree不无限膨胀？ |
+| `L636` | 636 | L5 | 投机解码/Tree Attention Mask构造与验证 | Tree Attention Mask是怎么构造的？给定一棵Tree，如何生成对应的Attention Mask？具体用了什么方法，指针吗？Tree Attention得到多个Token的Logits后，怎么判断有多少个Token能被Accept？ |
+| `L637` | 637 | L4 | 投机解码/拒绝采样与分布保全 | 采样（非Greedy）模式下，Speculative Decoding怎么通过Rejection Sampling保证最终分布不变？ |
+| `L638` | 638 | L2 | 投机解码/Decode加速基本原理 | Speculative Decoding为什么能够加速Decode？ |
+| `L639` | 639 | L3 | 投机解码/Memory Bound与算力利用率 | 为什么Decode阶段通常是Memory Bound？一次Verify多个Token为什么能够提高GPU利用率？ |
+| `L640` | 640 | L4 | 投机解码/单卡MoE显存带宽瓶颈 | 如果不考虑多GPU通信，只考虑单GPU，为什么MoE的Speculative Decoding加速效率仍可能不如Dense Model？ |
+| `L641` | 641 | L3 | 投机解码/长文本挑战与前沿发展 | 除了EAGLE3、DFlash、DSpark，还看过哪些Speculative Decoding相关的新工作？有没有关注超长Context下的Speculative Decoding？ |
+| `L642` | 642 | L3 | 投机解码/草稿模型训练与数据规模 | Draft Model是怎么训练的？训练数据从哪里来，规模多大？ |
+| `L643` | 643 | L4 | 投机解码/草稿模型训练收敛与早停判据 | Draft Model Training有没有分析Loss曲线？怎么判断训练完成？ |
+| `L644` | 644 | L3 | 投机解码/生产环境Benchmark实测 | 你实际Benchmark中DFlash、DSpark、EAGLE3的结果怎么样？ |
+| `L645` | 645 | L4 | 投机解码/论文加速比偏差归因 | 你的Benchmark结果为什么和对应Paper的结论不一致？有没有定位具体原因？ |
+
+## 三、大模型量化专项：AWQ、GPTQ、SmoothQuant 与 MoE Router 精度（5 题）
+
+| 题目 ID | 行号 | 深度 | 标签 | 题目简述 |
+|---|---|---|---|---|
+| `L646` | 646 | L3 | 大模型量化/AWQ与GPTQ核心机理 | AWQ和GPTQ的核心区别是什么？两者分别是怎么做的？ |
+| `L647` | 647 | L4 | 大模型量化/AWQ-FP8缩放与校准集 | 你的AWQ-FP8具体怎么选择Scale？Calibration Data在里面起什么作用？ |
+| `L648` | 648 | L3 | 大模型量化/误差重构目标与优化函数 | 量化时比较的是Weight Error还是Output Reconstruction Error？为什么？ |
+| `L649` | 649 | L3 | 大模型量化/异常值处理与迁移哲学 | SmoothQuant和AWQ的区别是什么？为什么把这两个方法放在一起比较？ |
+| `L650` | 650 | L4 | 大模型量化/MoE量化与Router精度敏感性 | MoE Quantization最大的问题是什么？为什么Router往往需要保留BF16？ |

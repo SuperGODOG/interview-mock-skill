@@ -1213,6 +1213,8 @@ concept_shopping_reward_grpo:
   - 奖励函数
   - 步惩罚
   - reward
+  - shopping reward grpo
+  - grpo
   cards:
   - Q461
   - Q468
@@ -1283,3 +1285,108 @@ concept_shopping_agent_workflow:
   - Q456
   - Q458
   - Q460
+concept_speculative_tree_attention:
+  name: 投机解码Tree Attention与动态树验证
+  keywords:
+  - tree attention mask
+  - tree attention
+  - attention mask
+  - eagle3 tree
+  - 动态树生成
+  - proposal verify accept
+  - 动态树
+  cards:
+  - Q486
+  - Q485
+  - Q484
+  - Q483
+concept_speculative_rejection_sampling:
+  name: 投机解码拒绝采样与分布保全
+  keywords:
+  - sampling rejection
+  - rejection sampling
+  - 拒绝采样
+  - 采样模式
+  - 保持分布
+  - 保证最终分布
+  cards:
+  - Q487
+  - Q486
+  - Q484
+concept_awq_fp8_calibration:
+  name: AWQ-FP8量化与校准数据选择
+  keywords:
+  - awq-fp8 calibration
+  - awq-fp8
+  - calibration data
+  - 校准数据
+  - 缩放尺度
+  - scale选择
+  cards:
+  - Q497
+  - Q496
+  - Q498
+concept_moe_router_quantization:
+  name: MoE量化与Router保留BF16
+  keywords:
+  - moe router bf16
+  - router bf16
+  - router保留bf16
+  - router精度
+  - moe quantization
+  - moe量化
+  cards:
+  - Q500
+  - Q496
+concept_speculative_framework_integration:
+  name: 投机解码草稿架构与推理引擎接入
+  keywords:
+  - eagle3
+  - dflash
+  - dspark
+  - speculative decoding
+  - 投机解码
+  - draft model
+  - 草稿模型
+  - sglang
+  - vllm speculative
+  cards:
+  - Q479
+  - Q480
+  - Q481
+  - Q482
+concept_speculative_performance_training:
+  name: 投机解码性能瓶颈与草稿模型训练
+  keywords:
+  - decode memory bound
+  - memory bound
+  - 显存带宽瓶颈
+  - 草稿模型训练
+  - draft model training
+  - 平均接受长度
+  - mal
+  - benchmark结果
+  cards:
+  - Q488
+  - Q489
+  - Q490
+  - Q491
+  - Q492
+  - Q493
+  - Q494
+  - Q495
+concept_llm_quantization_mechanisms:
+  name: 大模型量化机理与误差重构
+  keywords:
+  - awq
+  - gptq
+  - smoothquant
+  - weight error
+  - output reconstruction error
+  - 重构误差
+  - 模型量化
+  cards:
+  - Q496
+  - Q498
+  - Q499
+  - Q497
