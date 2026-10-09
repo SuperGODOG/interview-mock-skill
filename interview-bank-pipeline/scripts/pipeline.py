@@ -537,7 +537,7 @@ def export_obsidian():
         qs.append({"id": it["id"], "line": it["line"], "text": it["text"],
                    "major": major, "minor": minor, "depth": depth, "fuzzy": fuzzy,
                    "comment_label": it.get("comment_label"),
-                   "answer": it.get("answer"), "prereq": it.get("prereq", []),
+                   "prereq": it.get("prereq", []),
                    "downstream": it.get("downstream", []),
                    "status": it.get("status", "待复习")})
 
@@ -616,15 +616,6 @@ def export_obsidian():
                 lines.append(f"**前置**：{'、'.join(pre)}")
             if down:
                 lines.append(f"**后置**：{'、'.join(down)}")
-            # 答题框架 (大厂四步蒸馏)
-            if q.get("answer"):
-                core = q["answer"].get("core", "")
-                steps = q["answer"].get("steps", [])
-                sk = ("<details><summary>答题框架（大厂四步）</summary>\n\n"
-                      "**核心考点**：" + core + "\n\n"
-                      + "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1))
-                      + "\n</details>")
-                lines.append(sk)
             lines.append("")
         with open(os.path.join(d, f"{minor}.md"), "w", encoding="utf-8") as f:
             f.write("\n".join(lines).rstrip() + "\n")
