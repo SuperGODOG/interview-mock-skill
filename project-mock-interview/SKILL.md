@@ -19,7 +19,7 @@ version: 2.1.0
 
 先绑定 `BANK_ROOT` 为 `../agent-project-grill/references/题库/`；相对路径不存在时回退自身 `references/题库/`（兼容单件安装）。检查 items.json、concepts.yaml、schema.json 齐全后再读；不可用时执行上方降级规则。
 
-- `BANK_ROOT/items.json` — 512 题结构化语料（id/line/text/major/minor/depth/**prereq+downstream 学习路径**/**status 初始值**；公共题库仅存题目及元信息，不存固定预生成答案或四步模板）。题库不保存 concepts；`depth` 仅作为新增题的初始深度，项目路由以 `match.json` 的命中深度为准。**status 只作初始快照**（运行期状态写 vault 复盘文件）
+- `BANK_ROOT/items.json` — 475 道题（共 535 条语料记录）（id/line/text/major/minor/depth/**prereq+downstream 学习路径**/**status 初始值**；公共题库仅存题目及元信息，不存固定预生成答案或四步模板）。题库不保存 concepts；`depth` 仅作为新增题的初始深度，项目路由以 `match.json` 的命中深度为准。**status 只作初始快照**（运行期状态写 vault 复盘文件）
 - `BANK_ROOT/concepts.yaml` + `BANK_ROOT/schema.json` — 概念词典与分类骨架
 - `references/项目/<slug>/` — 每个项目一套：
   - `match.json` 路由表（候选题目 + 命中概念 + 证据文件 + depth）

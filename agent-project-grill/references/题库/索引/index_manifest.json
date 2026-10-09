@@ -1,11 +1,11 @@
 {
- "total_questions": 452,
- "total_items_in_bank": 512,
+ "total_questions": 475,
+ "total_items_in_bank": 535,
  "version": "1.0.0",
  "categories": {
   "business_projects": {
    "title": "业务线与项目实战面试题索引",
-   "count": 33,
+   "count": 49,
    "json_index": "01_business_projects.json",
    "md_index": "01_business_projects.md"
   },
@@ -41,13 +41,13 @@
   },
   "agent_harness": {
    "title": "Agent Harness 核心设计与评测沙箱面试题索引",
-   "count": 60,
+   "count": 69,
    "json_index": "03_agent_harness.json",
    "md_index": "03_agent_harness.md"
   },
   "agent_architecture": {
    "title": "Agent 架构设计、工作流与编排面试题索引",
-   "count": 146,
+   "count": 160,
    "json_index": "04_agent_architecture.json",
    "md_index": "04_agent_architecture.md"
   },
@@ -65,7 +65,7 @@
   },
   "algorithms": {
    "title": "算法与手撕代码题索引",
-   "count": 31,
+   "count": 32,
    "json_index": "07_algorithms.json",
    "md_index": "07_algorithms.md"
   },

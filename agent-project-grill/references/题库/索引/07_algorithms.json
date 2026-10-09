@@ -2,7 +2,7 @@
  "category": "algorithms",
  "title": "算法与手撕代码题索引",
  "description": "涵盖 LeetCode 经典题、快速选择、反转单链表、多叉树路径查找、动态规划、LRU 缓存、二叉树遍历与高并发算法设计。",
- "count": 31,
+ "count": 32,
  "items": [
   {
    "id": "L214",
@@ -281,6 +281,15 @@
    "major": "Leetcode相关",
    "minor": "Leetcode相关",
    "tag": "多叉树/DFS回溯/路径查找",
+   "depth": 3
+  },
+  {
+   "id": "L622",
+   "line": 622,
+   "text": "手撕代码考核：现场设计并实现一个基础 Agent Loop 控制循环。请编写代码实现“接收用户输入 -> 组装上下文 -> 调用 LLM -> 解析 Tool Calls -> 执行工具 -> 将观察结果回填并继续循环”的核心流程，并说明如何设置最大步数终止与异常捕获。",
+   "major": "Leetcode相关",
+   "minor": "Leetcode相关",
+   "tag": "手撕算法/Agent Loop实现",
    "depth": 3
   }
  ]

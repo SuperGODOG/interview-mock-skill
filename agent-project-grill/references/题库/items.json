@@ -8880,5 +8880,457 @@
     "prereq": [],
     "downstream": [],
     "status": "待复习"
+  },
+  {
+    "id": "L606",
+    "line": 606,
+    "text": "Shopping Agent 业务目标与任务流定义：在电商/购物场景中，你的 Shopping Agent 具体负责执行什么端到端任务？如何界定从模糊用户意图（如兼顾预算与属性的选品）、商品检索、属性对比到最终购买/决策的交互边界？",
+    "major": "二_Agent应用开发相关",
+    "minor": "6.agent处理情景的架构设计",
+    "tag": "Shopping Agent/业务目标",
+    "depth": 2,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [],
+    "downstream": [
+      "[[L607]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L607",
+    "line": 607,
+    "text": "电商 Agent 评测基准与测试集构建：你在项目中使用了什么数据集或测试集评估 Shopping Agent 的决策效果？离线模拟评测集（如公开商品基准、合成 Query）与线上真实电商环境在商品分布、动态库存及搜索召回上有何差异？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/测试数据集",
+    "depth": 2,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L606]]"
+    ],
+    "downstream": [
+      "[[L608]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L608",
+    "line": 608,
+    "text": "Agent 动作空间与工具边界设计：Shopping Agent 的可用工具是交互环境/模拟器原生自带的，还是团队根据业务场景自研封装的？如何设计搜索、点击、翻页、属性筛选及加购等原子动作的接口规范与粒度？",
+    "major": "二_Agent应用开发相关",
+    "minor": "3.工具相关",
+    "tag": "Shopping Agent/工具来源与动作空间",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L607]]"
+    ],
+    "downstream": [
+      "[[L609]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L609",
+    "line": 609,
+    "text": "环境观察空间清洗与结构化抽取：在购物环境中，环境原始返回的是类似 HTML/DOM 网页文本还是原始 API 响应？你所说的结构化处理具体包含哪些清洗逻辑，如何压缩冗余文本并向模型呈现关键商品属性？",
+    "major": "二_Agent应用开发相关",
+    "minor": "4.Prompt_engineering",
+    "tag": "Shopping Agent/观察清洗与结构化",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L608]]"
+    ],
+    "downstream": [
+      "[[L610]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L610",
+    "line": 610,
+    "text": "购物模拟器特性与状态机保真度：项目所使用的 Simulator 是专为电商购物交互定制的专用模拟器，还是通用的 Web 浏览仿真环境？其底层状态机、商品搜索反馈与页面跳转机制如何保证对真实业务的保真度？",
+    "major": "二_Agent应用开发相关",
+    "minor": "6.agent处理情景的架构设计",
+    "tag": "Shopping Agent/Simulator特性",
+    "depth": 2,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L609]]"
+    ],
+    "downstream": [
+      "[[L611]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L611",
+    "line": 611,
+    "text": "购物 Agent 奖励函数打分机制设计：在强化学习或策略优化中，Reward 具体是如何量化打分的？是基于商品属性完全匹配、软语义重合度、价格约束满足，还是依赖外部评审模型打分？各项分值如何配比？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/Reward打分",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L610]]"
+    ],
+    "downstream": [
+      "[[L612]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L612",
+    "line": 612,
+    "text": "任务成功判定准则：任务成功的判定是否要求模型必须选中全局最符合要求（Top-1）的商品？如果候选集中存在多个同等满足硬性约束但附加属性略有差异的商品，判据如何处理？严格精确匹配与软约束容错如何平衡？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/成功判定准则",
+    "depth": 2,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L611]]"
+    ],
+    "downstream": [
+      "[[L613]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L613",
+    "line": 613,
+    "text": "过程奖励（Dense Reward）设计与探索激励：为了缓解长链任务中的稀疏奖励（Sparse Reward）问题，中间过程奖励具体是如何设计的？哪些中间行为（如有效关键词搜索、进入高相关详情页）会被赋予正向引导，如何避免奖惩噪声？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/过程奖励设计",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L612]]"
+    ],
+    "downstream": [
+      "[[L614]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L614",
+    "line": 614,
+    "text": "长轨迹步数预算必要性与短路决策权衡：在购物交互面试假设中，为什么任务预算可能长达35步？能否直接在搜索列表摘要中直接提取符合要求的商品完成决策？深度比较的收益能否覆盖多步交互带来的延迟与错误累积成本？",
+    "major": "二_Agent应用开发相关",
+    "minor": "6.agent处理情景的架构设计",
+    "tag": "Shopping Agent/35步预算与长轨迹",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L613]]"
+    ],
+    "downstream": [
+      "[[L615]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L615",
+    "line": 615,
+    "text": "深钻查看与状态回溯比较策略：Agent 在完成复杂选品时，是否必须逐个点击进入商品详情页查看属性，再返回搜索列表继续下一候选项？如何设计 Agent 的上下文记忆或状态栈以支持跨候选商品的属性横向对比，避免重复进入？",
+    "major": "二_Agent应用开发相关",
+    "minor": "5.agent记忆设计",
+    "tag": "Shopping Agent/深钻查看与回溯比较",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L614]]"
+    ],
+    "downstream": [
+      "[[L616]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L616",
+    "line": 616,
+    "text": "搜索引擎排序机制与 Agent 位置偏差（Position Bias）：环境底层搜索结果是按文本相关度、销量、综合权重还是固定顺序排序的？搜索结果的展现顺序对 Agent 的注意力分布与最终决策结果会产生怎样的位置偏差？",
+    "major": "二_Agent应用开发相关",
+    "minor": "6.agent处理情景的架构设计",
+    "tag": "Shopping Agent/搜索排序与位置偏差",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L615]]"
+    ],
+    "downstream": [
+      "[[L617]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L617",
+    "line": 617,
+    "text": "有限步数预算与长尾未召回截断应对：在最大执行步数有限（如假设最多35步）且只能查看少量前置商品的前提下，如果真正最优的目标商品排在列表靠后位置（如第10位），Agent 应如何感知风险？如何动态调整搜索策略或翻页决策以防漏选？",
+    "major": "二_Agent应用开发相关",
+    "minor": "8.工程落地",
+    "tag": "Shopping Agent/预算截断与搜索补救",
+    "depth": 4,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L616]]"
+    ],
+    "downstream": [
+      "[[L618]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L618",
+    "line": 618,
+    "text": "GRPO 算法中过程奖励机制与信用分配：在基于群组相对策略优化（GRPO）或类似强化学习微调中，算法通常依据采样轨迹的最终结果进行相对打分，若引入中间过程奖励具体应如何实现？如何避免中间奖励破坏策略优化的信用分配（Credit Assignment）？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/GRPO过程奖励与信用分配",
+    "depth": 4,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L617]]"
+    ],
+    "downstream": [
+      "[[L619]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L619",
+    "line": 619,
+    "text": "奖励函数单调性假设与局部最优辨析：“找到的商品与目标描述越接近，获得的奖励就越高”这一假设在实际场景中是否恒成立？在离散属性不匹配、反向约束违背或组合特征互斥时，简单的属性相似度单调奖励是否会导致模型陷入局部最优？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/奖励单调性与局部最优",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L618]]"
+    ],
+    "downstream": [
+      "[[L620]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L620",
+    "line": 620,
+    "text": "步惩罚（Step Penalty）对工具调用频次与探索深度的激励偏置：在奖励函数中设置的步成本（Step Cost/Penalty）或中间奖励，会让模型倾向于发起更多的工具调用进行充分探索，还是倾向于尽早退出以避免惩罚？如何调优参数以平衡决策严谨度与工具调用效率？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/步惩罚与调用频次偏置",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L619]]"
+    ],
+    "downstream": [
+      "[[L621]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L621",
+    "line": 621,
+    "text": "状态循环转移中奖惩抵消机制与终局奖励等价性辨析：若模型从商品 A 切换到 B 再切回 A，中间的探索奖励与返回惩罚在数值上相互抵消，是否就等价于“只依据最终状态决定奖励”？从势能塑形（Potential-based Shaping）、累积步成本与折扣因子的角度，两者的本质区别是什么？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Shopping Agent/循环奖惩抵消与状态等价性",
+    "depth": 4,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L620]]"
+    ],
+    "downstream": [],
+    "status": "待复习"
+  },
+  {
+    "id": "L622",
+    "line": 622,
+    "text": "手撕代码考核：现场设计并实现一个基础 Agent Loop 控制循环。请编写代码实现“接收用户输入 -> 组装上下文 -> 调用 LLM -> 解析 Tool Calls -> 执行工具 -> 将观察结果回填并继续循环”的核心流程，并说明如何设置最大步数终止与异常捕获。",
+    "major": "Leetcode相关",
+    "minor": "Leetcode相关",
+    "tag": "手撕算法/Agent Loop实现",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [],
+    "downstream": [
+      "[[L623]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L623",
+    "line": 623,
+    "text": "手撕追问：多工具统一注册接口与依赖注入设计。如果在 Agent Loop 中需要支持数十个异构工具，应该如何设计统一的工具注册器（Tool Registry）或注入机制？如何在代码层面实现工具函数的元数据提取（Name、Description、JSON Schema）与运行时路由分发？",
+    "major": "二_Agent应用开发相关",
+    "minor": "3.工具相关",
+    "tag": "Agent Loop/多工具统一注册",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L622]]"
+    ],
+    "downstream": [
+      "[[L624]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L624",
+    "line": 624,
+    "text": "手撕追问：工具非法调用与参数校验错误容错逻辑。在 Agent Loop 执行过程中，如果模型幻觉调用了不存在的工具名、传入了不符合 Schema 的参数（如类型错误、缺少必填字段），或工具底层抛出异常，应如何设计容错机制？请写出校验参数并向模型回传错误提示的代码逻辑。",
+    "major": "二_Agent应用开发相关",
+    "minor": "3.工具相关",
+    "tag": "Agent Loop/参数错误与异常容错",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L623]]"
+    ],
+    "downstream": [
+      "[[L625]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L625",
+    "line": 625,
+    "text": "手撕追问：超大文本文件 read_file 工具防爆与上下文保护机制。如果 Agent 调用工具读取的文件极大（如数十 MB 的长文本），无法一次性全部载入模型上下文窗口，应如何改造 read_file 工具的设计？如何支持分页读取、行号切片、关键词预检索（grep）或分块摘要？",
+    "major": "二_Agent应用开发相关",
+    "minor": "3.工具相关",
+    "tag": "Agent Loop/read_file大文件防爆",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L624]]"
+    ],
+    "downstream": [
+      "[[L626]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L626",
+    "line": 626,
+    "text": "手撕追问：模型提前退出（Premature Exit）检测与自我反思反馈机制。如果模型在未调用关键工具或未达成最终目标的情况下直接输出自然语言并尝试退出循环，如何在 Agent Loop 中检测此类未完成状态？如何构造针对性的反思提示词（Reflection Prompt）迫使模型继续推进任务？",
+    "major": "二_Agent应用开发相关",
+    "minor": "1.agent宏观认知",
+    "tag": "Agent Loop/提前退出检测与反思",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L625]]"
+    ],
+    "downstream": [
+      "[[L627]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L627",
+    "line": 627,
+    "text": "手撕追问：单次重试机会控制流改造与上下文管理。在既有 Agent Loop 中，若业务要求在模型首次执行失败或判定不合格时给予且仅给予一次重试机会，当前循环流程应如何改造？重试时应如何保留历史失败证据同时避免错误上下文污染新一轮尝试？",
+    "major": "二_Agent应用开发相关",
+    "minor": "8.工程落地",
+    "tag": "Agent Loop/单次重试控制流",
+    "depth": 3,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L626]]"
+    ],
+    "downstream": [
+      "[[L628]]"
+    ],
+    "status": "待复习"
+  },
+  {
+    "id": "L628",
+    "line": 628,
+    "text": "手撕追问：引入独立 Judge 模型校验任务完成度与防自满偏置。能否在 Agent Loop 终止前引入另一个独立的评估模型（LLM-as-a-Judge）对当前执行结果与原始需求进行端到端验证？如何设计独立 Judge 的输入 Prompt、证据核对规则，以及应对 Judge 自身误判的机制？",
+    "major": "二_Agent应用开发相关",
+    "minor": "9.业务评估(性能优化与诊断)",
+    "tag": "Agent Loop/独立Judge校验",
+    "depth": 4,
+    "kind": "question",
+    "in_comment": false,
+    "comment_label": null,
+    "assigned": true,
+    "prereq": [
+      "[[L627]]"
+    ],
+    "downstream": [],
+    "status": "待复习"
   }
 ]

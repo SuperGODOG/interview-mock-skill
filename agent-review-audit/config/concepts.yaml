@@ -674,7 +674,6 @@ concept_career_interview:
   - 国企
   cards:
   - Q243
-
 concept_flash_sale_batch:
   name: 秒杀库存与高并发扣减
   keywords:
@@ -701,7 +700,6 @@ concept_flash_sale_batch:
   - Q366
   - Q367
   - Q368
-
 concept_rabbitmq_reliability_batch:
   name: RabbitMQ与可靠消息
   keywords:
@@ -733,7 +731,6 @@ concept_rabbitmq_reliability_batch:
   - Q359
   - Q368
   - Q402
-
 concept_rpc_service_batch:
   name: RPC、服务发现与容错
   keywords:
@@ -755,7 +752,6 @@ concept_rpc_service_batch:
   - Q265
   - Q266
   - Q267
-
 concept_rag_engineering_batch:
   name: RAG检索与代码知识库
   keywords:
@@ -815,7 +811,6 @@ concept_rag_engineering_batch:
   - Q398
   - Q404
   - Q433
-
 concept_agent_state_tools_batch:
   name: Agent状态、工具与多智能体
   keywords:
@@ -852,7 +847,6 @@ concept_agent_state_tools_batch:
   - Q295
   - Q350
   - Q353
-
 concept_agent_eval_batch:
   name: Agent评测、Trace与成本
   keywords:
@@ -888,7 +882,6 @@ concept_agent_eval_batch:
   - Q410
   - Q443
   - Q444
-
 concept_java_batch:
   name: Java集合、并发与JVM
   keywords:
@@ -936,7 +929,6 @@ concept_java_batch:
   - Q413
   - Q441
   - Q442
-
 concept_mysql_redis_batch:
   name: MySQL事务索引与Redis基础
   keywords:
@@ -1018,7 +1010,6 @@ concept_mysql_redis_batch:
   - Q417
   - Q434
   - Q435
-
 concept_network_batch:
   name: 网络、消息与基础设施
   keywords:
@@ -1049,7 +1040,6 @@ concept_network_batch:
   - Q419
   - Q439
   - Q440
-
 concept_algorithm_batch:
   name: 算法与手撕补充
   keywords:
@@ -1082,7 +1072,6 @@ concept_algorithm_batch:
   - Q446
   - Q447
   - Q448
-
 concept_project_story_batch:
   name: 项目表达与行为面
   keywords:
@@ -1112,7 +1101,6 @@ concept_project_story_batch:
   - Q388
   - Q399
   - Q401
-
 concept_cuda_graph_tp_hang:
   name: CUDA Graph与TP并行通信
   keywords:
@@ -1125,7 +1113,6 @@ concept_cuda_graph_tp_hang:
   cards:
   - Q450
   - Q449
-
 concept_moe_router_ep:
   name: MoE架构Router Replay与EP通信
   keywords:
@@ -1138,7 +1125,6 @@ concept_moe_router_ep:
   cards:
   - Q452
   - Q188
-
 concept_deterministic_attention_backward:
   name: 滑窗Attention与确定性反向计算
   keywords:
@@ -1151,7 +1137,6 @@ concept_deterministic_attention_backward:
   cards:
   - Q453
   - Q451
-
 concept_gpu_operator_benchmark:
   name: 国产GPU算子Benchmark与性能评测
   keywords:
@@ -1166,7 +1151,6 @@ concept_gpu_operator_benchmark:
   cards:
   - Q454
   - Q455
-
 concept_kernel_tooling_cute_triton:
   name: 算子开发工具与Triton/CuTe DSL选型
   keywords:
@@ -1178,7 +1162,6 @@ concept_kernel_tooling_cute_triton:
   cards:
   - Q451
   - Q449
-
 concept_tf_operator_delivery:
   name: TensorFlow算子工程交付与场景适配
   keywords:
@@ -1190,7 +1173,6 @@ concept_tf_operator_delivery:
   cards:
   - Q449
   - Q451
-
 concept_hardware_arch_profiling:
   name: AI加速卡硬件架构与通信Profiling
   keywords:
@@ -1203,3 +1185,101 @@ concept_hardware_arch_profiling:
   cards:
   - Q455
   - Q454
+concept_agent_loop_coding:
+  name: Agent Loop手撕实现与控制流鲁棒性
+  keywords:
+  - agent loop
+  - 手写agent loop
+  - 工具注册
+  - read_file
+  - 大文件读取
+  - 参数错误
+  - 退出反思
+  - 任务完成判断
+  - 独立judge
+  cards:
+  - Q472
+  - Q473
+  - Q474
+concept_shopping_reward_grpo:
+  name: 电商Shopping Agent奖励打分与GRPO过程奖励
+  keywords:
+  - shopping reward
+  - grpo过程奖励
+  - grpo reward
+  - 中间过程奖励
+  - reward打分
+  - 奖励打分
+  - 奖励函数
+  - 步惩罚
+  - reward
+  cards:
+  - Q461
+  - Q468
+  - Q463
+concept_shopping_budget_truncation:
+  name: Shopping Agent 35步预算与搜索截断
+  keywords:
+  - 35步预算
+  - 第10个商品
+  - 35步
+  - 搜索截断
+  - 目标商品排在第10
+  - 预算截断
+  cards:
+  - Q467
+  - Q464
+concept_agent_loop_param_validation:
+  name: Agent Loop工具注册与参数校验容错
+  keywords:
+  - 参数校验
+  - 参数错误处理
+  - 工具名称
+  - 参数错误
+  - 传入了错误参数
+  - 工具执行失败
+  - 参数错误
+  cards:
+  - Q474
+  - Q473
+concept_agent_loop_large_file:
+  name: Agent read_file大文件防爆与按需检索
+  keywords:
+  - read_file
+  - 大文件读取
+  - 十几mb
+  - 十几mb的小说
+  - 文件非常大
+  - 长文本文件
+  cards:
+  - Q475
+  - Q473
+concept_agent_loop_premature_exit:
+  name: Agent Loop提前退出反思与独立Judge验证
+  keywords:
+  - 提前退出
+  - 输出结束未完成
+  - 未完成而输出结束
+  - 帮助它反思
+  - 退出反思
+  - 独立judge
+  - 任务是否真正完成
+  - 另一个模型
+  cards:
+  - Q476
+  - Q478
+  - Q477
+concept_shopping_agent_workflow:
+  name: 电商Shopping Agent任务流与交互架构
+  keywords:
+  - shopping agent
+  - 购物agent
+  - 电商agent
+  - webshop
+  - 商品搜索
+  - 购物模拟器
+  - simulator
+  cards:
+  - Q456
+  - Q458
+  - Q460
