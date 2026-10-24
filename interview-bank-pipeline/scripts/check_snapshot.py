@@ -62,10 +62,45 @@ def compute_bank_fingerprint(bank_root: str) -> dict:
 
 
 def get_worktree_info(repo_dir: str) -> dict:
-    """提取本地 Git 仓库的提交与精确工作树指纹（覆盖暂存、未暂存及非忽略的未跟踪文件）"""
+    """提取本地 Git 仓库的提交与精确工作树指纹（覆盖暂存、未暂存及非忽略的未跟踪文件）；支持非Git本地目录内容哈希"""
     info = {"is_git": False}
-    if not repo_dir or not os.path.isdir(os.path.join(repo_dir, ".git")):
+    if not repo_dir or not os.path.isdir(repo_dir):
         return info
+
+    if not os.path.isdir(os.path.join(repo_dir, ".git")):
+        # 非 Git 目录：计算源码/配置文件的确定性组合哈希
+        exclude_dirs = {'.git', '.venv', 'venv', '__pycache__', '.pytest_cache', '.idea', '.vscode'}
+        exclude_exts = {'.pyc', '.png', '.jpg', '.jpeg', '.db', '.sqlite', '.log'}
+        exclude_files = {'.DS_Store', '.env', '.env.local', '.env.production'}
+        hasher = hashlib.sha256()
+        count = 0
+        for root, dirs, files in os.walk(repo_dir):
+            dirs[:] = [d for d in dirs if d not in exclude_dirs and not d.startswith('.')]
+            for fn in sorted(files):
+                if fn in exclude_files or fn.startswith('.env'):
+                    continue
+                ext = os.path.splitext(fn)[1].lower()
+                if ext in exclude_exts:
+                    continue
+                fp = os.path.join(root, fn)
+                rel = os.path.relpath(fp, repo_dir)
+                try:
+                    with open(fp, 'rb') as f:
+                        f_sha = hashlib.sha256(f.read()).digest()
+                    hasher.update(rel.encode('utf-8') + b'\0' + f_sha + b'\n')
+                    count += 1
+                except Exception:
+                    pass
+        return {
+            "is_git": False,
+            "is_local_dir": True,
+            "worktree_hash": hasher.hexdigest(),
+            "file_count": count,
+            "commit_hash": None,
+            "commit_short": "local",
+            "branch": "local",
+            "is_dirty": False,
+        }
 
     code, head, _ = run_cmd(["git", "-C", repo_dir, "rev-parse", "HEAD"])
     if code != 0 or not head:
@@ -150,14 +185,48 @@ def resolve_slug_and_repo(target: str) -> tuple[str, str | None]:
     
     # 1. 如果是本地目录
     if os.path.isdir(target):
-        repo_dir = os.path.abspath(target)
-        code, url, _ = run_cmd(["git", "-C", repo_dir, "remote", "get-url", "origin"])
-        if code == 0 and url:
-            m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
-            if m:
-                return f"{m.group(1)}__{m.group(2)}", repo_dir
-        base = os.path.basename(repo_dir)
-        return f"local__{base}", repo_dir
+        target_abs = os.path.abspath(target)
+        snap_meta_path = os.path.join(target_abs, "snapshot_meta.json")
+        match_path = os.path.join(target_abs, "match.json")
+        # 1.1 如果该目录本身就是快照归档目录（包含 snapshot_meta.json 或 match.json）
+        if os.path.isfile(snap_meta_path) or os.path.isfile(match_path):
+            slug = None
+            code_url = None
+            if os.path.isfile(snap_meta_path):
+                try:
+                    with open(snap_meta_path, encoding="utf-8") as f:
+                        meta_obj = json.load(f)
+                        slug = meta_obj.get("slug")
+                        code_url = meta_obj.get("url")
+                except Exception:
+                    pass
+            if not slug and os.path.isfile(match_path):
+                try:
+                    with open(match_path, encoding="utf-8") as f:
+                        meta_obj = json.load(f).get("meta", {})
+                        slug = meta_obj.get("slug")
+                        code_url = code_url or meta_obj.get("url")
+                except Exception:
+                    pass
+            if not slug:
+                slug = os.path.basename(target_abs)
+
+            repo_dir = None
+            if code_url and os.path.isdir(code_url):
+                repo_dir = code_url
+            else:
+                repo_dir = find_local_repo_for_slug(slug)
+            return slug, repo_dir
+
+        # 1.2 如果是本地源码目录：仅在目标目录自身包含 .git 时才查询 Git，严防向上误认祖先 Git 仓库
+        if os.path.exists(os.path.join(target_abs, ".git")):
+            code, url, _ = run_cmd(["git", "-C", target_abs, "remote", "get-url", "origin"])
+            if code == 0 and url:
+                m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
+                if m:
+                    return f"{m.group(1)}__{m.group(2)}", target_abs
+        base = os.path.basename(target_abs)
+        return f"local__{base}", target_abs
 
     # 2. 如果是 GitHub URL
     m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", target)
@@ -184,6 +253,8 @@ def find_snapshot_dirs(slug: str) -> list[str]:
     
     vault_root = os.environ.get("INTERVIEW_WORKSPACE") or os.path.expanduser("~/.interview-workbench")
     candidates.append(os.path.join(vault_root, "obsidian_vault", "40_项目档案", slug))
+
+    candidates.append(os.path.expanduser(f"~/Desktop/project/ai-agent-interview-240/projects/{slug}"))
 
     seen = set()
     result = []
@@ -259,18 +330,23 @@ def find_local_repo_for_slug(slug: str) -> str | None:
         return cached_repo
 
     if "__" in slug:
-        _, repo_name = slug.split("__", 1)
+        prefix, repo_name = slug.split("__", 1)
         search_dirs = [
             os.path.expanduser(f"~/Desktop/project/{repo_name}"),
             os.path.expanduser(f"~/Desktop/projects/{repo_name}"),
         ]
         for p in search_dirs:
-            if os.path.isdir(os.path.join(p, ".git")):
-                code, url, _ = run_cmd(["git", "-C", p, "remote", "get-url", "origin"])
-                if code == 0 and url:
-                    m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
-                    if m and f"{m.group(1)}__{m.group(2)}" == slug:
-                        return p
+            if not os.path.isdir(p):
+                continue
+            if prefix == "local":
+                return p
+            else:
+                if os.path.exists(os.path.join(p, ".git")):
+                    code, url, _ = run_cmd(["git", "-C", p, "remote", "get-url", "origin"])
+                    if code == 0 and url:
+                        m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
+                        if m and f"{m.group(1)}__{m.group(2)}" == slug:
+                            return p
     return None
 
 
@@ -300,9 +376,14 @@ def find_all_known_slugs() -> list[str]:
 
 
 def check_snapshot(target: str, bank_root: str = None) -> dict:
+    target_abs = os.path.abspath(target) if (isinstance(target, str) and os.path.isdir(target)) else None
     slug, repo_dir = resolve_slug_and_repo(target)
     snap_dirs = find_snapshot_dirs(slug)
     
+    if target_abs and (os.path.isfile(os.path.join(target_abs, "match.json")) or os.path.isfile(os.path.join(target_abs, "snapshot_meta.json"))):
+        if target_abs not in snap_dirs:
+            snap_dirs.insert(0, target_abs)
+
     if not repo_dir:
         repo_dir = find_local_repo_for_slug(slug)
 
@@ -350,8 +431,13 @@ def check_snapshot(target: str, bank_root: str = None) -> dict:
     result["snapshot_meta"] = snap_meta
 
     # 1. 判定 code_status
-    if not snap_meta or not snap_meta.get("commit_hash"):
+    if not snap_meta or (not snap_meta.get("commit_hash") and not snap_meta.get("is_local_dir")):
         result["code_status"] = "LEGACY_UNTRACKED"
+    elif repo_git.get("is_local_dir"):
+        if snap_meta.get("worktree_hash") and snap_meta.get("worktree_hash") == repo_git.get("worktree_hash"):
+            result["code_status"] = "FRESH"
+        else:
+            result["code_status"] = "STALE"
     elif not repo_git.get("is_git"):
         result["code_status"] = "UNVERIFIABLE_REPO"
     else:

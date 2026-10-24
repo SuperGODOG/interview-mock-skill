@@ -64,12 +64,14 @@ MANIFESTS = ("README", "readme", "package.json", "pyproject.toml", "requirements
 def slug_of(url: str) -> str:
     url = url.strip()
     if os.path.isdir(url):
-        r = run(["git", "-C", url, "remote", "get-url", "origin"])
-        if r.returncode == 0 and r.stdout.strip():
-            url = r.stdout.strip()
-        else:
-            base = os.path.basename(os.path.abspath(url))
-            return f"local__{base}"
+        base = os.path.basename(os.path.abspath(url))
+        if os.path.isdir(os.path.join(url, ".git")):
+            r = run(["git", "-C", url, "remote", "get-url", "origin"])
+            if r.returncode == 0 and r.stdout.strip():
+                m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", r.stdout.strip())
+                if m:
+                    return f"{m.group(1)}__{m.group(2)}"
+        return f"local__{base}"
     m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url)
     if not m:
         raise SystemExit(f"无法解析 GitHub 链接或本地目录: {url}")
@@ -113,10 +115,12 @@ def fetch(url: str):
             print(f"克隆完成: {rdir}")
 
     # 获取 Git 版本指纹
-    git_head = run(["git", "-C", rdir, "rev-parse", "HEAD"]).stdout.strip()
-    git_branch = run(["git", "-C", rdir, "rev-parse", "--abbrev-ref", "HEAD"]).stdout.strip()
-    git_date = run(["git", "-C", rdir, "log", "-1", "--format=%cd"]).stdout.strip()
-    git_msg = run(["git", "-C", rdir, "log", "-1", "--format=%s"]).stdout.strip()
+    git_head, git_branch, git_date, git_msg = "", "", "", ""
+    if os.path.exists(os.path.join(rdir, ".git")):
+        git_head = run(["git", "-C", rdir, "rev-parse", "HEAD"]).stdout.strip()
+        git_branch = run(["git", "-C", rdir, "rev-parse", "--abbrev-ref", "HEAD"]).stdout.strip()
+        git_date = run(["git", "-C", rdir, "log", "-1", "--format=%cd"]).stdout.strip()
+        git_msg = run(["git", "-C", rdir, "log", "-1", "--format=%s"]).stdout.strip()
 
     # ---- 指纹: 语言/框架/树 ----
     ext_count, tree, manifests = {}, [], {}
@@ -218,15 +222,28 @@ def fetch(url: str):
             concept_hits[c["name"]] = files_hit[:8]
 
     # 生成版本元数据
-    wt_info = check_snapshot.get_worktree_info(rdir)
+    src_for_wt = local_src if (is_local and local_src) else rdir
+    wt_info = check_snapshot.get_worktree_info(src_for_wt)
     is_dirty = wt_info.get("is_dirty", False)
+    if wt_info.get("is_local_dir"):
+        git_head = None
+        git_branch = None
+        git_date = None
+        git_msg = "Local non-git workspace (SHA-256 file manifest verification)"
+    else:
+        git_head = wt_info.get("commit_hash", git_head) or git_head
+        git_branch = wt_info.get("branch", git_branch) or git_branch
+        git_date = wt_info.get("commit_date", git_date) or git_date
+        git_msg = wt_info.get("commit_message", git_msg) or git_msg
     wt_hash = wt_info.get("worktree_hash", git_head)
 
     meta = {
         "slug": slug,
         "url": url,
+        "is_local_dir": is_local and not wt_info.get("is_git", False),
+        "is_git": wt_info.get("is_git", not is_local),
         "commit_hash": git_head,
-        "commit_short": git_head[:7] if git_head else "",
+        "commit_short": git_head[:7] if git_head else None,
         "branch": git_branch,
         "commit_date": git_date,
         "commit_message": git_msg,
@@ -248,7 +265,8 @@ def fetch(url: str):
     }
     with open(os.path.join(rdir, "profile.json"), "w", encoding="utf-8") as f:
         json.dump(profile, f, ensure_ascii=False, indent=1)
-    print(f"画像完成: {len(tree)} 文件 / Commit `{git_head[:7]}` / 框架 {frameworks[:6]} / 命中概念 {len(concept_hits)}")
+    commit_label = git_head[:7] if git_head else "local"
+    print(f"画像完成: {len(tree)} 文件 / Commit `{commit_label}` / 框架 {frameworks[:6]} / 命中概念 {len(concept_hits)}")
     for c, files in sorted(concept_hits.items(), key=lambda kv: -len(kv[1]))[:12]:
         print(f"  {c}: {len(files)} 个证据文件")
 
