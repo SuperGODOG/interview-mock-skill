@@ -102,7 +102,57 @@
 - 用法：agent-project-grill 阶段 2 对低分题（四维任一 ≤2 或答不出）自动切到 grilling 深挖，追问链与要点全部记入复盘，不留在聊天里
 - 兜底：该文件夹被移除时，阶段 2 的内联规则（一次一问 + 推荐答案 + 查代码库）等效执行，流程不受影响
 
-## 四、project-mock-interview vs agent-review-audit（取舍）
+## 四、全链路架构演进：生产端三层索引与提问端面试靶场（防失忆机制）
+
+在长期实战与大模型多轮深挖（Grilling）交互中，为解决**“平铺检索技术栈稀释”**与**“长对话上下文失忆与考题漂移（Context Amnesia & Goal Drift）”**两大工程瓶颈，链路完成了双端结构化重构：
+
+```mermaid
+flowchart LR
+    subgraph Production["生产端：三层内存索引与自适应召回 (bank_search.py)"]
+        direction TB
+        L1["Layer 1: 实体与正交分桶 (by_id / domain / depth)"]
+        L2["Layer 2: 词法倒排与修剪 (0.005ms 剪枝, 0.64ms 检索)"]
+        L3["Layer 3: 双向拓扑对称性补齐 (0 违规无损愈合)"]
+        Tree["自适应多板块配额 (主业务K=20 / 支撑K=10 / 算法K=5)<br/>拓扑题树重组 (破冰前置 → 主干 → 追问 → 防线)"]
+        L1 --> L2 --> L3 --> Tree
+    end
+
+    subgraph Questioning["提问端：面试靶场与提示词三件套 (setup_arena.py)"]
+        direction TB
+        ArenaDir["arenas/<name>/ (洁净沙盒，.gitignore 忽略)"]
+        Symlinks["零拷贝软链矩阵:<br/>• project_repo -> 源码 (只读 grep/read 求证)<br/>• project_ref -> 标准答案/画像 (基准事实)<br/>• bank_index -> 题库分类索引"]
+        Prompts["全局提示词三件套常驻锁定:<br/>CLAUDE.md / GEMINI.md / AGENTS.md<br/>(考题大纲 + 4维打分 + Grilling收敛纪律)"]
+        ArenaDir --> Symlinks --> Prompts
+    end
+
+    Production -->|生产题目大纲| Questioning
+    Questioning --> Practice["cd arenas/<name> 启动 Agent<br/>(每轮强制加载提示词，跨轮次零失忆)"]
+```
+
+### 1. 生产端结构升级：轻量内存三层索引与自适应拓扑召回 (`bank_search.py`)
+- **三层内存组合索引（Plan A）**：
+  - **Layer 1（实体与正交分桶）**：构建 `by_id`（O(1) 快速存取）、`domain_index`、`depth_index`、`minor_index`，实现属性维度的瞬时过滤；
+  - **Layer 2（词法倒排与轻量切分）**：基于预编译正则与轻量 n-gram，倒排求交候选集修剪延迟达 **0.005ms**，单次检索耗时从 70.89ms 压降至 **0.64ms（提速 110 倍）**，纯标准库零外部依赖；
+  - **Layer 3（双向拓扑图无损对称补齐）**：运行时自动补齐前置/后置断链（修复前置缺少后置、后置缺少前置），拓扑对称性违规数降至 0。
+- **多板块分桶召回 (Partitioned Recall) 与自适应配额 (Adaptive Quotas)**：
+  - 避免主干技术栈对次要支撑板块的“平铺稀释”；根据 README / 关键词自动决议主业务战场（$K=20$）、核心支撑战场（$K=10$）、辅助选型战场（$K=5$），无关领域自动归零排除；
+  - 自动重组为 `破冰前置题 (prereqs) → 核心主干题 (anchor) → 深入追问题 (followups) → 极端防线题 (boundaries)` 体系化题链。
+
+### 2. 提问端结构落地：面试靶场（Interview Arena）与提示词三件套 (`setup_arena.py`)
+- **独立洁净靶场目录**：
+  - 默认位于 `interview-mock-skill/arenas/<name>/`（自动被 `.gitignore` 忽略，保留 `.gitkeep`），与业务代码及生产仓库物理隔离；
+- **双向软链接矩阵 (Zero-Copy Symlink Matrix)**：
+  - `project_repo/`：软链接目标项目源码，Agent 可穿透实时 `grep`、`read_file` 查阅行号核验证据，原代码库保持 100% 洁净零污染；
+  - `project_ref/`：软链接已有项目档案（`match.json`、`项目内作答.md`），作为标准答案与评测基准；
+  - `bank_index/`：软链接题库分类索引；
+- **平台系统提示词三件套 (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md`)**：
+  - 利用主流平台（Claude Code、Gemini/Antigravity、Codex）每轮强制注入工作区根配置的特性；
+  - 将生产端召回的本场考题大纲（带状态跟踪 `- [ ]` / `- [x]`）、源码求证纪律、四维评分表格与 Grilling 触发/收敛规则统一固化；
+  - 彻底解决 50 轮深挖或 `/compact` 上下文压缩后的“考题遗忘与即兴瞎编”。
+
+---
+
+## 五、project-mock-interview vs agent-review-audit（取舍）
 
 两者**定位相同**：都是「题库路由匹配 → 出题 → 拷打/审查」引擎，日常二选一即可。差别在题库侧重和输出形态：
 
@@ -122,7 +172,7 @@
 - `agent-review-audit` 只在你想「先让面试官视角审一遍项目、看哪里有坑」时用；它输出的是体检报告，不是面试场
 - 切换方式：改 `agent-project-grill` 阶段 1 指向即可（一行），或单独说"先审代码挖坑"
 
-## 五、安装（跨平台，含 macOS 迁移）
+## 六、安装（跨平台，含 macOS 迁移）
 
 **整包安装，勿单拆：本仓库是 1 主入口（agent-project-grill，兼公共语料枢纽）+ 5 依赖。六目录须同装在一个 skills 父目录，保持目录名；勿单独关闭组件。单件安装仅提供各 SKILL.md 声明的降级能力。**
 
@@ -136,22 +186,26 @@
 
 **macOS 迁移三步**：拷全部 6 个 skill 文件夹（含内置 grilling） → 设 `INTERVIEW_WORKSPACE` → 装依赖。已建档项目同时携带 `agent-project-grill/references/题库/` 与 `project-mock-interview/references/项目/`（拷打只需要题库 + 项目快照，不需要 repos_cache）。注意：要**生成备战包**（interview-resume-pack）时还需要可解析的项目源码仓库根（本地 clone 或可 fetch 的 URL），仅带快照不够。
 
-## 六、数据与隐私
+## 七、数据与隐私
 
 - 仓库只放 skill 代码与语料快照；**不要上传**：`repos_cache/`（第三方仓库克隆）、原始面经文档、`obsidian_vault/30_手写笔记`（个人笔记）
 - 个人数据全部落在 `$INTERVIEW_WORKSPACE`，与 skill 分离
 - 题库/档案同步命令见 `project-mock-interview/references/README.md`
 
-## 七、目录结构
+## 八、目录结构
 
 ```
 interview-mock-skill/
 ├── README.md                     # 本文件
+├── arenas/                       # 提问端独立面试靶场沙盒（.gitignore 忽略，仅保留 .gitkeep）
+│   └── <name>/                   # 专属靶场工作区（project_repo 软链 + CLAUDE/GEMINI/AGENTS.md）
 ├── agent-project-grill/          # 编排壳：建档检查 → 备战包软前置 → 拷打 → grilling → 复盘 → 学习卡
-│   └── references/题库/         # 公共题库唯一仓库副本：items.json / concepts.yaml / schema.json / 索引/（按类检索）
-├── interview-bank-pipeline/      # 建档/生产端：清洗分类 + 图谱 + 项目融合（脚本内嵌）
+│   └── references/题库/         # 公共题库唯一仓库副本：items.json / concepts.yaml / schema.json / 索引/
+├── interview-bank-pipeline/      # 建档/生产端：清洗分类 + 图谱 + 项目融合
+│   └── scripts/                  # 生产端脚本：bank_search.py（三层内存索引检索工具）/ repo_fuse.py 等
 ├── interview-resume-pack/        # 备战包生成：漏斗稿 + 深钻点 + 防守材料（scripts/evidence_gate.py）
 ├── project-mock-interview/       # 拷打引擎：读相邻主入口公共题库 + 自身项目档案快照 + 四维点评
+│   └── scripts/                  # 提问端脚本：setup_arena.py（面试靶场一键初始化）
 ├── agent-review-audit/           # 可选体检：448 道 Agent/RAG 题卡 + 三维打分
 ├── grilling/                     # 深挖原语（来自 mattpocock/skills，MIT）
 ├── .github/                      # GitHub Pages 部署工作流
@@ -159,7 +213,7 @@ interview-mock-skill/
 └── site-test/                    # 文档站构建产物
 ```
 
-## 八、评审记录（multi-agent skill review）
+## 九、评审记录（multi-agent skill review）
 
 评审时间：2026-08-16（preview `a09eb3c`）。按 multi-agent-skill-review 三角色并行实测：harness 贴合度 / 模型适配度 / 数据链路。
 
